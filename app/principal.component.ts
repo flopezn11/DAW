@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Player, PlayerService} from './player.service';
 import {Team, TeamService} from './team.service';
+import {Login, LoginService} from './login.service';
 
 @Component({
   selector: 'principal',
@@ -14,10 +15,16 @@ export class PrincipalComponent {
 
   players: Player[];
   idplayer1: number;
+  idplayer2: number;
+  idplayer3: number;
+  idplayer4: number;
   idteam1: number;
-  is: boolean;
+  idteam2: number;
+  idteam3: number;
+  idteam4: number;
 
-  constructor(private teamService: TeamService, private playerService: PlayerService) {
+
+  constructor(private teamService: TeamService, private loginService: LoginService, private playerService: PlayerService) {
   }
 
   ngOnInit(){
@@ -29,9 +36,14 @@ export class PrincipalComponent {
         teams => this.teams = teams,
         error => console.log(error)
         );
-        this.is = true;
         this.idplayer1 = 1;
+        this.idplayer2 = 2;
+        this.idplayer3 = 3;
+        this.idplayer4 = 1;
         this.idteam1 = 1;
+        this.idteam2 = 2;
+        this.idteam3 = 3;
+        this.idteam4 = 1;
 
     }
 }
