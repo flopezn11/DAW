@@ -41,7 +41,7 @@ export class ScheduleDetailComponent {
         if (okResponse) {
           if !(this.schedule.id === 1){
             this.service.removeSchedule(this.schedule).subscribe(
-                _ => this.router.navigate(['Principal']),
+                _ => this.router.navigate(['ScheduleDetail', { id: 1}]),
                 error => console.error(error)
             )
           }else {

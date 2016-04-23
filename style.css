@@ -17,6 +17,25 @@
     background-color: #72c378;
 }
 
+#botonEliminar>img {
+    width: 40px;
+}
+
+#botonEliminar {
+    background-color: #d94420;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEliminar:hover {
+    background-color: #d07a65;
+}
+
 body {
     margin: 10px;
     background-image: url(app/img/Background.jpg);
