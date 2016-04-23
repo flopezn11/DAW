@@ -51,7 +51,7 @@ export class ScheduleDetailComponent {
     }
 
     removeMatch(matchRemove: Match) {
-        let okResponse = window.confirm("Do you want to remove this schedule?");
+        let okResponse = window.confirm("Do you want to remove this match?");
         if (okResponse) {
             this.matchService.removeMatch(matchRemove).subscribe(
                 _ => this.router.navigate(['ScheduleDetail', {id: this.schedule.id}]),

@@ -13,8 +13,11 @@
             <li id="active">{{player.name}} {{player.lastname}}</li>
         </ol>
         <div id="cuerpo">
-            <div class="page-header">
+            <div class="col-md-10 col-sm-10 col-xs-12">
                <h1>Information about player: <small>{{player.name}} {{player.lastname}}</small></h1>
+            </div>
+            <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+                <button (click)="removePlayer()" id="botonEliminar"><img src="app/img/Remove.png">Remove Team</button>
             </div>
             <div id="jugador">
                 <div class="row">
@@ -242,7 +245,6 @@
     </div>
     <p *ngIf="loginService.isLogged">
 
-        <button (click)="removePlayer()">Remove</button>
         <button (click)="editPlayer()">Edit</button>
         <br>
 

@@ -11,10 +11,13 @@
   </ol>
   <div id="cuerpo">
       <div class="row">
-          <div class="col-md-10 col-sm-10 col-xs-12">
+          <div class="col-md-8 col-sm-8 col-xs-12">
               <div class="page-header">
                   <h1>Information about teams: <small>{{team.fullname}}</small> <img src="{{team.imgescudo}}"></h1>
               </div>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="removeTeam()" id="botonEliminar"><img src="app/img/Remove.png">Remove Team</button>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
             <button id="botonAgregar" (click)="newPlayer()"><img src="app/img/Add.png"> Add Player</button>

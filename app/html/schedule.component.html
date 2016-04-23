@@ -97,7 +97,7 @@
                                 <a [routerLink]="['TeamDetail', {id: match.visitor.id}]"><img class="img-rounded" src={{match.visitor.imgescudo}}>{{match.visitor.fullname}}</a>
                             </td>
                             <td *ngIf="loginService.isLogged">
-                              <button (click)="removeMatch(match)">Remove</button>
+                              <button (click)="removeMatch(match)" id="botonEliminar"><img src="app/img/Remove.png"></button>
                               <button (click)="editMatch(match.id)">Edit</button>
                             </td>
                         </tr>
