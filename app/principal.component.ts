@@ -22,6 +22,10 @@ export class PrincipalComponent {
   idteam2: number;
   idteam3: number;
   idteam4: number;
+  idteamm1: number;
+  idteamm2: number;
+  idteamm3: number;
+  idteamm4: number;
 
 
   constructor(private teamService: TeamService, private loginService: LoginService, private playerService: PlayerService) {
@@ -44,6 +48,10 @@ export class PrincipalComponent {
         this.idteam2 = 2;
         this.idteam3 = 3;
         this.idteam4 = 1;
+        this.idteamm1 = 1;
+        this.idteamm2 = 2;
+        this.idteamm3 = 3;
+        this.idteamm4 = 1;
 
     }
 }
