@@ -92,15 +92,27 @@
             </div>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="panel panel-default">
+                    <div *ngFor="#player of players">
+                    <div *ngIf="idplayer1 == player.id" class="panel panel-default">
                         <div class="panel-body">
-                            <img src="app/img/Players/NegredoIndex.jpg" class="img-circle">
+                            <img src={{player.image}} class="img-circle">
                             <ul>
-                                <li><b>Name:</b>Alvaro Negredo</li>
-                                <li><b>Team:</b>Valencia Club de Futbol</li>
-                                <li><b>Age:</b>30</li>
+                                <li><b>Name:</b>{{player.name}} {{player.lastname}}</li>
+                                <li><b>Team:</b>{{player.equipo.fullname}}</li>
+                                <li><b>Age:</b>{{player.age}}</li>
                             </ul>
+                            <p>
+                                <select [(ngModel)]="idteam1" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                            <p>
+                                <select [(ngModel)]="idplayer1" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                </select>
+                            </p>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
