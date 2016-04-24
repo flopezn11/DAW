@@ -42,7 +42,9 @@
 }
 
 #teams img{
-  height: 110px;
+  height: 100px;
+  width: 90px;
+  margin-right: 8px;
 }
 
 

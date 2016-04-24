@@ -60,7 +60,7 @@
                                   <th>Name</th>
                                   <th>Lastname</th>
                                   <th>Position</th>
-                                  <th>Nacionality</th>
+                                  <th class="hidden-xs">Nacionality</th>
                               </tr>
                           </thead>
                           <tbody *ngFor="#player of players">
@@ -68,7 +68,7 @@
                                 <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.name}}</a></td>
                                 <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.lastname}}</a></td>
                                 <td>{{player.position}}</td>
-                                <td><img src={{player.nacionality}}></td>
+                                <td class="hidden-xs"><img src={{player.nacionality}}></td>
                               </tr>
                               <!-- <tr>
                                   <td>Evan</td>
@@ -112,54 +112,9 @@
                       </table>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-12">
-                      <h3>Coaching staff of {{team.fullname}}</h3>
-                      <table class="table table-bordered">
-                          <thead>
-                              <tr>
-                                  <th>Name</th>
-                                  <th>Lastname</th>
-                                  <th>Job</th>
-                                  <th>Nacionality</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>Mauro</td>
-                                  <td>Biello</td>
-                                  <td>Coach</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Philippe</td>
-                                  <td>Eullafroy</td>
-                                  <td>Delegate</td>
-                                  <td><img src="http://www.rhtacticboards.com/img/fr.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Mike</td>
-                                  <td>Sorber</td>
-                                  <td>Delegate</td>
-                                  <td><img src="http://www.onboardlogistics.net/contactenos/bandera-USA.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Paolo</td>
-                                  <td>Pacione</td>
-                                  <td>Physiotherapist</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Youssef</td>
-                                  <td>Dahha</td>
-                                  <td>Goalkeeper Coach</td>
-                                  <td><img src="http://images.vectorhq.com/images/previews/5c4/moroccan-flag-circle-psd-452658.png">
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
+                      <h3>{{team.fullname}}'s Coach</h3>
+                      <img id="coach" src={{team.imgcoach}}>
+                      <h4>{{team.coach}}</h4>
                   </div>
               </div>
           </div>

@@ -24,7 +24,7 @@ export class PlayerService {
 
   private players = [
   	new Player(1, 'Cristiano', new Team(1, 'Real Madrid',), 'Ronaldo', 'Forward', 'app/img/Flags/Portugal.png', "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg", 31),
-  	new Player(2, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28),
+  	new Player(2, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28),
   	new Player(3, 'Alvaro', new Team(3, 'Valencia',), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30),
   ];
 
