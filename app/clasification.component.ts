@@ -4,20 +4,28 @@ import {Team, TeamService}   from './team.service';
 import {Match, MatchService} from './match.service';
 import {Login, LoginService} from './login.service';
 import {Schedule, ScheduleService}   from './schedule.service';
+import {Player, PlayerService}   from './player.service';
+import {FirstFour} from "./firstfour";
+import {OrderBy} from "./orderBy";
+
 
 @Component({
 	selector: 'clasification',
 	directives: [ROUTER_DIRECTIVES],
 	templateUrl: 'app/html/clasification.component.html',
 	styleUrls: ['app/css/clasification.component.css'],
+	pipes: [FirstFour, OrderBy],
 })
 export class ClasificationComponent implements OnInit {
 	teams: Team[];
 	matches: Match[];
 	schedules: Schedule[];
 	journey: number;
+	players: Player[];
+	playerstop: Player[];
 
-  constructor(private router:Router, private service: TeamService, private matchService: MatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
+
+  constructor(private router:Router, private service: TeamService, private playerService: PlayerService, private matchService: MatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
 
   ngOnInit(){
       this.service.getTeams().subscribe(
@@ -32,6 +40,15 @@ export class ClasificationComponent implements OnInit {
 			schedules => this.schedules = schedules,
 			error => console.log(error)
 			);
+			this.playerService.getPlayers().subscribe(
+			players => this.players = players,
+			error => console.log(error)
+			);
+			this.playerstop = [];
+			for (let i=0; i < this.players.length; i++) {
+				this.playerstop.push(this.players[i]);
+			}
+
 			this.journey = 1;
     }
 

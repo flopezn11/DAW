@@ -43,11 +43,11 @@ export class PrincipalComponent {
         this.idplayer1 = 1;
         this.idplayer2 = 2;
         this.idplayer3 = 3;
-        this.idplayer4 = 1;
+        this.idplayer4 = 4;
         this.idteam1 = 1;
         this.idteam2 = 2;
         this.idteam3 = 3;
-        this.idteam4 = 1;
+        this.idteam4 = 4;
         this.idteamm1 = 1;
         this.idteamm2 = 2;
         this.idteamm3 = 3;

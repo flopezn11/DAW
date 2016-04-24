@@ -25,9 +25,9 @@ export class PlayerService {
 
   private players = [
   	new Player(1, 'Cristiano', new Team(1, 'Real Madrid',), 'Ronaldo', 'Forward', 'app/img/Flags/Portugal.png', "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg", 31, 32),
-    new Player(1, 'Luka', new Team(1, 'Real Madrid',), 'Modric', 'Midfield', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 30, 8)
-  	new Player(2, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28, 29),
-  	new Player(3, 'Alvaro', new Team(3, 'Valencia',), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 12)
+    new Player(2, 'Luka', new Team(1, 'Real Madrid',), 'Modric', 'Midfield', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 30, 8)
+  	new Player(3, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28, 29),
+  	new Player(4, 'Alvaro', new Team(3, 'Valencia',), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 12)
   ];
 
   getPlayers() {

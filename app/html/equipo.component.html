@@ -131,14 +131,14 @@
                       <table class="table table-bordered">
                           <thead>
                               <tr>
-                                  <th>Goals</th>
                                   <th>Name</th>
                                   <th>LastName</th>
+                                  <th>Position</th>
                                   <th>Nacionality</th>
                                   <th>Goals</th>
                               </tr>
                           </thead>
-                          <tbody *ngFor="#player of players">
+                          <tbody *ngFor="#player of playerstop | orderBy : '-goals'">
                               <tr *ngIf="team.id == player.equipo.id">
                                   <td>{{player.name}}</td>
                                   <td>{{player.lastname}}</td>
