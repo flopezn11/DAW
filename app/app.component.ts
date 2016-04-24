@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, ChangeDetectionStrategy} from 'angular2/core';
 import {RouteConfig, RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {ClasificationComponent} from './clasification.component';
 import {TeamsComponent} from './teams.component';
@@ -18,6 +18,7 @@ import {Schedule, ScheduleService} from './schedule.service';
 import {ScheduleDetailComponent} from './schedule-detail.component';
 import {Match, MatchService} from './match.service';
 import {MatchFormComponent} from './match-form.component';
+import {OrderBy} from "./orderBy";
 
 
 @Component({
@@ -25,6 +26,8 @@ import {MatchFormComponent} from './match-form.component';
 	templateUrl: 'app/html/app.component.html',
 	providers: [LoginService, TeamService, PlayerService, ScheduleService, MatchService],
   directives: [ROUTER_DIRECTIVES],
+	pipes: [OrderBy],
+	changeDetection: ChangeDetectionStrategy.Default,
 })
 
 @RouteConfig([

@@ -69,7 +69,7 @@
                 <li class="active"><a [routerLink]="['Principal']">Home</a></li>
                 <li id="teamsnav"><a [routerLink]="['Teams']">Teams</a>
                     <ul class="nav navbar-nav hidden-xs">
-                        <li *ngFor="#team of teams">
+                        <li *ngFor="#team of teams | orderBy : '-points'">
                             <a [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
                         </li>
                     </ul>

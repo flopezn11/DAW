@@ -1,4 +1,4 @@
-import {Component,OnInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams, Router} from 'angular2/router';
 import {Team, TeamService}   from './team.service';
 import {Match, MatchService} from './match.service';
@@ -34,6 +34,8 @@ export class ClasificationComponent implements OnInit {
 			);
 			this.journey = 1;
     }
+
+
 
 
 }

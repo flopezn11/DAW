@@ -135,44 +135,17 @@
                                   <th>Name</th>
                                   <th>LastName</th>
                                   <th>Nacionality</th>
+                                  <th>Goals</th>
                               </tr>
                           </thead>
-                          <tbody>
-                              <tr>
-                                  <td>Evan</td>
-                                  <td>Bush</td>
-                                  <td>Goalkeeper</td>
-                                  <td><img src="http://www.onboardlogistics.net/contactenos/bandera-USA.png">
+                          <tbody *ngFor="#player of players">
+                              <tr *ngIf="team.id == player.equipo.id">
+                                  <td>{{player.name}}</td>
+                                  <td>{{player.lastname}}</td>
+                                  <td>{{player.position}}</td>
+                                  <td><img src={{player.nacionality}}>
                                   </td>
-                              </tr>
-                              <tr>
-                                  <td>Ambroise</td>
-                                  <td>Oyongo</td>
-                                  <td>Defense</td>
-                                  <td><img src="http://aguitech.com/images/Iconos/FlagsWorld/Cameroon.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Hassoun</td>
-                                  <td>Camara</td>
-                                  <td>Defense</td>
-                                  <td><img src="http://www.rhtacticboards.com/img/fr.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Patrice</td>
-                                  <td>Bernier <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/L%C3%ADnea_C_(SBASE).svg/200px-L%C3%ADnea_C_(SBASE).svg.png">
-                                  </td>
-                                  <td>Midfield</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Didier</td>
-                                  <td>Drogba</td>
-                                  <td>Forward</td>
-                                  <td><img src="http://ohla.tv/uploads/3/4/7/5/34759513/9999192_orig.png">
-                                  </td>
+                                  <td>{{player.goals}}</td>
                               </tr>
                           </tbody>
                       </table>
