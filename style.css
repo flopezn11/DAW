@@ -36,6 +36,25 @@
     background-color: #d07a65;
 }
 
+#botonEdit>img {
+    width: 40px;
+}
+
+#botonEdit {
+    background-color: #9b9a9a;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEdit:hover {
+    background-color: #b9b7b7;
+}
+
 body {
     margin: 10px;
     background-image: url(app/img/Background.jpg);
