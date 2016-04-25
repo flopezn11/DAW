@@ -1,4 +1,5 @@
 import {Component}  from 'angular2/core';
+import {NgForm}    from 'angular2/common';
 import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Player, PlayerService}   from './player.service';
 import {Team, TeamService}   from './team.service';
@@ -14,6 +15,7 @@ export class PlayerFormComponent {
   newPlayer: boolean;
   player: Player;
   team: Team;
+  active = true;
 
   constructor(
     private router:Router,
@@ -49,4 +51,6 @@ export class PlayerFormComponent {
     this.service.savePlayer(this.player);
     window.history.back();
   }
+
+  onSubmit() { this.submitted = true; }
 }
