@@ -16,9 +16,11 @@
                     <h1>{{news.title}}</h1>
                 </div>
             </div>
+            <!--
             <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
                 <button id="botonAgregar" (click)="newNews()"><img src="app/img/Add.png"> Add News</button>
             </div>
+-->
         </div>
         <div id="contenido" class="container-fluid">
             <div class="col-md-2 col-sm-3 hidden-xs">
@@ -30,8 +32,13 @@
                     <h3>{{news.subtitle}}</h3>
                     <p><b>{{news.author}}. </b>{{news.description}}</p>
                     <p *ngIf="loginService.isLogged">
+                        <button id="botonAgregar" (click)="newNews()"><img src="app/img/Add.png"> Add News</button>
+                        <button (click)="removeNews()" id="botonEliminar"><img src="app/img/Remove.png">Remove News</button>
+                        <button (click)="editNews()" id="botonEdit"><img src="app/img/Edit.png">Edit News</button>
+                        <!--
                         <button (click)="removeNews()">Remove</button>
                         <button (click)="editNews()">Edit</button>
+-->
                         <br>
                     </p>
                 </div>
