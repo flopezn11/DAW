@@ -26,6 +26,10 @@ export class ScheduleDetailComponent {
     }
 
     ngOnInit(){
+          this.loginService.getLog().subscribe(
+          login => this.login = login,
+          error => console.log(error)
+          );
           this.service.getSchedules().subscribe(
           schedules => this.schedules = schedules,
           error => console.log(error)

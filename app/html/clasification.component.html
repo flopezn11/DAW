@@ -8,7 +8,7 @@
         </ol>
         <div class="row">
           <div class="col-md-9 col-sm-9 xs-hidden"></div>
-          <div *ngIf="loginService.isLogged" class="col-md-1 col-sm-1 col-xs-12">
+          <div *ngIf="loginService.isLogged && login.usuario=='admin'" class="col-md-1 col-sm-1 col-xs-12">
             <b>Journey:</b>
             <select [(ngModel)]="journey" name="visitor" class="form-control" id="visitor">
                 <option *ngFor="#schedule of schedules" value={{schedule.id}}>{{schedule.id}}</option>

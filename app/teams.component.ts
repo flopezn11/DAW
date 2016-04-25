@@ -16,6 +16,10 @@ export class TeamsComponent implements OnInit {
   constructor(private router:Router, private service: TeamService, private loginService: LoginService) {}
 
   ngOnInit(){
+      this.loginService.getLog().subscribe(
+        login => this.login = login,
+        error => console.log(error)
+      );
       this.service.getTeams().subscribe(
         teams => this.teams = teams,
         error => console.log(error)
