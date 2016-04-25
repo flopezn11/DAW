@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, ChangeDetectionStrategy} from 'angular2/core';
 import {RouteConfig, RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {ClasificationComponent} from './clasification.component';
 import {TeamsComponent} from './teams.component';
@@ -22,6 +22,7 @@ import {MatchFormComponent} from './match-form.component';
 import {News, NewsService} from './news.service';
 import {NewsDetailComponent} from './news-detail.component';
 import {NewsFormComponent} from './news-form.component';
+import {OrderBy} from "./orderBy";
 
 
 @Component({
@@ -29,6 +30,8 @@ import {NewsFormComponent} from './news-form.component';
 	templateUrl: 'app/html/app.component.html',
 	providers: [LoginService, TeamService, PlayerService, ScheduleService, MatchService, NewsService],
   directives: [ROUTER_DIRECTIVES],
+	pipes: [OrderBy],
+	changeDetection: ChangeDetectionStrategy.Default,
 })
 
 @RouteConfig([

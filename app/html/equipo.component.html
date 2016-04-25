@@ -11,10 +11,16 @@
   </ol>
   <div id="cuerpo">
       <div class="row">
-          <div class="col-md-10 col-sm-10 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="page-header">
                   <h1>Information about teams: <small>{{team.fullname}}</small> <img src="{{team.imgescudo}}"></h1>
               </div>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="editTeam()" id="botonEdit"><img src="app/img/Edit.png"> Edit Team</button>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="removeTeam()" id="botonEliminar"><img src="app/img/Remove.png"> Remove Team</button>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
             <button id="botonAgregar" (click)="newPlayer()"><img src="app/img/Add.png"> Add Player</button>
@@ -54,7 +60,7 @@
                                   <th>Name</th>
                                   <th>Lastname</th>
                                   <th>Position</th>
-                                  <th>Nacionality</th>
+                                  <th class="hidden-xs">Nacionality</th>
                               </tr>
                           </thead>
                           <tbody *ngFor="#player of players">
@@ -62,7 +68,7 @@
                                 <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.name}}</a></td>
                                 <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.lastname}}</a></td>
                                 <td>{{player.position}}</td>
-                                <td><img src={{player.nacionality}}></td>
+                                <td class="hidden-xs"><img src={{player.nacionality}}></td>
                               </tr>
                               <!-- <tr>
                                   <td>Evan</td>
@@ -106,54 +112,9 @@
                       </table>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-12">
-                      <h3>Coaching staff of {{team.fullname}}</h3>
-                      <table class="table table-bordered">
-                          <thead>
-                              <tr>
-                                  <th>Name</th>
-                                  <th>Lastname</th>
-                                  <th>Job</th>
-                                  <th>Nacionality</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>Mauro</td>
-                                  <td>Biello</td>
-                                  <td>Coach</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Philippe</td>
-                                  <td>Eullafroy</td>
-                                  <td>Delegate</td>
-                                  <td><img src="http://www.rhtacticboards.com/img/fr.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Mike</td>
-                                  <td>Sorber</td>
-                                  <td>Delegate</td>
-                                  <td><img src="http://www.onboardlogistics.net/contactenos/bandera-USA.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Paolo</td>
-                                  <td>Pacione</td>
-                                  <td>Physiotherapist</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Youssef</td>
-                                  <td>Dahha</td>
-                                  <td>Goalkeeper Coach</td>
-                                  <td><img src="http://images.vectorhq.com/images/previews/5c4/moroccan-flag-circle-psd-452658.png">
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
+                      <h3>{{team.fullname}}'s Coach</h3>
+                      <img id="coach" src={{team.imgcoach}}>
+                      <h4>{{team.coach}}</h4>
                   </div>
               </div>
           </div>
@@ -170,48 +131,21 @@
                       <table class="table table-bordered">
                           <thead>
                               <tr>
-                                  <th>Goals</th>
                                   <th>Name</th>
                                   <th>LastName</th>
+                                  <th>Position</th>
                                   <th>Nacionality</th>
+                                  <th>Goals</th>
                               </tr>
                           </thead>
-                          <tbody>
-                              <tr>
-                                  <td>Evan</td>
-                                  <td>Bush</td>
-                                  <td>Goalkeeper</td>
-                                  <td><img src="http://www.onboardlogistics.net/contactenos/bandera-USA.png">
+                          <tbody *ngFor="#player of playerstop | orderBy : '-goals'">
+                              <tr *ngIf="team.id == player.equipo.id">
+                                  <td>{{player.name}}</td>
+                                  <td>{{player.lastname}}</td>
+                                  <td>{{player.position}}</td>
+                                  <td><img src={{player.nacionality}}>
                                   </td>
-                              </tr>
-                              <tr>
-                                  <td>Ambroise</td>
-                                  <td>Oyongo</td>
-                                  <td>Defense</td>
-                                  <td><img src="http://aguitech.com/images/Iconos/FlagsWorld/Cameroon.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Hassoun</td>
-                                  <td>Camara</td>
-                                  <td>Defense</td>
-                                  <td><img src="http://www.rhtacticboards.com/img/fr.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Patrice</td>
-                                  <td>Bernier <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/L%C3%ADnea_C_(SBASE).svg/200px-L%C3%ADnea_C_(SBASE).svg.png">
-                                  </td>
-                                  <td>Midfield</td>
-                                  <td><img src="http://www.caracas2013.com/CAN.png">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Didier</td>
-                                  <td>Drogba</td>
-                                  <td>Forward</td>
-                                  <td><img src="http://ohla.tv/uploads/3/4/7/5/34759513/9999192_orig.png">
-                                  </td>
+                                  <td>{{player.goals}}</td>
                               </tr>
                           </tbody>
                       </table>
@@ -253,10 +187,3 @@
       </div>
   </div>
 </div>
-<p *ngIf="loginService.isLogged">
-
-    <button (click)="removeTeam()">Remove</button>
-    <button (click)="editTeam()">Edit</button>
-    <br>
-
-</p>

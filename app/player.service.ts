@@ -13,6 +13,9 @@ export class Player {
     public position: string,
     public nacionality: string,
     public imagePlayer: string,
+    public image: string,
+    public age: number,
+    public goals: number,
     ) {}
 
 }
@@ -21,9 +24,10 @@ export class Player {
 export class PlayerService {
 
   private players = [
-  	new Player(1, 'Cristiano', new Team(1, 'Real Madrid',), 'Ronaldo', 'Forward', 'app/img/Flags/Portugal.png', "app/img/Players/CristianoRonaldo.jpg"),
-  	new Player(2, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Argentina.png', "app/img/Players/LeoMessi.jpg"),
-  	new Player(3, 'Alvaro', new Team(3, 'Valencia',), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg"),
+  	new Player(1, 'Cristiano', new Team(1, 'Real Madrid',), 'Ronaldo', 'Forward', 'app/img/Flags/Portugal.png', "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg", 31, 32),
+    new Player(2, 'Luka', new Team(1, 'Real Madrid',), 'Modric', 'Midfield', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 30, 8)
+  	new Player(3, 'Leo', new Team(2, 'Barcelona',), 'Messi', 'Forward', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28, 29),
+  	new Player(4, 'Alvaro', new Team(3, 'Valencia',), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 12)
   ];
 
   getPlayers() {
@@ -32,7 +36,7 @@ export class PlayerService {
 
   getPlayer(id: number | string) {
     let player = this.players.filter(h => h.id === +id)[0]
-    return withObserver(new Player(player.id, player.name, player.equipo, player.lastname, player.position, player.nacionality, player.imagePlayer));
+    return withObserver(new Player(player.id, player.name, player.equipo, player.lastname, player.position, player.nacionality, player.imagePlayer, player.age, player.goals));
   }
 
   removePlayer(player: Player){
@@ -54,6 +58,8 @@ export class PlayerService {
       oldPlayer.position = player.position;
       oldPlayer.nacionality = player.nacionality;
       oldPlayer.imagePlayer = player.imagePlayer;
+      oldPlayer.age = player.age;
+      oldPlayer.goals = player.goals;
     } else {
       player.id = this.players.length+1;
       this.players.push(player);

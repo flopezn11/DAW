@@ -41,6 +41,12 @@
     margin: auto;
 }
 
+#teams img{
+  height: 100px;
+  width: 90px;
+  margin-right: 8px;
+}
+
 
 /*
 .img-responsive {

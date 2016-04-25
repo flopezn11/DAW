@@ -7,7 +7,10 @@
             <li id="active">Schedule: Journey {{schedule.id}}</li>
         </ol>
         <div class="row">
-          <div class="col-md-8 col-sm-8 xs-hidden"></div>
+          <div class="col-md-6 col-sm-6 xs-hidden"></div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="removeSchedule()" id="botonEliminar"><img src="app/img/Remove.png">Remove Schedule</button>
+          </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
             <button (click)="save()" id="botonAgregar"><img src="app/img/Add.png"> Add Schedule</button>
           </div>
@@ -94,8 +97,8 @@
                                 <a [routerLink]="['TeamDetail', {id: match.visitor.id}]"><img class="img-rounded" src={{match.visitor.imgescudo}}>{{match.visitor.fullname}}</a>
                             </td>
                             <td *ngIf="loginService.isLogged">
-                              <button (click)="removeMatch(match)">Remove</button>
-                              <button (click)="editMatch(match.id)">Edit</button>
+                              <button (click)="removeMatch(match)" id="botonEliminar"><img src="app/img/Remove.png"></button>
+                              <button (click)="editMatch(match.id)" id="botonEdit"><img src="app/img/Edit.png"></button>
                             </td>
                         </tr>
                         <!-- <tr>
@@ -229,9 +232,3 @@
             </div>
         </div>
     </div>
-    <p *ngIf="loginService.isLogged">
-
-        <button (click)="removeSchedule()">Remove</button>
-        <br>
-
-    </p>

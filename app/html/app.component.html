@@ -2,7 +2,7 @@
     <div id="cabecera">
         <div id="cabecera1" class="panel-heading">
             <img src="app/img/ImgMajorLeague.png" class="img-circle" width="115" height="75">
-            <span>Major League Football</span>
+            <span class="hidden-xs">Major League Football</span>
         </div>
         <div id="franja" class="panel-body">
             <div id="login" *ngIf="!loginService.isLogged">
@@ -69,7 +69,7 @@
                 <li class="active"><a [routerLink]="['Principal']">Home</a></li>
                 <li id="teamsnav"><a [routerLink]="['Teams']">Teams</a>
                     <ul class="nav navbar-nav hidden-xs">
-                        <li *ngFor="#team of teams">
+                        <li *ngFor="#team of teams | orderBy : '-points'">
                             <a [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
                         </li>
                     </ul>
@@ -100,7 +100,7 @@
         <div id="footer">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-6" id="contacto">
+                    <div class="col-md-3 col-sm-6" id="contacto">
                         <h3>Contact:</h3>
                         <span class="glyphicon glyphicon-envelope"></span> Email: AmuntCorporation@alumnos.urjc.es
                         <br>
@@ -108,7 +108,7 @@
                         <br>
                         <span class="glyphicon glyphicon-home"></span> Address: Daw Street, Chicago, Illinois.
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6 btn-group" id="redes">
+                    <div class="col-md-3 col-sm-6 btn-group" id="redes">
                         <h3>Social networks:</h3>
                         <a class="btn" href="https://www.facebook.com/"><img src="app/img/Facebook.png" width="50px" height="50px"></a>
                         <a class="btn" href="https://twitter.com/?lang=es"><img src="app/img/Twitter.png" width="50px" height="50px"></a>

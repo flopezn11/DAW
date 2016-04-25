@@ -17,6 +17,10 @@
     font-family: "trebuchet ms", "arial", sans-serif;
 }
 
+#cuerpo {
+    margin-bottom: 30px;
+}
+
 #equipos {
     text-align: center;
     background-color: #f8c143;

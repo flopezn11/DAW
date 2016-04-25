@@ -41,7 +41,7 @@ export class ScheduleDetailComponent {
         if (okResponse) {
           if !(this.schedule.id === 1){
             this.service.removeSchedule(this.schedule).subscribe(
-                _ => this.router.navigate(['Principal']),
+                _ => this.router.navigate(['ScheduleDetail', { id: 1}]),
                 error => console.error(error)
             )
           }else {
@@ -51,7 +51,7 @@ export class ScheduleDetailComponent {
     }
 
     removeMatch(matchRemove: Match) {
-        let okResponse = window.confirm("Do you want to remove this schedule?");
+        let okResponse = window.confirm("Do you want to remove this match?");
         if (okResponse) {
             this.matchService.removeMatch(matchRemove).subscribe(
                 _ => this.router.navigate(['ScheduleDetail', {id: this.schedule.id}]),
