@@ -22,10 +22,6 @@ export class Match {
 export class MatchService {
 
   private matchs = [
-  	new Match(1, "21 Marzo", new Schedule(1), new Team(1, 'New York City', 'http://futhead.cursecdn.com/static/img/15/clubs/689.png', 'https://elrincondejoost.files.wordpress.com/2014/04/red-bulls-ny.jpg', 'El New York City es un club de fútbol de Estados Unidos de la ciudad de New York, en Nueva York. Fue fundado en 1992 por la familia Saputo y juega actualmente en la Conferencia Este de la Major League Soccer.', 'Historia'),
-    new Team(3, 'Columbus Crew', 'http://www.moddingway.com/fifadb/teams/l687.png', 'https://s3.amazonaws.com/user-media.venngage.com/305423-48ce8432e479aa7c2e7789bf07c0f307.jpg', 'El Columbus Crew es un club de fútbol de Estados Unidos de la ciudad de Columbus, en Columbia. Fue fundado en 1992 por la familia Saputo y juega actualmente en la Conferencia Este de la Major League Soccer.', 'Historia'), 0, 0),
-  	// new Match(2, "22 Marzo", new Schedule(2)),
-  	// new Match(3, "23 Marzo", new Schedule(2)),
   ];
 
   getMatches() {

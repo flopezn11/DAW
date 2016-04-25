@@ -36,6 +36,7 @@ export class MatchFormComponent {
           error => console.error(error)
         );
         this.newMatch = false;
+        this.schedule = this.match.schedule;
       } else {
         scheduleService.getSchedule(id).subscribe(
           schedule => this.schedule = schedule,
