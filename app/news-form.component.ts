@@ -1,4 +1,5 @@
 import {Component}  from 'angular2/core';
+import {NgForm}    from 'angular2/common';
 import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {News, NewsService}   from './news.service';
 
