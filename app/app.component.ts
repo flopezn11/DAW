@@ -7,7 +7,6 @@ import {Schedule1Component} from './schedule1.component';
 import {Schedule2Component} from './schedule2.component';
 import {JugadorComponent} from './jugador.component';
 import {PrincipalComponent} from './principal.component';
-import {FormJugadorComponent} from './formJugador.component';
 import {Login,LoginService} from './login.service';
 import {Team, TeamService} from './team.service';
 import {TeamDetailComponent} from './team-detail.component';
@@ -41,7 +40,6 @@ import {OrderBy} from "./orderBy";
 	{path:'/schedule1', name: 'Schedule1', component: Schedule1Component},
 	{path:'/schedule2', name: 'Schedule2', component: Schedule2Component},
 	{path:'/jugador', name: 'Jugador', component: JugadorComponent},
-	{path:'/formJugador', name: 'FormJugador', component: FormJugadorComponent},
 	{path: '/team/:id', name: 'TeamDetail', component: TeamDetailComponent},
 	{path: '/team/new', name: 'TeamNew', component: TeamFormComponent},
 	{path: '/team/edit/:id', name: 'TeamEdit', component: TeamFormComponent},
