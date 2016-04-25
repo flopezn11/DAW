@@ -1,114 +1,114 @@
 <div id="principal" class="container">
-        <ol id="breadcrumb">
-            <li>
-                <a href="Pruebas.html"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
-            </li>
-            <li id="raya">/</li>
-            <li id="active">New Player</li>
-        </ol>
-        <div id="cuerpo">
-            <div class="row">
-                <div class="col-md-8 col-sm-12 col-xs-12">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Form to add a new player</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form name="formplayer" action="#" method="post">
-                                <fieldset>
-                                    <legend>Personal information:</legend>
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Name*:</b>
-                                            <input [(ngModel)]="player.name" type='text' class="form-control" name='name' placeholder="Name" id="name" required/>
-                                        </p>
-                                    </div>
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li id="active">New Player</li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new player</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formplayer" action="#" method="post">
+                            <fieldset>
+                                <legend>Personal information:</legend>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Name*:</b>
+                                        <input [(ngModel)]="player.name" type='text' class="form-control" name='name' placeholder="Name" id="name" required/>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Surnames*:</b>
-                                            <input [(ngModel)]="player.lastname" type='text' class="form-control" name='surnames' placeholder="Surnames" id="surnames" required/>
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Surnames*:</b>
+                                        <input [(ngModel)]="player.lastname" type='text' class="form-control" name='surnames' placeholder="Surnames" id="surnames" required/>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Age*:</b>
-                                            <input type='number' class="form-control" name='age' pattern="[0-9]{2}" min="18" max="99" placeholder="+18" id="age" required/>
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Age*:</b>
+                                        <input type='number' class="form-control" name='age' pattern="[0-9]{2}" min="18" max="99" placeholder="+18" id="age" required/>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Nacionality*:</b>
-                                            <input type='text' class="form-control" name='nacionality' placeholder="Nacionality" id="nacionality" required/>
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Nacionality*:</b>
+                                        <input type='text' class="form-control" name='nacionality' placeholder="Nacionality" id="nacionality" required/>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Position*:</b>
-                                            <select [(ngModel)]="player.position" name="Position" class="form-control" id="position">
-                                                <option value="Goalkeeper">Goalkeeper</option>
-                                                <option value="Defense">Defense</option>
-                                                <option value="Midfield">Midfield</option>
-                                                <option value="Forward">Forward</option>
-                                            </select>
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Position*:</b>
+                                        <select [(ngModel)]="player.position" name="Position" class="form-control" id="position">
+                                            <option value="Goalkeeper">Goalkeeper</option>
+                                            <option value="Defense">Defense</option>
+                                            <option value="Midfield">Midfield</option>
+                                            <option value="Forward">Forward</option>
+                                        </select>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Email*:</b>
-                                            <input type='text' class="form-control" name='email' placeholder="Email" id="email" required/>
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Email*:</b>
+                                        <input type='text' class="form-control" name='email' placeholder="Email" id="email" required/>
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Postal Code:</b>
-                                            <input type='text' class="form-control" name='postalcode' pattern="[0-9]{5}" placeholder="12345" id="postalcode" />
-                                        </p>
-                                    </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Postal Code:</b>
+                                        <input type='text' class="form-control" name='postalcode' pattern="[0-9]{5}" placeholder="12345" id="postalcode" />
+                                    </p>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <div class="radio">
-                                            <b>Gender:</b>
-                                            <label for="women">
-                                                <input type="radio" name="gender" value="women" id="women" checked> Women
-                                            </label>
-                                            <label for="men">
-                                                <input type="radio" name="gender" value="men" id="men"> Men
-                                            </label>
-                                        </div>
+                                <div class="col-xs-6">
+                                    <div class="radio">
+                                        <b>Gender:</b>
+                                        <label for="women">
+                                            <input type="radio" name="gender" value="women" id="women" checked> Women
+                                        </label>
+                                        <label for="men">
+                                            <input type="radio" name="gender" value="men" id="men"> Men
+                                        </label>
                                     </div>
+                                </div>
 
-                                    <div class="col-xs-6">
-                                        <p>
-                                            <b>Image:</b>
-                                            <input [(ngModel)]="player.imagePlayer" type='text' class="form-control" name='imagePlayer' placeholder="Player Image" id="imagePlayer" />
-                                        </p>
-                                    </div>
-                                    </fieldset>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Image:</b>
+                                        <input [(ngModel)]="player.imagePlayer" type='text' class="form-control" name='imagePlayer' placeholder="Player Image" id="imagePlayer" />
+                                    </p>
+                                </div>
+                            </fieldset>
 
-                                    <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
-                                        <p>Items marked with * will be required by the form.</p>
-                                    </div>
-
-                                    <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
-                                        <input (click)="save()" type='submit' name='enviar' value='Submit' />
-                                    </div>
-                            </form>
-                            <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
-                                <button (click)="cancel()" name='cancel'>Cancel</button>
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form.</p>
                             </div>
+
+                            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                <input (click)="save()" type='submit' name='enviar' value='Submit' />
+                            </div>
+                        </form>
+                        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
+                            <button (click)="cancel()" name='cancel'>Cancel</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 hidden-xs hidden-sm">
-                    <div id="galeria">
-                    </div>
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <div id="galeria">
                 </div>
             </div>
         </div>
     </div>
+</div>

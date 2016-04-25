@@ -1,0 +1,74 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb" style="margin-bottom: 0px">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li><a id="active">New News</a>
+        </li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new news</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formnews" action="#" method="post">
+                            <fieldset>
+                                <legend>Content of the news:</legend>
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Title*:</b>
+                                        <input [(ngModel)]="news.title" type='text' class="form-control" name='title' placeholder="Title" id="title" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Subtitle*:</b>
+                                        <input [(ngModel)]="news.subtitle" type='text' class="form-control" name='subtitle' placeholder="Subtitle" id="subtitle" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Author*:</b>
+                                        <input [(ngModel)]="news.author" type='text' class="form-control" name='author' placeholder="Author" id="author" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Image about the news*:</b>
+                                        <input [(ngModel)]="news.imgnews" type='text' class="form-control" name='imgnews' placeholder="Image News" id="imgnews" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Description*:</b>
+                                        <textarea [(ngModel)]="news.description" class="form-control" rows="10" name="description" placeholder="Add the content of the news" id="description"></textarea>
+                                    </p>
+                                </div>
+
+                            </fieldset>
+
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form.</p>
+                            </div>
+
+                            <div class="col-xs-12 col-md-12 col-sm-6">
+                                <input (click)="save()" type='submit' name='enviar' value='Submit' />
+                            </div>
+
+                        </form>
+                        <div class="col-xs-12 col-md-12 col-sm-6">
+                            <button (click)="cancel()" name='cancel'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

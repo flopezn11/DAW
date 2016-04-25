@@ -1,85 +1,85 @@
 <div id="principal" class="container">
-          <ol id="breadcrumb">
-              <li>
-                  <a href="Pruebas.html"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
-              </li>
-              <li id="raya">/</li>
-              <li><a id="active">New Team</a>
-              </li>
-          </ol>
-          <div id="cuerpo">
-              <div class="row">
-                  <div class="col-md-2 hidden-sm hidden-xs">
-                      <div id="galeria1">
-                      </div>
-                  </div>
-                  <div class="col-md-8 col-sm-12 col-xs-12">
-                      <div class="panel panel-warning">
-                          <div class="panel-heading">
-                              <h3 class="panel-title">Form to add a new team</h3>
-                          </div>
-                          <div class="panel-body">
-                              <form name="formteam" action="#" method="post">
-                                  <fieldset>
-                                      <legend>Sheet football team:</legend>
-                                      <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
-                                          <p>
-                                              <b>Date*:</b>
-                                              <input [(ngModel)]="match.date" type='text' class="form-control" name='date' placeholder="Match date" id="date" required/>
-                                          </p>
-                                      </div>
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li><a id="active">New Team</a>
+        </li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-2 hidden-sm hidden-xs">
+                <div id="galeria1">
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new team</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formteam" action="#" method="post">
+                            <fieldset>
+                                <legend>Sheet football team:</legend>
+                                <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
+                                    <p>
+                                        <b>Date*:</b>
+                                        <input [(ngModel)]="match.date" type='text' class="form-control" name='date' placeholder="Match date" id="date" required/>
+                                    </p>
+                                </div>
 
-                                      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
-                                          <p>
-                                              <b>Local*:</b>
-                                              <select [(ngModel)]="idlocal" name="local" class="form-control" id="local">
-                                                  <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
-                                              </select>
-                                          </p>
-                                      </div>
+                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+                                    <p>
+                                        <b>Local*:</b>
+                                        <select [(ngModel)]="idlocal" name="local" class="form-control" id="local">
+                                            <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                        </select>
+                                    </p>
+                                </div>
 
-                                      <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>
-                                              <b>Local Result:</b>
-                                              <input [(ngModel)]="match.resultLocal" type='number' class="form-control" name='localResult' placeholder="0" id="localresult"/>
-                                          </p>
-                                      </div>
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p>
+                                        <b>Local Result:</b>
+                                        <input [(ngModel)]="match.resultLocal" type='number' class="form-control" name='localResult' placeholder="0" id="localresult" />
+                                    </p>
+                                </div>
 
-                                      <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
-                                          <p>
-                                              <b>Visitor*:</b>
-                                              <select [(ngModel)]="idvisitor" name="visitor" class="form-control" id="visitor">
-                                                  <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
-                                              </select>
-                                          </p>
-                                      </div>
+                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+                                    <p>
+                                        <b>Visitor*:</b>
+                                        <select [(ngModel)]="idvisitor" name="visitor" class="form-control" id="visitor">
+                                            <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                        </select>
+                                    </p>
+                                </div>
 
-                                      <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>
-                                              <b>Visitor Result:</b>
-                                              <input [(ngModel)]="match.resultVisitor" type='number' class="form-control" name='visitorResult' placeholder="0" id="visitorresult"/>
-                                          </p>
-                                      </div>
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p>
+                                        <b>Visitor Result:</b>
+                                        <input [(ngModel)]="match.resultVisitor" type='number' class="form-control" name='visitorResult' placeholder="0" id="visitorresult" />
+                                    </p>
+                                </div>
 
-                                  </fieldset>
+                            </fieldset>
 
-                                  <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
-                                      <p>Items marked with * will be required by the form.</p>
-                                  </div>
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form.</p>
+                            </div>
 
-                                  <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
-                                      <input (click)="save()" type='submit' name='enviar' value='Submit' />
-                                  </div>
-                              </form>
-                              <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
-                                  <button (click)="cancel()" name='cancel'>Cancel</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-2 hidden-xs hidden-sm">
-                      <div id="galeria2">
-                      </div>
-                  </div>
-              </div>
-          </div>
+                            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                <input (click)="save()" type='submit' name='enviar' value='Submit' />
+                            </div>
+                        </form>
+                        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
+                            <button (click)="cancel()" name='cancel'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 hidden-xs hidden-sm">
+                <div id="galeria2">
+                </div>
+            </div>
+        </div>
+    </div>

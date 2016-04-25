@@ -1,10 +1,11 @@
 import {Component}  from 'angular2/core';
-import {RouteParams, Router} from 'angular2/router';
+import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Player, PlayerService}   from './player.service';
 import {Team, TeamService}   from './team.service';
 
 @Component({
   selector: "player-form",
+  directives: [ROUTER_DIRECTIVES],
   templateUrl: "app/html/formJugador.component.html",
   styleUrls: ["app/css/formJugador.component.css"],
 })

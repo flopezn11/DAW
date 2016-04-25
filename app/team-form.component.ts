@@ -1,9 +1,10 @@
 import {Component}  from 'angular2/core';
-import {RouteParams, Router} from 'angular2/router';
+import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Team, TeamService}   from './team.service';
 
 @Component({
   templateUrl: "app/html/team-form.component.html",
+  directives: [ROUTER_DIRECTIVES],
   styleUrls: ["app/css/team-form.component.css"],
 })
 export class TeamFormComponent {

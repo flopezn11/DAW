@@ -1,0 +1,23 @@
+#cuerpo {
+    background-color: white;
+    margin-top: 0px;
+    box-shadow: inset 0px 0px 50px -15px rgba(0, 0, 0, 0.75);
+}
+
+#texto h3 {
+    border-bottom: 7px solid #c6c6c6;
+}
+
+#texto p {
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+#contenido img {
+    height: 200px;
+    width: 200px;
+}
+
+h1 {
+    text-align: center;
+}

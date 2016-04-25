@@ -1,11 +1,12 @@
 import {Component, OnInit}  from 'angular2/core';
-import {RouteParams, Router} from 'angular2/router';
+import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Match, MatchService}   from './match.service';
 import {Schedule, ScheduleService}   from './schedule.service';
 import {Team, TeamService}   from './team.service';
 
 @Component({
   templateUrl: "app/html/match-form.component.html",
+  directives: [ROUTER_DIRECTIVES],
   styleUrls: ["app/css/match-form.component.css"],
 })
 export class MatchFormComponent {
