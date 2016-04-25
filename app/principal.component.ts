@@ -32,6 +32,10 @@ export class PrincipalComponent {
   }
 
   ngOnInit(){
+        this.loginService.getLog().subscribe(
+          login => this.login = login,
+          error => console.log(error)
+        );
         this.playerService.getPlayers().subscribe(
         players => this.players = players,
         error => console.log(error)

@@ -101,12 +101,12 @@
                                 <li><b>Team:</b>{{player.equipo.fullname}}</li>
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteam1" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idplayer1" name="local" class="form-control" id="local">
                                     <template ngFor #player [ngForOf]="players"><option *ngIf="idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
@@ -125,12 +125,12 @@
                                 <li><b>Team:</b>{{player.equipo.fullname}}</li>
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteam2" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idplayer2" name="local" class="form-control" id="local">
                                     <template ngFor #player [ngForOf]="players"><option *ngIf="idteam2==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
@@ -149,12 +149,12 @@
                                 <li><b>Team:</b>{{player.equipo.fullname}}</li>
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteam3" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idplayer3" name="local" class="form-control" id="local">
                                     <template ngFor #player [ngForOf]="players"><option *ngIf="idteam3==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
@@ -173,12 +173,12 @@
                                 <li><b>Team:</b>{{player.equipo.fullname}}</li>
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteam4" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idplayer4" name="local" class="form-control" id="local">
                                     <template ngFor #player [ngForOf]="players"><option *ngIf="idteam4==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
@@ -207,7 +207,7 @@
                                 <li><b>Name:</b>{{team.fullname}}</li>
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteamm1" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
@@ -225,7 +225,7 @@
                                 <li><b>Name:</b>{{team.fullname}}</li>
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteamm2" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
@@ -243,7 +243,7 @@
                                 <li><b>Name:</b>{{team.fullname}}</li>
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteamm3" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
@@ -261,7 +261,7 @@
                                 <li><b>Name:</b>{{team.fullname}}</li>
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
-                            <p *ngIf="loginService.isLogged">
+                            <p *ngIf="loginService.isLogged && login.usuario=='admin'">
                                 <select [(ngModel)]="idteamm4" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
