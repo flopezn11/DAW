@@ -33,12 +33,43 @@
                         <div id="texto">
                             <h2>Biography</h2>
                             <p>
-                                Didier Yves Drogba Tébily is an Ivorian professional footballer who plays as a striker for Canadian club Montreal Impact. He is best known for his career at Chelsea, for whom he has scored more goals than any other foreign player and is currently the club's fourth highest goal scorer of all time. He has been named African Footballer of the Year twice, winning the accolade in 2006 and 2009.
+                                {{player.biography}}
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Age</b> <p><small>{{player.age}}</small><p></h2>
+                      </div>
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Team</b> <p><small><img src={{player.equipo.imgescudo}}>{{player.equipo.fullname}}</small><p></h2>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h2><b>Nacionality</b> <p><small><img src={{player.nacionality}}></small><p></h2>
+                    </div>
+                    <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h2><b>Goals</b> <p><small>{{player.goals}}</small><p></h2>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Dorsal</b> <p><small>{{player.dorsal}}</small><p></h2>
+                      </div>
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Times International</b> <p><small>{{player.international}}</small><p></h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8 col-md-12 col-sm-12 hidden-xs">
+                    <video height="420" controls>
+                      <source src={{player.video}} type="video/mp4">
+                    </video>
+                  </div>
                 </div>
             </div>
         </div>

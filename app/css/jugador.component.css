@@ -18,6 +18,19 @@
     font-size: 16px;
 }
 
+#info>h2>b {
+    border-bottom: 3px solid silver;
+}
+
+#info h2 img {
+    height: 30px;
+    margin-right: 8px;
+}
+
+#info h2 p {
+    margin-top: 8px;
+}
+
 .table-bordered {
     text-align: center;
 }
