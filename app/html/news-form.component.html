@@ -15,52 +15,52 @@
                         <h3 class="panel-title">Form to add a new news</h3>
                     </div>
                     <div class="panel-body">
-                        <form name="formnews" action="#" method="post">
+                        <form name="formnews" (ngSubmit)="onSubmit()" #heroForm="ngForm">
                             <fieldset>
                                 <legend>Content of the news:</legend>
                                 <div class="col-xs-12 col-md-12 col-sm-6">
                                     <p>
                                         <b>Title*:</b>
-                                        <input [(ngModel)]="news.title" type='text' class="form-control" name='title' placeholder="Title" id="title" required/>
+                                        <input ngControl="title" #name="ngForm" [(ngModel)]="news.title" type='text' class="form-control" name='title' placeholder="Title" id="title" required/>
                                     </p>
                                 </div>
 
                                 <div class="col-xs-12 col-md-12 col-sm-6">
                                     <p>
                                         <b>Subtitle*:</b>
-                                        <input [(ngModel)]="news.subtitle" type='text' class="form-control" name='subtitle' placeholder="Subtitle" id="subtitle" required/>
+                                        <input ngControl="subtitle" #name="ngForm" [(ngModel)]="news.subtitle" type='text' class="form-control" name='subtitle' placeholder="Subtitle" id="subtitle" required/>
                                     </p>
                                 </div>
 
                                 <div class="col-xs-12 col-md-12 col-sm-6">
                                     <p>
                                         <b>Author*:</b>
-                                        <input [(ngModel)]="news.author" type='text' class="form-control" name='author' placeholder="Author" id="author" required/>
+                                        <input ngControl="author" #name="ngForm" [(ngModel)]="news.author" type='text' class="form-control" name='author' placeholder="Author" id="author" required/>
                                     </p>
                                 </div>
 
                                 <div class="col-xs-12 col-md-12 col-sm-6">
                                     <p>
                                         <b>Image about the news*:</b>
-                                        <input [(ngModel)]="news.imgnews" type='text' class="form-control" name='imgnews' placeholder="Image News" id="imgnews" required/>
+                                        <input ngControl="imgnews" #name="ngForm" [(ngModel)]="news.imgnews" type='text' class="form-control" name='imgnews' placeholder="Image News" id="imgnews" required/>
                                     </p>
                                 </div>
 
                                 <div class="col-xs-12 col-md-12 col-sm-6">
                                     <p>
                                         <b>Description*:</b>
-                                        <textarea [(ngModel)]="news.description" class="form-control" rows="10" name="description" placeholder="Add the content of the news" id="description"></textarea>
+                                        <textarea ngControl="description" #name="ngForm" [(ngModel)]="news.description" class="form-control" rows="10" name="description" placeholder="Add the content of the news" id="description" required></textarea>
                                     </p>
                                 </div>
 
                             </fieldset>
 
                             <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
-                                <p>Items marked with * will be required by the form.</p>
+                                <p>Items marked with * will be required by the form. All red boxes have to be green</p>
                             </div>
 
                             <div class="col-xs-12 col-md-12 col-sm-6">
-                                <input (click)="save()" type='submit' name='enviar' value='Submit' />
+                                <button [disabled]="!heroForm.form.valid" class="btn btn-default" (click)="save()" type="submit" name='submit'>Submit</button>
                             </div>
 
                         </form>
