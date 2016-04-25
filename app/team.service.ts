@@ -58,6 +58,7 @@ export class TeamService {
       oldTeam.coach = team.coach;
       oldTeam.description = team.description;
       oldTeam.history = team.history;
+      oldTeam.points = team.points;
     } else {
       team.id = this.teams.length+1;
       this.teams.push(team);

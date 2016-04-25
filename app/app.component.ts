@@ -1,6 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy} from 'angular2/core';
 import {RouteConfig, RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {ClasificationComponent} from './clasification.component';
+import {ClasificationFormComponent} from './clasification-form.component';
 import {TeamsComponent} from './teams.component';
 import {NewsComponent} from './news.component';
 import {JugadorComponent} from './jugador.component';
@@ -34,6 +35,7 @@ import {OrderBy} from "./orderBy";
 @RouteConfig([
 	{path:'/home', name: 'Principal', component: PrincipalComponent, useAsDefault: true},
   {path:'/clasification', name: 'Clasification', component: ClasificationComponent},
+	{path:'/clasification/edit/:id', name: 'ClasfEdit', component: ClasificationFormComponent},
 	{path:'/teams', name: 'Teams', component: TeamsComponent},
 	{path:'/jugador', name: 'Jugador', component: JugadorComponent},
 	{path: '/team/:id', name: 'TeamDetail', component: TeamDetailComponent},

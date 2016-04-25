@@ -23,16 +23,17 @@ export class ClasificationComponent implements OnInit {
 	journey: number;
 	players: Player[];
 	playerstop: Player[];
+	goalkeepers: Player[];
 
 
-  constructor(private router:Router, private service: TeamService, private playerService: PlayerService, private matchService: MatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
+  constructor(private router:Router, private teamService: TeamService, private playerService: PlayerService, private matchService: MatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
 
   ngOnInit(){
 			this.loginService.getLog().subscribe(
 				login => this.login = login,
 				error => console.log(error)
 			);
-      this.service.getTeams().subscribe(
+      this.teamService.getTeams().subscribe(
         teams => this.teams = teams,
         error => console.log(error)
       );
@@ -53,7 +54,18 @@ export class ClasificationComponent implements OnInit {
 				this.playerstop.push(this.players[i]);
 			}
 
+			this.goalkeepers = [];
+			for (let i=0; i < this.players.length; i++) {
+				if (this.players[i].position == 'GoalKeeper'){
+					this.goalkeepers.push(this.players[i]);
+				}
+			}
+
 			this.journey = 1;
+    }
+
+		editClasification(clasifid: number) {
+        this.router.navigate(['ClasfEdit', { id: clasifid}]);
     }
 
 

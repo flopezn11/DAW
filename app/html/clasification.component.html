@@ -40,7 +40,7 @@
                                     </td>
                                     <td>{{team.points}}</td>
                                     <td *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                      <button (click)="editMatch(match.id)" id="botonEdit"><img src="app/img/Edit.png"></button>
+                                      <button (click)="editClasification(team.id)" id="botonEdit"><img src="app/img/Edit.png"></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -120,33 +120,15 @@ Goalkeeping<img class="img-rounded" src="http://www.lasegundab.es/blog/wp-conten
                                     <thead>
                                         <tr>
                                             <th>Player</th>
-                                            <th>Av.</th>
+                                            <th>Goals</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody *ngFor="#goalkeeper of goalkeepers | orderBy : 'goals' | firstfour">
                                         <tr>
                                             <td>
-                                                <a href="#"><img class="img-rounded" src="http://futhead.cursecdn.com/static/img/15/clubs/689.png">Robles Luis</a>
+                                                <a [routerLink]="['PlayerDetail', {id: goalkeeper.id}]"><img class="img-rounded" src={{goalkeeper.image}}>{{goalkeeper.name}}</a>
                                             </td>
-                                            <td id="result">1.34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#"><img class="img-rounded" src="http://www.moddingway.com/fifadb/teams/l687.png">Clark Steve</a>
-                                            </td>
-                                            <td id="result">1.45</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#"><img class="img-rounded" src="http://heycdn.thisisfootball.com/wp-content/uploads/2013/09/xUnion-Crest-300x300-64x64.png.pagespeed.ic.HdFRutSXUM.png">Blake Andre</a>
-                                            </td>
-                                            <td id="result">1.62</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#"><img class="img-rounded" src="http://thisisfootball.dk/wp-content/uploads/2013/09/xchicago-fire-logo-64x64.png.pagespeed.ic.kshhtzY5gF.png">Lampson Matt</a>
-                                            </td>
-                                            <td id="result">1.81</td>
+                                            <td id="result">{{goalkeeper.goals}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

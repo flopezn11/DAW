@@ -23,19 +23,10 @@
                             <fieldset>
                                 <legend>Sheet clasification:</legend>
 
-                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p>
-                                        <b>Equip*:</b>
-                                        <select [(ngModel)]="idvisitor" name="visitor" class="form-control" id="visitor">
-                                            <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
-                                        </select>
-                                    </p>
-                                </div>
-
                                 <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
                                     <p>
                                         <b>Points:</b>
-                                        <input [(ngModel)]="match.resultVisitor" type='number' class="form-control" name='visitorResult' placeholder="0" id="visitorresult" />
+                                        <input [(ngModel)]="points" type='number' class="form-control" name='teamPoints' placeholder="0" id="teampoints" />
                                     </p>
                                 </div>
 
