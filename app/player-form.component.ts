@@ -28,6 +28,7 @@ export class PlayerFormComponent {
           player => this.player = player,
           error => console.error(error)
         );
+        this.team = this.player.equipo;
         this.newPlayer = false;
       } else {
         teamservice.getTeam(id).subscribe(
