@@ -28,14 +28,14 @@ export class Player {
 export class PlayerService {
 
   private players = [
-
     new Player(1, 'Cristiano', 'Add a biography', new Team(1, 'Real Madrid', 'app/img/Shields/ShieldRealMadrid.png', 'app/img/Lineups/LineupRealMadrid.jpg', "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" "Zinedine Zidane", 'Add description', 'Add history',2), 'Ronaldo', 'Forward', 'app/img/Flags/Portugal.png', "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg", 31, 32, 90, 7, "app/Video/Cristiano.mp4"),
-    new Player(2, 'Luka', 'Add a biography', new Team(1, 'Real Madrid', 'app/img/Shields/ShieldRealMadrid.png', 'app/img/Lineups/LineupRealMadrid.jpg', "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" "Zinedine Zidane", 'Add description', 'Add history',2), 'Modric', 'Midfield', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 30, 8, 50, 19, "app/Video/Modric.mp4")
+    new Player(2, 'Luka', 'Add a biography', new Team(1, 'Real Madrid', 'app/img/Shields/ShieldRealMadrid.png', 'app/img/Lineups/LineupRealMadrid.jpg', "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" "Zinedine Zidane", 'Add description', 'Add history',2), 'Modric', 'Midfield', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 30, 8, 50, 19, "app/Video/Modric.mp4"),
     new Player(3, 'Leo', 'Add a biography', new Team(2, 'Barcelona','app/img/Shields/ShieldBarcelona.png', 'app/img/Lineups/LineupBarcelona.jpg', "app/img/Equipments/EquipmentBarcelona.png", "app/img/Coaches/LuisEnrique.jpg", "Luis Enrique", 'Add description', "Add history",1), 'Messi', 'Forward', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 28, 29, 80, 10, "app/Video/Messi.mp4"),
-    new Player(4, 'Alvaro', 'Add a biography', new Team(3, 'Valencia', 'app/img/Shields/ShieldValencia.png', 'app/img/Lineups/LineupValencia.jpg', "app/img/Equipments/EquipmentValencia.png", "app/img/Coaches/Ayestaran.jpg", "Pako Ayestaran", 'Add description', 'Add history',5), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 12, 10, 7, "app/Video/Negredo.mp4"
-    new Player(5, 'Diego', new Team(3, 'Valencia',), 'Alves', 'GoalKeeper', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 4),
-    new Player(6, 'Keylor', new Team(1, 'Real Madrid',), 'Navas', 'GoalKeeper', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 29, 6),
-    new Player(7, 'Claudio', new Team(2, 'Barcelona',), 'Bravo', 'GoalKeeper', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 33, 5),
+    new Player(4, 'Alvaro', 'Add a biography', new Team(3, 'Valencia', 'app/img/Shields/ShieldValencia.png', 'app/img/Lineups/LineupValencia.jpg', "app/img/Equipments/EquipmentValencia.png", "app/img/Coaches/Ayestaran.jpg", "Pako Ayestaran", 'Add description', 'Add history',5), 'Negredo', 'Forward', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 12, 10, 7, "app/Video/Negredo.mp4"),
+    new Player(5, 'Diego', 'Add a biography',  new Team(3, 'Valencia',), 'Alves', 'GoalKeeper', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 4),
+    new Player(6, 'Keylor', 'Add a biography', new Team(1, 'Real Madrid',), 'Navas', 'GoalKeeper', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 29, 6),
+    new Player(7, 'Claudio', 'Add a biography', new Team(2, 'Barcelona',), 'Bravo', 'GoalKeeper', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 33, 5),
+    new Player(7, 'Jan', 'Add a biography', new Team(2, 'Barcelona',), 'Oblak', 'GoalKeeper', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 33, 5),
   ];
 
   getPlayers() {
