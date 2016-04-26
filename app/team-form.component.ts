@@ -35,6 +35,7 @@ export class TeamFormComponent {
   }
 
   save() {
+    this.team.points = 0;
     this.service.saveTeam(this.team);
     window.history.back();
   }

@@ -8,6 +8,9 @@ export class FirstFour implements PipeTransform {
       var devolver:Player[] = [];
       for (let i=0; i < 4; i++) {
         devolver.push(a[i]);
+        if (i+1 == a.length) {
+          break;
+        }
       }
       return devolver;
     }
