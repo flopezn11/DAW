@@ -3,6 +3,7 @@ import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Match, MatchService}   from './match.service';
 import {Schedule, ScheduleService}   from './schedule.service';
 import {Team, TeamService}   from './team.service';
+import {NgForm} from 'angular2/common';
 
 @Component({
   templateUrl: "app/html/match-form.component.html",
@@ -19,6 +20,7 @@ export class MatchFormComponent {
   idvisitor: number;
   teamlocal: Team;
   teamvisitor: Team;
+  active = true;
 
   constructor(
     private _router:Router,
@@ -73,4 +75,6 @@ export class MatchFormComponent {
     this.service.saveMatch(this.match);
     window.history.back();
   }
+
+  onSubmit() { this.submitted = true; }
 }
