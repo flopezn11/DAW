@@ -20,18 +20,18 @@ Diagrama:
 Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
-<img src="Capturas/desplegable_login.png">
-<img src="Capturas/desplegable_de_equipo.png">
-<img src="Capturas/desplegable_calendario.png">
+<img src="Capturas/Desplegable_login.PNG">
+<img src="Capturas/Despliegue_teams.png">
+<img src="Capturas/Despliegue_calendario.png">
 
 *Equipos:
-<img src="Capturas/Teams.PNG">
+<img src="Capturas/Team.PNG">
 
 *Calendario:               
-<img src="Capturas/calendario.PNG">
+<img src="Capturas/Calendario.PNG">
 
 *Clasificacion:             
-<img src="Capturas/clasificacion.PNG">
+<img src="Capturas/Clasificacion.PNG">
 
 
 Descarga: 
