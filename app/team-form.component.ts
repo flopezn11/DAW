@@ -11,6 +11,7 @@ export class TeamFormComponent {
 
   newTeam: boolean;
   team: Team;
+  active = true;
 
   constructor(
     private _router:Router,
@@ -39,4 +40,6 @@ export class TeamFormComponent {
     this.service.saveTeam(this.team);
     window.history.back();
   }
+
+  onSubmit() { this.submitted = true; }
 }

@@ -14,7 +14,7 @@
                         <h3 class="panel-title">Form to add a new player</h3>
                     </div>
                     <div class="panel-body">
-                        <form name="formplayer" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+                        <form name="formplayer" (ngSubmit)="onSubmit()" #playerForm="ngForm">
                                 <legend>Personal information:</legend>
                                 <div class="col-xs-6">
                                     <p>
@@ -63,7 +63,7 @@
                                       <div class="col-xs-6">
                                           <p>
                                               <b>Goals*:</b>
-                                              <input  ngControl="goals"  #goals="ngForm" [(ngModel)]="player.goals" type='number' class="form-control" name='goals' pattern="[0-9]" placeholder="Goals" id="goals" required>
+                                              <input  ngControl="goals"  #goals="ngForm" [(ngModel)]="player.goals" type='number' class="form-control" pattern="[0-9]{1,2}" name='goals' placeholder="Goals" id="goals" required>
                                           </p>
                                       </div>
                                     </div>
@@ -74,7 +74,7 @@
                                       <div class="col-xs-6">
                                         <p>
                                             <b>Times International*:</b>
-                                            <input [(ngModel)]="player.international" type='number' class="form-control" name='international' pattern="[0-9]" placeholder="International" id="international">
+                                            <input ngControl="international"  #international="ngForm" [(ngModel)]="player.international" type='number' class="form-control" name='international' pattern="[0-9]{1,2}" placeholder="International" id="international">
                                         </p>
                                       </div>
                                     </div>
@@ -83,7 +83,7 @@
                                       <div class="col-xs-6">
                                         <p>
                                             <b>Dorsal*:</b>
-                                            <input ngControl="dorsal"  #dorsal="ngForm" [(ngModel)]="player.dorsal" type='number' class="form-control" name='dorsal' pattern="[0-9]" placeholder="Dorsal" id="dorsal" required>
+                                            <input ngControl="dorsal"  #dorsal="ngForm" [(ngModel)]="player.dorsal" type='number' class="form-control" name='dorsal' pattern="[0-9]{1,2}" placeholder="Dorsal" id="dorsal" required>
                                         </p>
                                       </div>
                                     </div>
@@ -114,8 +114,8 @@
 
                                 <div class="col-xs-6">
                                     <p>
-                                        <b>Video:</b>
-                                        <input [(ngModel)]="player.video" type='text' class="form-control" name='video' placeholder="Video" id="video"/>
+                                        <b>Video*:</b>
+                                        <input ngControl="video"  #video="ngForm" [(ngModel)]="player.video" type='text' class="form-control" name='video' placeholder="Video" id="video" required>
                                     </p>
                                 </div>
 
@@ -125,11 +125,11 @@
                             </div>
 
                             <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
-                                <button [disabled]="!heroForm.form.valid" class="btn btn-default" (click)="save()" type="submit" name='submit'>Submit</button>
+                                <button [disabled]="!playerForm.form.valid" class="btn btn-default" (click)="save()" type="submit" name='submit'>Submit</button>
                             </div>
                         </form>
                         <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
-                            <button (click)="cancel()" name='cancel'>Cancel</button>
+                            <button (click)="cancel()" name='cancel' class="btn btn-default">Cancel</button>
                         </div>
                     </div>
                 </div>

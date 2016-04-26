@@ -35,7 +35,6 @@ export class PlayerService {
     new Player(5, 'Diego', 'Add a biography',  new Team(3, 'Valencia',), 'Alves', 'GoalKeeper', 'app/img/Flags/Spain.png', "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 30, 4),
     new Player(6, 'Keylor', 'Add a biography', new Team(1, 'Real Madrid',), 'Navas', 'GoalKeeper', 'app/img/Flags/Croatia.png', "app/img/Players/Modric.jpg","app/img/PlayersIndex/Modric.jpg", 29, 6),
     new Player(7, 'Claudio', 'Add a biography', new Team(2, 'Barcelona',), 'Bravo', 'GoalKeeper', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 33, 5),
-    new Player(8, 'Jan', 'Add a biography', new Team(2, 'Barcelona',), 'Oblak', 'GoalKeeper', 'app/img/Flags/Argentina.png', "app/img/Players/LeoMessi.jpg","app/img/PlayersIndex/LeoMessi.jpg", 33, 5),
   ];
 
   getPlayers() {
