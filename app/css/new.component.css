@@ -1,11 +1,15 @@
+#breadcrumb {
+    margin-bottom: 0px;
+}
+
 #cuerpo {
-    background-color: white;
+    background-color: #fcffad;
     margin-top: 0px;
     box-shadow: inset 0px 0px 50px -15px rgba(0, 0, 0, 0.75);
 }
 
 #texto h3 {
-    border-bottom: 7px solid #c6c6c6;
+    border-bottom: 7px solid #a8a8a8;
 }
 
 #texto p {

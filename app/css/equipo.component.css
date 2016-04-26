@@ -1,17 +1,17 @@
-h4{
-  color: #6c6c6c;
+h4 {
+    color: #6c6c6c;
 }
 
-#coach{
-  height: 140px;
+#coach {
+    height: 140px;
 }
 
-.page-header img{
-  height: 50px;
+.page-header img {
+    height: 50px;
 }
 
-#opcion4 img{
-  height: 180px;
+#opcion4 img {
+    height: 180px;
 }
 
 .equipacion {
@@ -137,4 +137,12 @@ tr>td>img {
 td a {
     text-decoration: none;
     color: black;
+}
+
+#principal {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
 }

@@ -45,7 +45,7 @@ tr>td>img {
     height: 30px;
 }
 
-tr>td{
+tr>td {
     background-color: white;
 }
 
@@ -71,4 +71,12 @@ tr>td{
 
 #news>h2 {
     border-bottom: 3px solid silver;
+}
+
+#cuerpo {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
 }

@@ -36,10 +36,18 @@
     margin-right: 10px;
 }
 
-.table #imgclasification a{
-  font-size: 18px;
+.table #imgclasification a {
+    font-size: 18px;
 }
 
 #result {
     padding-top: 15px;
+}
+
+#cuerpo {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
 }
