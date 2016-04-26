@@ -37,6 +37,9 @@ Capturas:
 *Clasificacion:             
 <img src="Capturas/clasificacion.PNG">
 
+*Noticias:
+<img src="Capturas/Noticias.PNG">
+
 
 Descarga: 
 
