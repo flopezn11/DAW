@@ -1,12 +1,13 @@
 import {Component}  from 'angular2/core';
 import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Team, TeamService}   from './team.service';
+import {NgForm} from 'angular2/common';
 
 
 @Component({
   templateUrl: "app/html/clasification-form.component.html",
   directives: [ROUTER_DIRECTIVES],
-  styleUrls: ["app/css/match-form.component.css"],
+  styleUrls: ["app/css/clasification-form.component.css"],
 })
 
 export class ClasificationFormComponent {
@@ -14,6 +15,7 @@ export class ClasificationFormComponent {
   points: number;
   teamClasf: Team;
   team: Team;
+  active = true;
 
   constructor(private _router:Router,  routeParams:RouteParams, private teamService: TeamService){
     let id = routeParams.get('id');
@@ -32,5 +34,7 @@ export class ClasificationFormComponent {
     this.teamService.saveTeam(this.team);
     window.history.back();
   }
+
+  onSubmit() { this.submitted = true; }
 
 }

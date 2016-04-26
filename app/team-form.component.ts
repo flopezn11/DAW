@@ -1,6 +1,7 @@
 import {Component}  from 'angular2/core';
 import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Team, TeamService}   from './team.service';
+import {NgForm} from 'angular2/common';
 
 @Component({
   templateUrl: "app/html/team-form.component.html",

@@ -19,7 +19,7 @@
                         <h3 class="panel-title">Form to add a new team</h3>
                     </div>
                     <div class="panel-body">
-                        <form name="formteam" (ngSubmit)="onSubmit()" #playerForm="ngForm" action="#" method="post">
+                        <form name="formteam" (ngSubmit)="onSubmit()" #teamForm="ngForm">
                             <fieldset>
                                 <legend>Sheet football team:</legend>
                                 <div class="col-xs-12 col-lg-7 col-md-7 col-sm-7">
@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
-                                <input [disabled]="!playerForm.form.valid" class="btn btn-default" (click)="save()" type='submit' name='enviar' value='Submit' />
+                                <input [disabled]="!teamForm.form.valid" class="btn btn-default" (click)="save()" type='submit' name='enviar' value='Submit' />
                             </div>
 
                         </form>
