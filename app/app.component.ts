@@ -57,7 +57,8 @@ import {Principal, PrincipalService} from './principal.service';
 export class AppComponent implements OnInit {
 	teams: Team[];
 	schedules: Schedule[];
-    news: News[];
+  news: News[];
+	login: Login[];
 
 		constructor (private router:Router, private service: TeamService, private loginService: LoginService, private scheduleService: ScheduleService, private newsService: NewsService){}
 
@@ -82,6 +83,9 @@ export class AppComponent implements OnInit {
 
 		logIn() {
 			this.loginService.logIn(this.login);
+			if(this.loginService.isLogged == false) {
+				window.alert("El usuario o la contraseña introducidos no son correctos.");
+			}
 		}
 
 		logFuera() {
