@@ -25,15 +25,8 @@ Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
 <img src="Capturas/Desplegable_login.PNG">
-
-
 <img src="Capturas/Despliegue_teams.png">
-
-
 <img src="Capturas/Despliegue_calendario.png">
-
-
-
 
 *Equipos:
 <img src="Capturas/Team.PNG">
