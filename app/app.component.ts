@@ -21,12 +21,13 @@ import {News, NewsService} from './news.service';
 import {NewsDetailComponent} from './news-detail.component';
 import {NewsFormComponent} from './news-form.component';
 import {OrderBy} from "./orderBy";
+import {Principal, PrincipalService} from './principal.service';
 
 
 @Component({
 	selector: 'app',
 	templateUrl: 'app/html/app.component.html',
-	providers: [LoginService, TeamService, PlayerService, ScheduleService, MatchService, NewsService],
+	providers: [LoginService, TeamService, PlayerService, ScheduleService, MatchService, NewsService, PrincipalService],
   directives: [ROUTER_DIRECTIVES],
 	pipes: [OrderBy],
 	changeDetection: ChangeDetectionStrategy.Default,
@@ -47,8 +48,8 @@ import {OrderBy} from "./orderBy";
 	{path: '/schedule/:id', name: 'ScheduleDetail', component: ScheduleDetailComponent},
 	{path: '/match/new', name: 'MatchNew', component: MatchFormComponent},
 	{path: '/match/edit/:id', name: 'MatchEdit', component: MatchFormComponent},
-    {path:'/news', name: 'News', component: NewsComponent},
-    {path: '/news/:id', name: 'NewsDetail', component: NewsDetailComponent},
+  {path:'/news', name: 'News', component: NewsComponent},
+  {path: '/news/:id', name: 'NewsDetail', component: NewsDetailComponent},
 	{path: '/news/new', name: 'NewsNew', component: NewsFormComponent},
 	{path: '/news/edit/:id', name: 'NewsEdit', component: NewsFormComponent},
 ])

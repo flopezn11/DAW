@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#player of players">
-                    <div *ngIf="idplayer1 == player.id" class="panel panel-default">
+                    <div *ngIf="principal.idplayer1 == player.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{player.image}} class="img-circle">
                             <ul>
@@ -102,13 +102,13 @@
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteam1" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteam1" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idplayer1" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                <select [(ngModel)]="principal.idplayer1" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#player of players">
-                    <div *ngIf="idplayer2 == player.id" class="panel panel-default">
+                    <div *ngIf="principal.idplayer2 == player.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{player.image}} class="img-circle">
                             <ul>
@@ -126,13 +126,13 @@
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteam2" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteam2" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idplayer2" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="idteam2==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                <select [(ngModel)]="principal.idplayer2" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam2==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#player of players">
-                    <div *ngIf="idplayer3 == player.id" class="panel panel-default">
+                    <div *ngIf="principal.idplayer3 == player.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{player.image}} class="img-circle">
                             <ul>
@@ -150,13 +150,13 @@
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteam3" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteam3" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idplayer3" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="idteam3==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                <select [(ngModel)]="principal.idplayer3" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam3==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#player of players">
-                    <div *ngIf="idplayer4 == player.id" class="panel panel-default">
+                    <div *ngIf="principal.idplayer4 == player.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{player.image}} class="img-circle">
                             <ul>
@@ -174,13 +174,13 @@
                                 <li><b>Age:</b>{{player.age}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteam4" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteam4" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idplayer4" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="idteam4==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                <select [(ngModel)]="principal.idplayer4" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam4==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -200,7 +200,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#team of teams">
-                    <div *ngIf="idteamm1 == team.id" class="panel panel-default">
+                    <div *ngIf="principal.idteamm1 == team.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{team.imgescudo}}>
                             <ul>
@@ -208,7 +208,7 @@
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteamm1" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteamm1" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#team of teams">
-                    <div *ngIf="idteamm2 == team.id" class="panel panel-default">
+                    <div *ngIf="principal.idteamm2 == team.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{team.imgescudo}}>
                             <ul>
@@ -226,7 +226,7 @@
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteamm2" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteamm2" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#team of teams">
-                    <div *ngIf="idteamm3 == team.id" class="panel panel-default">
+                    <div *ngIf="principal.idteamm3 == team.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{team.imgescudo}}>
                             <ul>
@@ -244,7 +244,7 @@
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteamm3" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteamm3" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
@@ -254,7 +254,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div *ngFor="#team of teams">
-                    <div *ngIf="idteamm4 == team.id" class="panel panel-default">
+                    <div *ngIf="principal.idteamm4 == team.id" class="panel panel-default">
                         <div class="panel-body">
                             <img src={{team.imgescudo}}>
                             <ul>
@@ -262,7 +262,7 @@
                                 <li><b>Coach:</b>{{team.coach}}</li>
                             </ul>
                             <p *ngIf="loginService.isLogged && login.usuario=='admin'">
-                                <select [(ngModel)]="idteamm4" name="local" class="form-control" id="local">
+                                <select [(ngModel)]="principal.idteamm4" name="local" class="form-control" id="local">
                                     <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
                                 </select>
                             </p>
