@@ -20,7 +20,7 @@ Diagrama:
 Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
-<img src="Capturas/Desplegable_login.PNG">
+<img src="Capturas/Desplegable_login.PNG" >
 <img src="Capturas/Despliegue_teams.png">
 <img src="Capturas/Despliegue_calendario.png">
 
@@ -39,7 +39,7 @@ Descarga:
 Recomendamos la siguiente instruccion que ha sido probada en el sistema operativo : Windows
 
 git clone https://github.com/flopezn11/DAW fase2
-
+git clone https://github.com/flopezn11/DAW fase3
 
 Integrantes:
 * Alvaro Parras Gomez -  a.parrasg@alumnos.urjc.es - aparrasg
