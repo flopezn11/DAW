@@ -8,10 +8,14 @@ Gestión de una liga de futbol municipal
 * Información de cada equipo (1)
 * Información de cada jugador (2)
 * Calendario (4)
-* seccion de fotos, comentarios sobre los arbitros (cronicas) (5)
+* Noticias (5)
 
 Parte privada:
-* Los usuarios: pueden realizar cronicas, valoracion de los arbitros, consultar valoraciones de los arbitros, reservar campos de entrenamiento,elegir horarios.
+* Los usuarios se distinguen en dos: 
+
+El administrador: que puede hacer cambios en toda la pagina como: agregar equipo, agregar jugador, editar los puntos de un equipo, editar los resltados de un partido, crear noticias y editarlas o borrarlas
+
+El usuario comun: que solo puede crear noticias o editarlas.
 
 Diagrama:
 
@@ -21,8 +25,15 @@ Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
 <img src="Capturas/Desplegable_login.PNG">
+
+
 <img src="Capturas/Despliegue_teams.png">
+
+
 <img src="Capturas/Despliegue_calendario.png">
+
+
+
 
 *Equipos:
 <img src="Capturas/Team.PNG">
