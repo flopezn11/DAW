@@ -1,0 +1,74 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb" style="margin-bottom: 0px">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li><a id="active">New News</a>
+        </li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new news</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formnews" (ngSubmit)="onSubmit()" #newsForm="ngForm">
+                            <fieldset>
+                                <legend>Content of the news:</legend>
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Title*:</b>
+                                        <input ngControl="title" #name="ngForm" [(ngModel)]="news.title" type='text' class="form-control" name='title' placeholder="Title" id="title" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Subtitle*:</b>
+                                        <input ngControl="subtitle" #name="ngForm" [(ngModel)]="news.subtitle" type='text' class="form-control" name='subtitle' placeholder="Subtitle" id="subtitle" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Author*:</b>
+                                        <input ngControl="author" #name="ngForm" [(ngModel)]="news.author" type='text' class="form-control" name='author' placeholder="Author" id="author" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Image about the news*:</b>
+                                        <input ngControl="imgnews" #name="ngForm" [(ngModel)]="news.imgnews" type='text' class="form-control" name='imgnews' placeholder="Image News" id="imgnews" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-12 col-sm-6">
+                                    <p>
+                                        <b>Description*:</b>
+                                        <textarea ngControl="description" #name="ngForm" [(ngModel)]="news.description" class="form-control" rows="10" name="description" placeholder="Add the content of the news" id="description" required></textarea>
+                                    </p>
+                                </div>
+
+                            </fieldset>
+
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form. All red boxes have to be green</p>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                <button [disabled]="!newsForm.form.valid" class="btn btn-default" (click)="save()" type="submit" name='submit'>Submit</button>
+                            </div>
+
+                        </form>
+                        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
+                            <button class="btn btn-default" (click)="cancel()" name='cancel'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

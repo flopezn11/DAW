@@ -1,0 +1,76 @@
+<div id="principal" class="container">
+        <ol id="breadcrumb">
+            <li>
+                <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+            </li>
+            <li id="raya">/</li>
+            <li><a [routerLink]="['Teams']">Teams</a>
+            </li>
+            <li id="raya">/</li>
+            <li><a [routerLink]="['TeamDetail', {id: player.equipo.id}]">{{player.equipo.fullname}}</a>
+            </li>
+            <li id="raya">/</li>
+            <li id="active">{{player.name}} {{player.lastname}}</li>
+        </ol>
+        <div id="cuerpo">
+            <div class="row">
+              <div class="col-md-8 col-sm-8 col-xs-12">
+                 <h1>Information about player: <small>{{player.name}} {{player.lastname}}</small></h1>
+              </div>
+              <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+                  <button (click)="editPlayer()" id="botonEdit"><img src="app/img/Edit.png"> Edit Team</button>
+              </div>
+              <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+                  <button (click)="removePlayer()" id="botonEliminar"><img src="app/img/Remove.png">Remove Team</button>
+              </div>
+            </div>
+            <div id="jugador">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 hidden-xs">
+                        <img class="img-responsive" src={{player.imagePlayer}} alt="Drogba" width="600" height="450">
+                    </div>
+                    <div class="col-md-9 col-sm-8">
+                        <div id="texto">
+                            <h2>Biography</h2>
+                            <p>
+                                {{player.biography}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Age</b> <p><small>{{player.age}}</small><p></h2>
+                      </div>
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Team</b> <p><small><img src={{player.equipo.imgescudo}}>{{player.equipo.fullname}}</small><p></h2>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h2><b>Nacionality</b> <p><small><img src={{player.nacionality}}></small><p></h2>
+                    </div>
+                    <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h2><b>Goals</b> <p><small>{{player.goals}}</small><p></h2>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Dorsal</b> <p><small>{{player.dorsal}}</small><p></h2>
+                      </div>
+                      <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h2><b>Times International</b> <p><small>{{player.international}}</small><p></h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8 col-md-12 col-sm-12 hidden-xs">
+                    <video height="420" controls>
+                      <source src={{player.video}} type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>

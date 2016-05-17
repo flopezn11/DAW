@@ -1,0 +1,49 @@
+.list-group {
+    margin-top: 20px;
+}
+
+#teamslist{
+  margin-bottom: 20px;
+}
+
+.list-group .img-rounded {
+    width: 55px;
+    margin-right: 20px;
+}
+
+.list-group a {
+    font-size: 20px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+}
+
+.list-group li {
+    font-size: 25px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
+}
+
+#cuerpo {
+    background-color: #fcffad;
+    margin-top: 0px;
+}
+
+#equipos {
+    text-align: center;
+    background-color: #f8c143;
+}
+
+#columnas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#columnas img {
+    height: 50px;
+}
+
+#columnas a {
+    font-size: 25px;
+}

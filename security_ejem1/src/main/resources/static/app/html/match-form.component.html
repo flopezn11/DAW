@@ -1,0 +1,85 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li><a id="active">New Match</a>
+        </li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-2 hidden-sm hidden-xs">
+                <div id="galeria1">
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new match</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formteam" (ngSubmit)="onSubmit()" #matchForm="ngForm">
+                            <fieldset>
+                                <legend>Sheet match:</legend>
+                                <div class="col-xs-12 col-lg-8 col-md-8 col-sm-8">
+                                    <p>
+                                        <b>Date*:</b>
+                                        <input ngControl="date"  #date="ngForm" [(ngModel)]="match.date" type='text' class="form-control" name='date' placeholder="Match date" id="date" required/>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+                                    <p>
+                                        <b>Local*:</b>
+                                        <select ngControl="local"  #local="ngForm" [(ngModel)]="idlocal" name="local" class="form-control" id="local" required>
+                                            <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                        </select>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p>
+                                        <b>Local Result:</b>
+                                        <input [(ngModel)]="match.resultLocal" type='number' class="form-control" pattern="[0-9]{1,2}" name='localResult' placeholder="0" id="localresult">
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+                                    <p>
+                                        <b>Visitor*:</b>
+                                        <select ngControl="visitor"  #visitor="ngForm" [(ngModel)]="idvisitor" name="visitor" class="form-control" id="visitor" required>
+                                            <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                        </select>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p>
+                                        <b>Visitor Result:</b>
+                                        <input [(ngModel)]="match.resultVisitor" type='number' class="form-control" pattern="[0-9]{1,2}" name='visitorResult' placeholder="0" id="visitorresult">
+                                    </p>
+                                </div>
+
+                            </fieldset>
+
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form. All red boxes have to be green</p>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                <input [disabled]="!matchForm.form.valid" class="btn btn-default" (click)="save()" type='submit' name='enviar' value='Submit' />
+                            </div>
+                        </form>
+                        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
+                            <button class="btn btn-default" (click)="cancel()" name='cancel'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 hidden-xs hidden-sm">
+                <div id="galeria2">
+                </div>
+            </div>
+        </div>
+    </div>

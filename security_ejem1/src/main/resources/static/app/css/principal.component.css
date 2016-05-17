@@ -1,0 +1,94 @@
+.img-responsive {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#general {
+    background-color: #fcffad;
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+.panel-heading>h3 {
+    text-align: center;
+}
+
+.panel-body>.col-md-12>img {
+    height: 150px;
+    width: 150px;
+}
+
+#players {
+    background-color: rgba(240, 206, 92, 0.91);
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+.panel-body>img {
+    height: 110px;
+    width: 110px;
+    float: left;
+}
+
+.panel-body>ul>li {
+    list-style: none;
+}
+
+#teams {
+    background-color: #fcffad;
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+#teams img{
+  height: 100px;
+  width: 90px;
+  margin-right: 8px;
+}
+
+
+/*
+.img-responsive {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#general {
+    background-color: #f8c143;
+    box-shadow: 2px 2px 5px #999;
+}
+
+.panel-info {
+    margin: 10px;
+}
+
+.panel-heading {
+    text-align: center;
+}
+
+#carousel-imagenes {
+    margin: 10px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.panel-info .panel-body .img-rounded {
+    position: relative;
+    left: 20px;
+}
+
+.panel-info .panel-body .glyphicon glyphicon-earphone {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+}
+
+.panel-info .panel-body .glyphicon glyphicon-thumbs-up {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+}
+*/

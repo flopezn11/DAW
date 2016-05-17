@@ -1,0 +1,34 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li id="active">News</li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 xs-hidden"></div>
+            <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+                <button (click)="newNews()" id="botonAgregar"><img src="app/img/Add.png"> Add News</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 hidden-xs col-sm-1"></div>
+            <div class="col-md-10 col-xs-12 col-sm-10">
+                <div class="list-group">
+                    <li id="news" class="list-group-item">All news</li>
+                    <div id="columnas" class="col-md-12" *ngFor="#new of news">
+                        <a class="list-group-item" [routerLink]="['NewsDetail', {id: new.id}]"><img src={{new.imgnews}}> {{new.title}}</a>
+                    </div>
+                    <div id="columnas" class="col-md-6">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 hidden-xs col-sm-1">
+            </div>
+        </div>
+    </div>
+</div>

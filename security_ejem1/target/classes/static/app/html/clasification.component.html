@@ -1,0 +1,141 @@
+<div id="principal" class="container">
+        <ol id="breadcrumb">
+            <li>
+                <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+            </li>
+            <li id="raya">/</li>
+            <li id="active">Clasification</li>
+        </ol>
+        <div class="row">
+          <div class="col-md-9 col-sm-9 xs-hidden"></div>
+          <div *ngIf="loginService.isAdmin" class="col-md-1 col-sm-1 col-xs-12">
+            <b>Journey:</b>
+            <select [(ngModel)]="journey" name="visitor" class="form-control" id="visitor">
+                <option *ngFor="#schedule of schedules" value={{schedule.id}}>{{schedule.id}}</option>
+            </select>
+          </div>
+        </div>
+        <div id="cuerpo">
+            <div class="row">
+                <div class="col-md-7 col-xs-12 col-sm-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Clasification</h4>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Teams</th>
+                                    <th>Points</th>
+                                    <th *ngIf="loginService.isAdmin">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="#team of teams; #posicion=index">
+                                    <td> {{posicion + 1}} <img *ngIf = "posicion===0"  class="img-rounded" src="app/img/Trophy.jpg">
+                                    </td>
+                                    <td id="imgclasification">
+                                        <a [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
+                                    </td>
+                                    <td>{{team.points}}</td>
+                                    <td *ngIf="loginService.isAdmin">
+                                      <button (click)="editClasification(team.id)" id="botonEdit"><img src="app/img/Edit.png"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12 col-sm-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Last Journey</h4>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Local</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Visitor</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="#match of matches">
+                                <tr *ngIf="journey == match.schedule.id">
+                                    <td>
+                                        <a [routerLink]="['TeamDetail', {id: match.local.id}]"><img class="img-rounded" src={{match.local.imgescudo}}>{{match.local.fullname}}</a>
+                                    </td>
+                                    <td id="result">
+                                        <h4>{{match.resultLocal}}</h4>
+                                    </td>
+                                    <td id="result">
+                                        <h4>-</h4>
+                                    </td>
+                                    <td id="result">
+                                        <h4>{{match.resultVisitor}}</h4>
+                                    </td>
+                                    <td>
+                                        <a [routerLink]="['TeamDetail', {id: match.visitor.id}]"><img class="img-rounded" src={{match.visitor.imgescudo}}>{{match.visitor.fullname}}</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6 col-sm-6">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4>Leading scorer<img class="img-rounded" src="http://www.pubzi.com/f/182140-sm-182133-soccer-player-kick-ball.png"></h4>
+                                </div>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Player</th>
+                                            <th>Goals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="#player of playerstop | orderBy : '-goals' | firstfour">
+                                        <tr>
+                                            <td>
+                                                <a [routerLink]="['PlayerDetail', {id: player.id}]"><img class="img-rounded" src={{player.image}}>{{player.name}}</a>
+                                            </td>
+                                            <td id="result">{{player.goals}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6 col-sm-6">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4>
+Goalkeeping<img class="img-rounded" src="http://www.lasegundab.es/blog/wp-content/themes/lasegundab/img/iconos/portero.png"></h4>
+                                </div>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Player</th>
+                                            <th>Goals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="#goalkeeper of goalkeepers | orderBy : 'goals' | firstfour">
+                                        <tr>
+                                            <td>
+                                                <a [routerLink]="['PlayerDetail', {id: goalkeeper.id}]"><img class="img-rounded" src={{goalkeeper.image}}>{{goalkeeper.name}}</a>
+                                            </td>
+                                            <td id="result">{{goalkeeper.goals}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

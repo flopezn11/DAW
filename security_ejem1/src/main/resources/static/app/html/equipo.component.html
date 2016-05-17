@@ -1,0 +1,123 @@
+<div id="principal" class="container">
+  <ol id="breadcrumb">
+      <li>
+          <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+      </li>
+      <li id="raya">/</li>
+      <li><a [routerLink]="['Teams']">Teams</a>
+      </li>
+      <li id="raya">/</li>
+      <li id="active">{{team.fullname}}</li>
+  </ol>
+  <div id="cuerpo">
+      <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="page-header">
+                  <h1>Information about teams: <small>{{team.fullname}}</small> <img src="{{team.imgescudo}}"></h1>
+              </div>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="editTeam()" id="botonEdit"><img src="app/img/Edit.png"> Edit Team</button>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="removeTeam()" id="botonEliminar"><img src="app/img/Remove.png"> Remove Team</button>
+          </div>
+          <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
+            <button id="botonAgregar" (click)="newPlayer()"><img src="app/img/Add.png"> Add Player</button>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 col-sm-4 hidden-xs">
+                  <img class="img-responsive" src="{{team.imgequipo}}" alt="Drogba" width="600" height="450">
+              </div>
+              <div class="col-md-9 col-sm-8">
+                  <div id="texto">
+                      <h2>{{team.fullname}}</h2>
+                      <p>
+                          {{team.description}}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="botonesdeCammbio">
+          <button type="button" class="btn btn-success" onclick="mostrar(1)">Players/Staff</button>
+          <button type="button" class="btn btn-success" onclick="mostrar(2)">History</button>
+          <button type="button" class="btn btn-success" onclick="mostrar(3)">Leading scorer</button>
+          <button type="button" class="btn btn-success" onclick="mostrar(4)">
+              Equipment</button>
+      </div>
+      <div id="opcion1">
+          <div class="container2">
+              <div class="row">
+                  <div class="col-md-8 col-sm-8 col-xs-12">
+                      <h3>Players of {{team.fullname}}</h3>
+                      <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Lastname</th>
+                                  <th>Position</th>
+                                  <th class="hidden-xs">Nacionality</th>
+                              </tr>
+                          </thead>
+                          <tbody *ngFor="#player of players">
+                              <tr *ngIf="team.id == player.equipo.id">
+                                <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.name}}</a></td>
+                                <td><a [routerLink]="['PlayerDetail', {id: player.id}]">{{player.lastname}}</a></td>
+                                <td>{{player.position}}</td>
+                                <td class="hidden-xs"><img src={{player.nacionality}}></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                      <h3>{{team.fullname}}'s Coach</h3>
+                      <img id="coach" src={{team.imgcoach}}>
+                      <h4>{{team.coach}}</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="opcion2" style="display:none;">
+          <h1>History, <small>of {{team.fullname}}</small></h1>
+          <p class="text-justify">{{team.history}}</p>
+      </div>
+      <div id="opcion3" style="display:none;">
+          <div class="container2">
+              <div class="row">
+                  <div class="col-md-8 col-xs-6">
+                      <h3>Leading scorer of {{team.fullname}}</h3>
+                      <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>LastName</th>
+                                  <th>Position</th>
+                                  <th>Nacionality</th>
+                                  <th>Goals</th>
+                              </tr>
+                          </thead>
+                          <tbody *ngFor="#player of playerstop | orderBy : '-goals'">
+                              <tr *ngIf="team.id == player.equipo.id">
+                                  <td>{{player.name}}</td>
+                                  <td>{{player.lastname}}</td>
+                                  <td>{{player.position}}</td>
+                                  <td><img src={{player.nacionality}}>
+                                  </td>
+                                  <td>{{player.goals}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="opcion4" style="display:none;">
+          <div class="equipacion">
+              <img src={{team.imgequipment}}>
+          </div>
+      </div>
+  </div>
+</div>

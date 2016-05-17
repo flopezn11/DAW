@@ -1,0 +1,134 @@
+body {
+    margin: 10px;
+    background-image: url(http://www.bastida.biz/WebRoot/StoreES3/Shops/eb7627/4C4F/D4D5/A7AB/1277/8606/D94C/9B1E/E94E/04092gsalmon.jpg);
+}
+
+#principal {
+    height: auto;
+    margin: auto;
+    border-radius: 4px;
+    padding: 0px;
+}
+
+#cabecera {
+    height: 160px;
+    width: 100%;
+}
+
+#cabecera1 {
+    height: 120px;
+    background-color: #f8c143;
+    box-shadow: 2px 2px 5px #999;
+    text-align: center;
+}
+
+#cabecera1>span {
+    position: relative;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+}
+
+#cabecera1>img {
+    position: relative;
+    top: 5px;
+}
+
+#franja {
+    height: 40px;
+    background-color: silver;
+    box-shadow: 2px 2px 5px #999;
+}
+
+#opciones-navegacion {
+    border: 0px;
+    box-shadow: 2px 2px 5px #999;
+}
+
+#opciones-navegacion.navbar.navbar-inverse {
+    margin-bottom: 0px;
+}
+
+#navbarCollapse {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-header .navbar-brand {
+    border-right: 1px solid white;
+}
+
+#navbarCollapse>ul>li>a {
+    border-right: 1px solid white;
+}
+
+#eslogan {
+    box-shadow: 2px 2px 5px #999;
+}
+
+.container .jumbotron {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+#login>img {
+    position: relative;
+    bottom: 12px;
+}
+
+#login>button {
+    position: relative;
+    bottom: 12px;
+}
+
+.img-responsive {
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#general {
+    background-color: #fcffad;
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+.panel-heading>h3 {
+    text-align: center;
+}
+
+.panel-body>.col-md-12>img {
+    height: 150px;
+    width: 150px;
+}
+
+#players {
+    background-color: rgba(240, 206, 92, 0.91);
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+.panel-body>img {
+    height: 110px;
+    width: 110px;
+    float: left;
+}
+
+.panel-body>ul>li {
+    list-style: none;
+}
+
+#teams {
+    background-color: #fcffad;
+    box-shadow: 2px 2px 5px #999;
+    margin: auto;
+}
+
+footer {
+    color: white;
+    background-color: black;
+}

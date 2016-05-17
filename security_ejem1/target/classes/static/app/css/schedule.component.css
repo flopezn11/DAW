@@ -1,0 +1,56 @@
+.btn-group input:hover {
+    background-color: #f0ebd7;
+}
+
+#number-active {
+    background-color: #f2db7e;
+    font-weight: bold;
+}
+
+.panel {
+    margin-top: 20px;
+}
+
+.panel thead {
+    background-color: #d3cfcf;
+}
+
+.panel-heading {
+    text-align: center;
+    background-color: #f8c143;
+}
+
+.panel td {
+    text-align: center;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #d4cbcb;
+}
+
+#time {
+    border-width: 1px 4px 1px 1px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+.panel th {
+    text-align: center;
+}
+
+.table .img-rounded {
+    width: 40px;
+    height: 52px;
+    margin-right: 10px;
+}
+
+#result {
+    padding-top: 15px;
+}
+
+#principal {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
+}

@@ -1,0 +1,87 @@
+#breadcrumb {
+    margin-bottom: 0px;
+}
+
+#cuerpo {
+    background-color: #fcffad;
+    margin-top: 0px;
+    box-shadow: inset 0px 0px 50px -15px rgba(0, 0, 0, 0.75);
+}
+
+#texto h3 {
+    border-bottom: 7px solid #a8a8a8;
+}
+
+#texto p {
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+#contenido img {
+    height: 200px;
+    width: 200px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#botonAgregar>img {
+    width: 40px;
+    height: 40px;
+}
+
+#botonAgregar {
+    background-color: #12be20;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonAgregar:hover {
+    background-color: #72c378;
+}
+
+#botonEliminar>img {
+    width: 40px;
+    height: 40px;
+}
+
+#botonEliminar {
+    background-color: #d94420;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEliminar:hover {
+    background-color: #d07a65;
+}
+
+#botonEdit>img {
+    width: 40px;
+    height: 40px;
+}
+
+#botonEdit {
+    background-color: #9b9a9a;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEdit:hover {
+    background-color: #b9b7b7;
+}

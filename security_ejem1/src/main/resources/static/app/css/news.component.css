@@ -1,0 +1,47 @@
+#cuerpo {
+    background-color: #fcffad;
+    margin-top: 0px;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group .img-rounded {
+    width: 55px;
+    margin-right: 20px;
+}
+
+.list-group a {
+    font-size: 15px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+}
+
+.list-group li {
+    font-size: 15px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+}
+
+#news {
+    text-align: center;
+    background-color: #f8c143;
+    font-size: 25px;
+}
+
+#columnas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#columnas img {
+    height: 50px;
+    width: 50px;
+}
+
+#columnas a {
+    font-size: 20px;
+}

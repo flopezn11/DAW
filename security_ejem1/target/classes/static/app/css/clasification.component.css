@@ -1,0 +1,53 @@
+.panel {
+    margin-top: 20px;
+}
+
+.panel thead {
+    background-color: #d3cfcf;
+}
+
+.panel-heading {
+    text-align: center;
+    background-color: #f8c143;
+}
+
+.panel .panel-heading img {
+    margin-left: 20px;
+    width: 35px;
+}
+
+.panel td {
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: #c7c3c3;
+}
+
+.panel th {
+    text-align: justify;
+}
+
+.table #imgclasification .img-rounded {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.table .img-rounded {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.table #imgclasification a {
+    font-size: 18px;
+}
+
+#result {
+    padding-top: 15px;
+}
+
+#principal {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
+}

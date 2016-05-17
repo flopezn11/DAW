@@ -1,0 +1,143 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li id="active">New Player</li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Form to add a new player</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formplayer" (ngSubmit)="onSubmit()" #playerForm="ngForm">
+                                <legend>Personal information:</legend>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Name*:</b>
+                                        <input ngControl="name"  #name="ngForm" [(ngModel)]="player.name" type='text' class="form-control" name='name' placeholder="Name" id="name" required>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Surnames*:</b>
+                                        <input ngControl="surname"  #surname="ngForm" [(ngModel)]="player.lastname" type='text' class="form-control" name='surnames' placeholder="Surnames" id="surnames" required>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Nacionality*:</b>
+                                        <input ngControl="nacionality"  #nacionality="ngForm" [(ngModel)]="player.nacionality" type='text' class="form-control" name='nacionality' placeholder="Nacionality" id="nacionality" required>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Position*:</b>
+                                        <select ngControl="position"  #position="ngForm" [(ngModel)]="player.position" name="Position" class="form-control" id="position" required>
+                                            <option value="Goalkeeper">Goalkeeper</option>
+                                            <option value="Defense">Defense</option>
+                                            <option value="Midfield">Midfield</option>
+                                            <option value="Forward">Forward</option>
+                                        </select>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                      <div class="col-xs-6">
+                                          <p>
+                                              <b>Age*:</b>
+                                              <input ngControl="age"  #age="ngForm" [(ngModel)]="player.age" type='number' class="form-control" name='age' pattern="[0-9]{2}" min="18" max="99" placeholder="+18" id="age" required>
+                                          </p>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-xs-6">
+                                          <p>
+                                              <b>Goals*:</b>
+                                              <input  ngControl="goals"  #goals="ngForm" [(ngModel)]="player.goals" type='number' class="form-control" pattern="[0-9]{1,2}" name='goals' placeholder="Goals" id="goals" required>
+                                          </p>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                      <div class="col-xs-6">
+                                        <p>
+                                            <b>Times International*:</b>
+                                            <input ngControl="international"  #international="ngForm" [(ngModel)]="player.international" type='number' class="form-control" name='international' pattern="[0-9]{1,2}" placeholder="International" id="international">
+                                        </p>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-xs-6">
+                                        <p>
+                                            <b>Dorsal*:</b>
+                                            <input ngControl="dorsal"  #dorsal="ngForm" [(ngModel)]="player.dorsal" type='number' class="form-control" name='dorsal' pattern="[0-9]{1,2}" placeholder="Dorsal" id="dorsal" required>
+                                        </p>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
+                                    <p>
+                                        <b>Biography:</b>
+                                        <textarea [(ngModel)]="player.biography" class="form-control" rows="5" name="description" placeholder="Add a litte biography" id="description"></textarea>
+                                    </p>
+                                </div>
+
+                                <legend>Gallery:</legend>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Image*:</b>
+                                        <input ngControl="imagep"  #imagep="ngForm" [(ngModel)]="player.imagePlayer" type='text' class="form-control" name='imagePlayer' placeholder="Player Image" id="imagePlayer" required>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Image Index*:</b>
+                                        <input ngControl="index"  #index="ngForm" [(ngModel)]="player.image" type='text' class="form-control" name='imagePlayer' placeholder="Player Image" id="imagePlayer" required>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <p>
+                                        <b>Video*:</b>
+                                        <input ngControl="video"  #video="ngForm" [(ngModel)]="player.video" type='text' class="form-control" name='video' placeholder="Video" id="video" required>
+                                    </p>
+                                </div>
+
+
+                            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>Items marked with * will be required by the form. All red boxes have to be green</p>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                <button [disabled]="!playerForm.form.valid" class="btn btn-default" (click)="save()" type="submit" name='submit'>Submit</button>
+                            </div>
+                        </form>
+                        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-10">
+                            <button (click)="cancel()" name='cancel' class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <div id="galeria">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

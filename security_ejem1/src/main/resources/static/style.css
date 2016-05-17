@@ -1,0 +1,435 @@
+#botonAgregar>img {
+    width: 40px;
+}
+
+#botonAgregar {
+    background-color: #12be20;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonAgregar:hover {
+    background-color: #72c378;
+}
+
+#botonEliminar>img {
+    width: 40px;
+}
+
+#botonEliminar {
+    background-color: #d94420;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEliminar:hover {
+    background-color: #d07a65;
+}
+
+#botonEdit>img {
+    width: 40px;
+}
+
+#botonEdit {
+    background-color: #9b9a9a;
+    display: inline-block;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+    color: white;
+}
+
+#botonEdit:hover {
+    background-color: #b9b7b7;
+}
+
+body {
+    margin: 10px;
+    background-image: url(app/img/Background.jpg);
+}
+
+#principal {
+    height: auto;
+    margin: auto;
+    border-radius: 4px;
+    padding: 0px;
+}
+
+#cabecera {
+    height: 160px;
+    width: 100%;
+}
+
+#cabecera1 {
+    height: 120px;
+    background-color: #f8c143;
+    box-shadow: 2px 2px 5px #999;
+    text-align: center;
+}
+
+#cabecera1>span {
+    position: relative;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+}
+
+#cabecera1>img {
+    position: relative;
+    top: 5px;
+}
+
+#franja {
+    height: 40px;
+    background-color: silver;
+    box-shadow: 2px 2px 5px #999;
+}
+
+#opciones-navegacion {
+    border: 0px;
+    box-shadow: 2px 2px 5px #999;
+}
+
+#opciones-navegacion.navbar.navbar-inverse {
+    margin-bottom: 0px;
+}
+
+#navbarCollapse {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-header .navbar-brand {
+    border-right: 1px solid white;
+}
+
+#navbarCollapse>ul>li>a {
+    border-right: 1px solid white;
+}
+
+#eslogan {
+    box-shadow: 2px 2px 5px #999;
+}
+
+.container .jumbotron {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+
+/**/
+
+#navbarCollapse ul li:hover ul {
+    display: block;
+}
+
+#navbarCollapse a:hover {
+    color: #f2f4f5;
+}
+
+#conferencia a:hover {
+    color: black;
+}
+
+#navbarCollapse>ul>li>ul {
+    display: none;
+    font-weight: normal;
+    float: left;
+    z-index: 1;
+    position: absolute;
+    top: 50.2px;
+    width: 30.0em;
+}
+
+#teamsnav>ul>li {
+    background-color: #211f1f;
+    border-bottom: 2px solid #c6c6c6;
+    border-left: 2px solid #c6c6c6;
+    border-right: 2px solid #c6c6c6;
+    width: 200px;
+}
+
+#teamsnav>ul>li>a {
+    text-decoration: none;
+    padding: 4px 6px 4px 13px;
+    font-weight: bold;
+    display: block;
+    text-align: justify;
+}
+
+#teamsnav img{
+  height: 30px;
+  width: 35px;
+}
+
+#rounded1 {
+    border-radius: 0px 0px 0px 15px;
+}
+
+#rounded2 {
+    border-radius: 0px 0px 15px 0px;
+}
+
+#conferenciaEste>a {
+    background-color: #b2efbb;
+    color: #0f7c1c;
+}
+
+#conferenciaEste>a:hover {
+    color: #0f7c1c;
+}
+
+#conferenciaOeste>a {
+    background-color: #ebaaa5;
+    color: #861212;
+}
+
+#conferenciaOeste>a:hover {
+    color: #861212;
+}
+
+#navbarCollapse .img-rounded {
+    width: 30px;
+    padding-right: 8px;
+}
+
+#schedule>ul>#numeros {
+    background-color: #211f1f;
+    border-bottom: 1px solid #c6c6c6;
+    border-left: 1px solid #c6c6c6;
+    border-right: 1px solid #c6c6c6;
+    width: 40px;
+}
+
+#rounds {
+    background-color: #dda715;
+    border-bottom: 1px solid #c6c6c6;
+    border-left: 1px solid #c6c6c6;
+    border-right: 1px solid #c6c6c6;
+    width: 200px;
+}
+
+#rounds>a {
+    color: black;
+}
+
+#rounds>a:hover {
+    color: black;
+}
+
+#schedule>ul>li>a {
+    text-decoration: none;
+    padding: 4px 6px 4px 13px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+
+/**/
+
+#login>img {
+    position: relative;
+    bottom: 12px;
+}
+
+#login>button {
+    position: relative;
+    bottom: 12px;
+}
+
+#breadcrumb {
+    list-style: none;
+    display: flex;
+    padding-left: 0px;
+    background-color: #deebf7;
+}
+
+#breadcrumb li {
+    padding: 10px;
+    font-weight: bold;
+}
+
+#breadcrumb img {
+    width: 10px;
+    margin-right: 8px;
+}
+
+#active {
+    color: #716d6d;
+}
+
+#raya {
+    color: #acacac;
+}
+
+#inicio-sesion {
+    display: flex;
+}
+
+#text-inicio-sesion {
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+#footer {
+    color: white;
+    background-color: black;
+}
+
+#loginContainer {
+    position: relative;
+    font-size: 12px;
+    bottom: 49px;
+    left: 41px;
+}
+
+#loginButton {
+    display: inline-block;
+    background: #0992e8;
+    border: 1px solid #899caa;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    font-style: none;
+}
+
+#loginButton span {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 17px 8px 10px;
+    display: block
+}
+
+#loginButton:hover {
+    background-color: #54a2ef;
+    font-style: none;
+}
+
+#loginBox {
+    position: absolute;
+    top: 37px;
+    display: none;
+    z-index: 29;
+}
+
+#loginButton.active {
+    border-radius: 3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position: 53px -76px;
+}
+
+#loginButton.active em {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #d2e0ea;
+    bottom: -1px;
+}
+
+#loginForm {
+    width: 248px;
+    border: 1px solid #899caa;
+    border-radius: 3px 3px 3px 3px;
+    margin-top: -1px;
+    background: #d2e0ea;
+    padding: 6px;
+}
+
+#loginForm fieldset {
+    margin: 0px 0px 12px 0px;
+    display: block;
+    border: 0px;
+    padding: 0px;
+}
+
+fieldset#body {
+    background: #fff;
+    border-radius: 3px;
+    padding: 10px 13px;
+    margin: 0px;
+}
+
+#loginForm #checkbox {
+    width: auto;
+    margin: 1px 9px 0px 0px;
+    float: left;
+    padding: 0;
+    border: 0px;
+}
+
+#body label {
+    color: #3a454d;
+    margin: 9px 0px 0px 0px;
+    display: block;
+    float: left;
+}
+
+#loginForm #body fieldset label {
+    display: block;
+    float: none;
+    margin: 0 0 6px 0;
+}
+
+#loginForm input {
+    width: 92%;
+    border: 1px solid #899caa;
+    border-radius: 3px;
+    color: #3a454d;
+    font-weight: bold;
+    padding: 8px 8px;
+    box-shadow: inset 0px 1px 3px #bbb;
+    font-size: 12px;
+}
+
+#loginForm #login {
+    width: auto;
+    float: left;
+    background: #339cdf;
+    color: #fff;
+    padding: 7px 10px 8px 10px;
+    text-shadow: 0px -1px #278db8;
+    border: 1px solid #339cdf;
+    box-shadow: none;
+    margin: 0 12px 0 0;
+    cursor: pointer;
+}
+
+#loginForm #login:hover {
+    background-color: #6fbbeb;
+}
+
+#loginForm span {
+    text-align: center;
+    display: block;
+    padding: 7px 0 4px 0;
+}
+
+#loginForm span a {
+    color: #3a454d;
+    text-shadow: 1px 1px #fff;
+    font-size: 12px;
+}
+
+input:focus {
+    outline: none;
+}

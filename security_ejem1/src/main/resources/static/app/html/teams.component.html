@@ -1,0 +1,33 @@
+<div id="principal" class="container">
+    <ol id="breadcrumb">
+        <li>
+            <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+        </li>
+        <li id="raya">/</li>
+        <li id="active">Teams</li>
+    </ol>
+    <div id="cuerpo">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 xs-hidden"></div>
+            <div *ngIf="loginService.isAdmin" class="col-md-2 col-sm-2 col-xs-12">
+                <button (click)="newTeam()" id="botonAgregar"><img src="app/img/Add.png"> Add Team</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 hidden-xs col-sm-1"></div>
+            <div id="teamslist" class="col-md-10 col-xs-12 col-sm-10">
+                <div class="list-group">
+                    <li id="equipos" class="list-group-item">League's teams</li>
+                    <div id="columnas" class="col-md-6" *ngFor="#team of teams">
+                        <a class="list-group-item" [routerLink]="['TeamDetail', {id: team.id}]"><img src={{team.imgescudo}}> {{team.fullname}}</a>
+                    </div>
+                    <div id="columnas" class="col-md-6">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 hidden-xs col-sm-1"></div>
+        </div>
+    </div>
+</div>

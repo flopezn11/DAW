@@ -1,0 +1,82 @@
+.container .page-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.page-header>h1 {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-size: 27px;
+}
+
+#texto>h2 {
+    border-bottom: 3px solid silver;
+}
+
+#texto>p {
+    font-family: "trebuchet ms", "arial", sans-serif;
+    font-size: 16px;
+}
+
+#info>h2>b {
+    border-bottom: 3px solid silver;
+}
+
+#info h2 img {
+    height: 30px;
+    margin-right: 8px;
+}
+
+#info h2 p {
+    margin-top: 8px;
+}
+
+.table-bordered {
+    text-align: center;
+}
+
+.table-bordered>thead>tr>th {
+    text-align: center;
+    background-color: #f8c143;
+}
+
+tr>td>img {
+    width: 30px;
+    height: 30px;
+}
+
+tr>td {
+    background-color: white;
+}
+
+#career>h2 {
+    border-bottom: 3px solid silver;
+}
+
+#statistics>h2 {
+    border-bottom: 3px solid silver;
+}
+
+.table-bordered>tbody>tr>th {
+    text-align: center;
+}
+
+#trophies>h2 {
+    border-bottom: 3px solid silver;
+}
+
+#gallery>h2 {
+    border-bottom: 3px solid silver;
+}
+
+#news>h2 {
+    border-bottom: 3px solid silver;
+}
+
+#cuerpo {
+    background-color: #fcffad;
+}
+
+#breadcrumb {
+    margin-bottom: 0px;
+}

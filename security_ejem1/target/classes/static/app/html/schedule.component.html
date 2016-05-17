@@ -1,0 +1,74 @@
+<div id="principal" class="container">
+        <ol id="breadcrumb">
+            <li>
+                <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
+            </li>
+            <li id="raya">/</li>
+            <li id="active">Schedule: Journey {{schedule.id}}</li>
+        </ol>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 xs-hidden"></div>
+          <div *ngIf="loginService.isAdmin" class="col-md-2 col-sm-2 col-xs-12">
+              <button (click)="removeSchedule()" id="botonEliminar"><img src="app/img/Remove.png">Remove Schedule</button>
+          </div>
+          <div *ngIf="loginService.isAdmin" class="col-md-2 col-sm-2 col-xs-12">
+            <button (click)="save()" id="botonAgregar"><img src="app/img/Add.png"> Add Schedule</button>
+          </div>
+          <div *ngIf="loginService.isAdmin" class="col-md-2 col-sm-2 col-xs-12">
+            <button (click)="newMatch()" id="botonAgregar"><img src="app/img/Add.png"> Add Match</button>
+          </div>
+        </div>
+        <div id="cuerpo">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <span>Journeys:</span>
+                    <div class="btn-group" role="group" aria-label="Primera vuelta" *ngFor="#schedulefor of schedules">
+                        <button (click)="gotoSchedule(schedulefor)" type="button" class="btn btn-default">{{schedulefor.id}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>Journey {{schedule.id}}</h4>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Local</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>Visitor</th>
+                            <th *ngIf="loginService.isLogged"></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="#match of matches">
+                        <tr *ngIf="schedule.id == match.schedule.id">
+                            <td id="time"><span>{{match.date}}</span></td>
+                            <td>
+                                <a [routerLink]="['TeamDetail', {id: match.local.id}]"><img class="img-rounded" src={{match.local.imgescudo}}>{{match.local.fullname}}</a>
+                            </td>
+                            <td id="result">
+                                <h4>{{match.resultLocal}}</h4>
+                            </td>
+                            <td id="result">
+                                <h4>-</h4>
+                            </td>
+                            <td id="result">
+                                <h4>{{match.resultVisitor}}</h4>
+                            </td>
+                            <td>
+                                <a [routerLink]="['TeamDetail', {id: match.visitor.id}]"><img class="img-rounded" src={{match.visitor.imgescudo}}>{{match.visitor.fullname}}</a>
+                            </td>
+                            <td *ngIf="loginService.isAdmin">
+                              <button (click)="removeMatch(match)" id="botonEliminar"><img src="app/img/Remove.png"></button>
+                              <button (click)="editMatch(match.id)" id="botonEdit"><img src="app/img/Edit.png"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

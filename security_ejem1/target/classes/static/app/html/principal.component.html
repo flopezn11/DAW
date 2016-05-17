@@ -1,0 +1,276 @@
+<div id="principal" class="container">
+    <section id="eslogan">
+        <div class="jumbotron hidden-xs">
+            <h2>WELCOME TO MAJOR LEAGUE FOOTBALL WEBPAGE</h2>
+            <p>MLF is a website where you can add your own team, your players and know all the news about your favorite team.</p>
+        </div>
+    </section>
+    <section id="general">
+        <div class="container">
+            <div class="page-header">
+                <div id="header">
+                    <h3>Participate in our league: <small>On this website you can find information about:</small></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rgba(59, 145, 229, 0.85)">
+                            <h3><b>Teams</b></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <img src="app/img/Teams.png" class="img-responsive">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="background-color:rgba(59, 145, 229, 0.85)">
+                            <h5><b>Enjoy our services and add your own team to the league.</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rgba(20, 206, 85, 0.78)">
+                            <h3><b>Football players</b></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <img src="app/img/FootballPlayers.png" class="img-responsive">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="background-color:rgba(20, 206, 85, 0.78)">
+                            <h5><b>Become the best football player and lead your team to victory.</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rgba(239, 67, 74, 0.78)">
+                            <h3><b>Matches</b></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <img src="app/img/Matches.png" class="img-responsive">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="background-color:rgba(239, 67, 74, 0.78)">
+                            <h5><b>Schedules , results and more about all the teams in our league</b></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rgba(163, 125, 208, 0.94)">
+                            <h3><b>News Forum</b></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <img src="app/img/NewsForum.png" class="img-responsive">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="background-color:rgba(163, 125, 208, 0.94)">
+                            <h5><b>Add and read news about your team and your players.</b></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="players" class="hidden-xs">
+        <div class="container">
+            <div class="page-header">
+                <div id="header2">
+                    <h3>Some of players in our league: <small>Become one of the them</small></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#player of players">
+                    <div *ngIf="principal.idplayer1 == player.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{player.image}} class="img-circle">
+                            <ul>
+                                <li><b>Name:</b>{{player.name}} {{player.lastname}}</li>
+                                <li><b>Team:</b>{{player.equipo.fullname}}</li>
+                                <li><b>Age:</b>{{player.age}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteam1" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idplayer1" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#player of players">
+                    <div *ngIf="principal.idplayer2 == player.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{player.image}} class="img-circle">
+                            <ul>
+                                <li><b>Name:</b>{{player.name}} {{player.lastname}}</li>
+                                <li><b>Team:</b>{{player.equipo.fullname}}</li>
+                                <li><b>Age:</b>{{player.age}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteam2" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idplayer2" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam2==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#player of players">
+                    <div *ngIf="principal.idplayer3 == player.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{player.image}} class="img-circle">
+                            <ul>
+                                <li><b>Name:</b>{{player.name}} {{player.lastname}}</li>
+                                <li><b>Team:</b>{{player.equipo.fullname}}</li>
+                                <li><b>Age:</b>{{player.age}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteam3" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idplayer3" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam3==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#player of players">
+                    <div *ngIf="principal.idplayer4 == player.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{player.image}} class="img-circle">
+                            <ul>
+                                <li><b>Name:</b>{{player.name}} {{player.lastname}}</li>
+                                <li><b>Team:</b>{{player.equipo.fullname}}</li>
+                                <li><b>Age:</b>{{player.age}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteam4" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idplayer4" name="local" class="form-control" id="local">
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam4==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="teams" class="hidden-xs">
+        <div class="container">
+            <div class="page-header">
+                <div id="header">
+                    <h3>Some of teams in our league: <small>Turn your football team in one of these.</small></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#team of teams">
+                    <div *ngIf="principal.idteamm1 == team.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{team.imgescudo}}>
+                            <ul>
+                                <li><b>Name:</b>{{team.fullname}}</li>
+                                <li><b>Coach:</b>{{team.coach}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteamm1" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#team of teams">
+                    <div *ngIf="principal.idteamm2 == team.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{team.imgescudo}}>
+                            <ul>
+                                <li><b>Name:</b>{{team.fullname}}</li>
+                                <li><b>Coach:</b>{{team.coach}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteamm2" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#team of teams">
+                    <div *ngIf="principal.idteamm3 == team.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{team.imgescudo}}>
+                            <ul>
+                                <li><b>Name:</b>{{team.fullname}}</li>
+                                <li><b>Coach:</b>{{team.coach}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteamm3" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div *ngFor="#team of teams">
+                    <div *ngIf="principal.idteamm4 == team.id" class="panel panel-default">
+                        <div class="panel-body">
+                            <img src={{team.imgescudo}}>
+                            <ul>
+                                <li><b>Name:</b>{{team.fullname}}</li>
+                                <li><b>Coach:</b>{{team.coach}}</li>
+                            </ul>
+                            <p *ngIf="loginService.isAdmin">
+                                <select [(ngModel)]="principal.idteamm4" name="local" class="form-control" id="local">
+                                    <option *ngFor="#team of teams" value={{team.id}}>{{team.fullname}}</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
