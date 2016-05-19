@@ -13,6 +13,7 @@ export class TeamFormComponent {
   newTeam: boolean;
   team: Team;
   active = true;
+  ids: number;
 
   constructor(
     private _router:Router,
@@ -20,6 +21,7 @@ export class TeamFormComponent {
     private service: TeamService){
 
       let id = routeParams.get('id');
+      this.ids = routeParams.get('id');
       if(id){
         service.getTeam(id).subscribe(
           team => this.team = team,
@@ -38,7 +40,11 @@ export class TeamFormComponent {
 
   save() {
     this.team.points = 0;
-    this.service.saveTeam(this.team);
+    if(this.ids){
+    	this.service.updateTeam(this.team);
+    }else{
+    	this.service.saveTeam(this.team);
+    }
     window.history.back();
   }
 

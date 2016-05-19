@@ -1,68 +1,82 @@
 import {Injectable} from 'angular2/core';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {withObserver} from './utils';
+import 'rxjs/Rx';
 
-export class Team {
-
-  constructor(
-    public id: number,
-    public fullname: string,
-    public imgescudo: string,
-    public imgequipo: string,
-    public imgequipment: string,
-    public imgcoach: string,
-    public coach: string,
-    public description: string,
-    public history: string,
-    public points: number,
-    ) {}
-
+export interface Team {
+    id?: number;
+    fullname: string;
+    imgescudo: string;
+    imgequipo: string;
+    imgequipment: string;
+    imgcoach: string;
+    coach: string;
+    description: string;
+    history: string;
+    points: number;
 }
+
+const URL = 'teams/';
 
 @Injectable()
 export class TeamService {
 
-  private teams = [
-  	new Team(1, 'Real Madrid', 'app/img/Shields/ShieldRealMadrid.png', 'app/img/Lineups/LineupRealMadrid.jpg', "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" "Zinedine Zidane", 'Add description', 'Add history',2),
-  	new Team(2, 'Barcelona','app/img/Shields/ShieldBarcelona.png', 'app/img/Lineups/LineupBarcelona.jpg', "app/img/Equipments/EquipmentBarcelona.png", "app/img/Coaches/LuisEnrique.jpg", "Luis Enrique", 'Add description', "Add history",1),
-  	new Team(3, 'Valencia', 'app/img/Shields/ShieldValencia.png', 'app/img/Lineups/LineupValencia.jpg', "app/img/Equipments/EquipmentValencia.png", "app/img/Coaches/Ayestaran.jpg", "Pako Ayestaran", 'Add description', 'Add history',5),
-  ];
+  constructor(private http: Http) { }
 
   getTeams() {
-    return withObserver(this.teams);
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
-
+  
   getTeam(id: number | string) {
-    let team = this.teams.filter(h => h.id === +id)[0]
-    return withObserver(new Team(team.id, team.fullname, team.imgescudo, team.imgequipo, team.imgequipment, team.imgcoach, team.coach, team.description, team.history));
+	    return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
 
-  removeTeam(team: Team){
-    for(let i=0; i<this.teams.length; i++){
-        if(this.teams[i].id === team.id){
-          this.teams.splice(i,1);
-          break;
-        }
-    }
-    return withObserver(undefined);
+  saveTeam(team: Team) {
+
+    let body = JSON.stringify(book);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.post(URL, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
-  saveTeam(team: Team){
-    if(team.id){
-      let oldTeam = this.teams.filter(h => h.id === team.id)[0];
-      oldTeam.fullname = team.fullname;
-      oldTeam.imgescudo = team.imgescudo;
-      oldTeam.imgequipo = team.imgequipo;
-      oldTeam.imgequipment = team.imgequipment;
-      oldTeam.imgcoach = team.imgcoach;
-      oldTeam.coach = team.coach;
-      oldTeam.description = team.description;
-      oldTeam.history = team.history;
-      oldTeam.points = team.points;
-    } else {
-      team.id = this.teams.length+1;
-      this.teams.push(team);
-    }
-    return withObserver(team);
+  removeTeam(team: Team) {	  
+	  
+	let headers = new Headers({
+	   'X-Requested-With': 'XMLHttpRequest'
+	});
+	let options = new RequestOptions({ headers });  
+	  
+    return this.http.delete(URL + team.id, options)
+      .map(response => undefined)
+      .catch(error => this.handleError(error));
   }
+
+  updateTeam(team: Team) {
+
+    let body = JSON.stringify(book);
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(URL + team.id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+    }
+
+    private handleError(error: any){
+      console.error(error);
+      return Observable.throw("Server error (" + error.status + "): " + error.text())
+    }
 }

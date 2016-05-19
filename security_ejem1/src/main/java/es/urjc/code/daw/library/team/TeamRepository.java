@@ -1,0 +1,7 @@
+package es.urjc.code.daw.library.team;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeamRepository extends JpaRepository<Team, Long> {
+
+}

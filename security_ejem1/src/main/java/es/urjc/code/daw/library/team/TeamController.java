@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.book;
+package es.urjc.code.daw.library.team;
 
 import java.util.Collection;
 
@@ -14,33 +14,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.urjc.code.daw.library.user.UserComponent;
-
 @RestController
-@RequestMapping("/books")
-public class BookController {
+@RequestMapping("/teams")
+public class TeamController {
 
-	private static final Logger log = LoggerFactory.getLogger(BookController.class);
+	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
 
 	@Autowired
-	private BookRepository repository;
-	
-	@Autowired
-	private UserComponent user;
+	private TeamRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Book> getBooks() {
+	public Collection<Team> getTeams() {
 		return repository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Book> getAnuncio(@PathVariable long id) {
+	public ResponseEntity<Team> getTeam(@PathVariable long id) {
 
-		log.info("Get book {}", id);
+		log.info("Get team {}", id);
 
-		Book anuncio = repository.findOne(id);
-		if (anuncio != null) {
-			return new ResponseEntity<>(anuncio, HttpStatus.OK);
+		Team team = repository.findOne(id);
+		if (team != null) {
+			return new ResponseEntity<>(team, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -48,34 +43,30 @@ public class BookController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Book nuevoAnuncio(@RequestBody Book anuncio) {
+	public Team newTeam(@RequestBody Team team) {
 
-		repository.save(anuncio);
+		repository.save(team);
 
-		return anuncio;
+		return team;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Book> actulizaAnuncio(@PathVariable long id, @RequestBody Book updatedBook) {
+	public ResponseEntity<Team> updateTeam(@PathVariable long id, @RequestBody Team updatedTeam) {
 
-		if(user.getLoggedUser().getName().equals("xx")){
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
-		
-		Book anuncio = repository.findOne(id);
-		if (anuncio != null) {
+		Team team = repository.findOne(id);
+		if (team != null) {
 
-			updatedBook.setId(id);
-			repository.save(updatedBook);
+			updatedTeam.setId(id);
+			repository.save(updatedTeam);
 
-			return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+			return new ResponseEntity<>(updatedTeam, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Book> borraAnuncio(@PathVariable long id) {
+	public ResponseEntity<Team> deleteTeam(@PathVariable long id) {
 
 		if (repository.exists(id)) {
 			repository.delete(id);
