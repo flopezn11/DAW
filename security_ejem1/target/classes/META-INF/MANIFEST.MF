@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: Probamos
 Implementation-Version: 0.1.0
 Built-By: ￃﾁlvaro Parras
+Built-By: Victor
 Implementation-Vendor-Id: es.sidelab
 Build-Jdk: 1.8.0_91
 Created-By: Maven Integration for Eclipse
