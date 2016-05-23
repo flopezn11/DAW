@@ -1,5 +1,6 @@
 package es.urjc.code.daw.library.team;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import javax.persistence.*;
 
 import es.urjc.code.daw.library.player.Player;
 
@@ -32,12 +35,15 @@ public class Team {
     
     public int points;
     
+    //@OneToMany(cascade = CascadeType.ALL,
+    		//mappedBy = "team", orphanRemoval = true)
     @OneToMany(mappedBy = "team")
-    private List<Player> players;
+    private List<Player> players = new ArrayList<>();
 
-	public Team() {}
-
-	
+	public Team() {
+		super();
+		//players = new ArrayList<Player>();
+	}
 
 	public Team(String fullname, String imgescudo, String imgequipo, String imgequipment, String imgcoach,
 			String coach, String description, String history, int points) {
@@ -51,6 +57,7 @@ public class Team {
 		this.description = description;
 		this.history = history;
 		this.points = points;
+		//players = new ArrayList <Player>();
 	}
 
 
@@ -126,6 +133,11 @@ public class Team {
 	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
+	
+	public void addPlayer(Player f) {
+		 
+        players.add(f);
+    }
 
 	public String getDescription() {
 		return description;

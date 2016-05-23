@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import javax.persistence.*;
+
 import es.urjc.code.daw.library.team.Team;
 
 @Entity
@@ -14,13 +16,14 @@ public class Player {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id = -1;
 	
 	private String name;
 	@Column(length = 50000)
 	private String biography;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	//@ManyToOne
 	private Team team;
 	
 	private String lastname;
@@ -34,11 +37,14 @@ public class Player {
 	private int dorsal;
 	private String video;
 	
-	public Player() {}
+	public Player() {
+		super();
+	}
 
 	public Player(String name, String biography, String lastname, String position,
 			String nacionality, String imagePlayer, String image, int age, int goals, int international, int dorsal,
 			String video) {
+		super();
 		this.name = name;
 		this.biography = biography;
 		this.lastname = lastname;

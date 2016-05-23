@@ -32,7 +32,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 		// Sample teams
 
-		Team madrid = new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", "app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history",2);
+		Team madrid = new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", 
+						"app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", 
+						"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history",2);
 		teamRepository.save (madrid);
 		
 		// Samples Players
@@ -40,7 +42,17 @@ public class DatabaseInitializer implements CommandLineRunner {
 						"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
 						31, 32, 90, 7, "app/Video/Cristiano.mp4");
 		p1.setTeam(madrid);
+		//madrid.addPlayer(p1);
+		//teamRepository.save(madrid);
+		
 		playerRepository.save(p1);
+		
+		
+		
+		//madrid.getPlayers().add(p1);
+		/*playerRepository.save(new Player("Cristiano", "Add a biography", madrid ,
+				"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
+				31, 32, 90, 7, "app/Video/Cristiano.mp4"));*/
 		
 		
 		// Sample users
