@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import es.urjc.code.daw.library.player.Player;
+
 @Entity
 public class Team {
 
@@ -30,8 +32,8 @@ public class Team {
     
     public int points;
     
-    //@OneToMany(mappedBy = "team")
-    //private List<Player> players;
+    @OneToMany(mappedBy = "team")
+    private List<Player> players;
 
 	public Team() {}
 
@@ -117,13 +119,13 @@ public class Team {
 		this.points = points;
 	}
 
-	/*public List<Player> getPlayers() {
+	public List<Player> getPlayers() {
 		return players;
 	}
 
 	public void setPlayers(List<Player> players) {
 		this.players = players;
-	}*/
+	}
 
 	public String getDescription() {
 		return description;

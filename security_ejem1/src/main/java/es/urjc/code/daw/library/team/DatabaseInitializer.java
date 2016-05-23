@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 
 import es.urjc.code.daw.library.news.News;
 import es.urjc.code.daw.library.news.NewsRepository;
+import es.urjc.code.daw.library.player.Player;
+import es.urjc.code.daw.library.player.PlayerRepository;
 import es.urjc.code.daw.library.user.User;
 import es.urjc.code.daw.library.user.UserRepository;
 
@@ -20,6 +22,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 	private TeamRepository teamRepository;
 	
 	@Autowired
+	private PlayerRepository playerRepository;
+	
+	@Autowired
 	private NewsRepository newsRepository;
 
 	@Override
@@ -27,8 +32,17 @@ public class DatabaseInitializer implements CommandLineRunner {
 
 		// Sample teams
 
-		teamRepository.save(new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", "app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history",2));
-
+		Team madrid = new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", "app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", "app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history",2);
+		teamRepository.save (madrid);
+		
+		// Samples Players
+		Player p1 = new Player("Cristiano", "Add a biography",
+						"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
+						31, 32, 90, 7, "app/Video/Cristiano.mp4");
+		p1.setTeam(madrid);
+		playerRepository.save(p1);
+		
+		
 		// Sample users
 
 		userRepository.save(new User("user", "pass", "ROLE_USER"));

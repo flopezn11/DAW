@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import es.urjc.code.daw.library.team.Team;
-import es.urjc.code.daw.library.user.User;
 
 @Entity
 public class Player {
@@ -37,14 +36,11 @@ public class Player {
 	
 	public Player() {}
 
-	public Player(long id, String name, String biography, Team team, String lastname, String position,
+	public Player(String name, String biography, String lastname, String position,
 			String nacionality, String imagePlayer, String image, int age, int goals, int international, int dorsal,
 			String video) {
-		super();
-		this.id = id;
 		this.name = name;
 		this.biography = biography;
-		this.team = team;
 		this.lastname = lastname;
 		this.position = position;
 		this.nacionality = nacionality;

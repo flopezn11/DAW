@@ -17,7 +17,7 @@ export class TeamDetailComponent implements OnInit {
     playerstop: Player[];
     team: Team;
 
-    constructor(private router: Router, routeParams: RouteParams, private service: TeamService, private playerservice: PlayerService, private loginService: LoginService) {
+    constructor(private router: Router, routeParams: RouteParams, private service: TeamService, private playerService: PlayerService, private loginService: LoginService) {
         let id = routeParams.get('id');
         service.getTeam(id).subscribe(
             team => this.team = team,
@@ -26,7 +26,7 @@ export class TeamDetailComponent implements OnInit {
     }
 
     ngOnInit(){
-        this.playerservice.getPlayers().subscribe(
+        this.playerService.getPlayers().subscribe(
           players => this.players = players,
           error => console.log(error)
         );

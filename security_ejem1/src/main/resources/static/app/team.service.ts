@@ -35,7 +35,7 @@ export class TeamService {
 	      .catch(error => this.handleError(error));
   }
 
-  saveTeam(team: Team) {
+  saveTeam(book: Team) {
 
     let body = JSON.stringify(book);
     let headers = new Headers({
@@ -49,7 +49,7 @@ export class TeamService {
       .catch(error => this.handleError(error));
   }
 
-  removeTeam(team: Team) {	  
+  removeTeam(book: Team) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
@@ -61,7 +61,7 @@ export class TeamService {
       .catch(error => this.handleError(error));
   }
 
-  updateTeam(team: Team) {
+  updateTeam(book: Team) {
 
     let body = JSON.stringify(book);
     let headers = new Headers({

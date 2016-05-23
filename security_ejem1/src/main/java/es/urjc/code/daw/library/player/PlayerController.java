@@ -21,11 +21,11 @@ public class PlayerController {
 	private static final Logger log = LoggerFactory.getLogger(PlayerController.class);
 
 	@Autowired
-	private PlayerRepository playerRepository;
+	private PlayerRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Player> getPlayers() {
-		return playerRepository.findAll();
+		return repository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -33,7 +33,7 @@ public class PlayerController {
 
 		log.info("Get player {}", id);
 
-		Player player = playerRepository.findOne(id);
+		Player player = repository.findOne(id);
 		if (player != null) {
 			return new ResponseEntity<>(player, HttpStatus.OK);
 		} else {
@@ -45,18 +45,18 @@ public class PlayerController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Player newPlayer(@RequestBody Player player) {
 
-		playerRepository.save(player);
+		repository.save(player);
 		return player;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Player> updatePlayer(@PathVariable long id, @RequestBody Player updatedPlayer) {
 
-		Player player = playerRepository.findOne(id);
+		Player player = repository.findOne(id);
 		if (player != null) {
 
 			updatedPlayer.setId(id);
-			playerRepository.save(updatedPlayer);
+			repository.save(updatedPlayer);
 
 			return new ResponseEntity<>(updatedPlayer, HttpStatus.OK);
 		} else {
@@ -67,8 +67,8 @@ public class PlayerController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Player> deletePlayer(@PathVariable long id) {
 
-		if (playerRepository.exists(id)) {
-			playerRepository.delete(id);
+		if (repository.exists(id)) {
+			repository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
