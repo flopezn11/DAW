@@ -1,82 +1,61 @@
 import {Injectable} from 'angular2/core';
-import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
+import {withObserver} from './utils';
 import {Schedule} from './schedule.service';
 import {Team} from './team.service';
 
-export interface Match {
+export class Match {
 
-    id: number,
-    date: string,
-    schedule: Schedule,
-    local: Team,
-    visitor: Team,
-    resultLocal: number,
-    resultVisitor: number,
+  constructor(
+    public id: number,
+    public date: string,
+    public schedule: Schedule,
+    public local: Team,
+    public visitor: Team,
+    public resultLocal: number,
+    public resultVisitor: number,
+    ) {}
 
 }
-
-const URL = 'matches/';
 
 @Injectable()
 export class MatchService {
 
-  constructor(private http: Http) { }
+  private matchs = [
+  ];
 
   getMatches() {
-    return this.http.get(URL)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
+    return withObserver(this.matchs);
   }
 
   getMatch(id: number | string) {
-    return this.http.get(URL+id)
-	      .map(response => response.json())
-	      .catch(error => this.handleError(error));
+    let match = this.matchs.filter(h => h.id === +id)[0]
+    return withObserver(new Match(match.id, match.date, match.schedule, match.local, match.visitor, match.resultLocal, match.resultVisitor));
   }
 
   removeMatch(match: Match){
-    let headers = new Headers({
-	   'X-Requested-With': 'XMLHttpRequest'
-	});
-	let options = new RequestOptions({ headers });  
-	  
-    return this.http.delete(URL + match.id, options)
-      .map(response => undefined)
-      .catch(error => this.handleError(error));
+    for(let i=0; i<this.matchs.length; i++){
+        if(this.matchs[i].id === match.id){
+          this.matchs.splice(i,1);
+          break;
+        }
+    }
+    return withObserver(undefined);
   }
 
   saveMatch(match: Match){
-    let body = JSON.stringify(match);
-    let headers = new Headers({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
-
-    return this.http.post(URL, body, options)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
+    if(match.id){
+      let oldMatch = this.matchs.filter(h => h.id === match.id)[0];
+      oldMatch.fecha = match.fecha;
+      oldMatch.schedule = match.schedule;
+      oldMatch.local = match.local;
+      oldMatch.visitor = match.visitor;
+      oldMatch.resultLocal = match.resultLocal;
+      oldMatch.resultVisitor = match.resultVisitor
+    } else {
+      match.id = this.matchs.length+1;
+      this.matchs.push(match);
+    }
+    return withObserver(match);
   }
-  
-  updateMatch(match: Match) {
-
-    let body = JSON.stringify(match);
-    let headers = new Headers({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    });
-    let options = new RequestOptions({ headers });
-
-    return this.http.put(URL + match.id, body, options)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
-    }
-
-    private handleError(error: any){
-      console.error(error);
-      return Observable.throw("Server error (" + error.status + "): " + error.text())
-    }
-  
 }
