@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.schedule;
+package es.urjc.code.daw.library.match;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/schedules")
-public class ScheduleController {
+@RequestMapping("/matches")
+public class MatchController {
 
-	private static final Logger log = LoggerFactory.getLogger(ScheduleController.class);
+	private static final Logger log = LoggerFactory.getLogger(MatchController.class);
 
 	@Autowired
-	private ScheduleRepository scheduleRepository;
+	private MatchRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Schedule> getSchedules() {
-		return scheduleRepository.findAll();
+	public List<Match> getMatches() {
+		return repository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Schedule> getSchedule(@PathVariable long id) {
+	public ResponseEntity<Match> getMatch(@PathVariable long id) {
 
-		log.info("Get schedule {}", id);
+		log.info("Get player {}", id);
 
-		Schedule schedule = scheduleRepository.findOne(id);
-		if (schedule != null) {
-			return new ResponseEntity<>(schedule, HttpStatus.OK);
+		Match match = repository.findOne(id);
+		if (match != null) {
+			return new ResponseEntity<>(match, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -44,33 +44,32 @@ public class ScheduleController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Schedule newSchedule(@RequestBody Schedule schedule) {
+	public Match newMatch(@RequestBody Match match) {
 
-		scheduleRepository.save(schedule);
-
-		return schedule;
+		repository.save(match);
+		return match;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Schedule> updateSchedule(@PathVariable long id, @RequestBody Schedule updatedSchedule) {
+	public ResponseEntity<Match> updateMatch(@PathVariable long id, @RequestBody Match updatedMatch) {
 
-		Schedule schedule = scheduleRepository.findOne(id);
-		if (schedule != null) {
+		Match match = repository.findOne(id);
+		if (match != null) {
 
-			updatedSchedule.setId(id);
-			scheduleRepository.save(updatedSchedule);
+			updatedMatch.setId(id);
+			repository.save(updatedMatch);
 
-			return new ResponseEntity<>(updatedSchedule, HttpStatus.OK);
+			return new ResponseEntity<>(updatedMatch, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Schedule> deleteSchedule(@PathVariable long id) {
+	public ResponseEntity<Match> deleteMatch(@PathVariable long id) {
 
-		if (scheduleRepository.exists(id)) {
-			scheduleRepository.delete(id);
+		if (repository.exists(id)) {
+			repository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
