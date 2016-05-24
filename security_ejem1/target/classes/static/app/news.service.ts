@@ -32,9 +32,9 @@ export class NewsService {
 	      .catch(error => this.handleError(error));
   }
 
-  saveNews(book: News) {
+  saveNews(news: News) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(news);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
@@ -46,28 +46,28 @@ export class NewsService {
       .catch(error => this.handleError(error));
   }
 
-  removeNews(book: News) {	  
+  removeNews(news: News) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
 	});
 	let options = new RequestOptions({ headers });  
 	  
-    return this.http.delete(URL + book.id, options)
+    return this.http.delete(URL + news.id, options)
       .map(response => undefined)
       .catch(error => this.handleError(error));
   }
 
-  updateNews(book: News) {
+  updateNews(news: News) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(news);
     let headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
     let options = new RequestOptions({ headers });
 
-    return this.http.put(URL + book.id, body, options)
+    return this.http.put(URL + news.id, body, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
     }

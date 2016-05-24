@@ -45,12 +45,10 @@ export class TeamFormComponent {
 	    	error => console.error('Error creating new book: '+error)
     	);
 	    }else{
-    	console.log("vamos1");
     	this.service.saveTeam(this.team).subscribe(
 	    	team => {}, 
 	    	error => console.error('Error creating new book: '+error)
     	);
-    	console.log("vamos2");
     }
     window.history.back();
   }

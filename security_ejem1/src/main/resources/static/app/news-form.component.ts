@@ -12,6 +12,7 @@ export class NewsFormComponent {
 
   newNews: boolean;
   news: News;
+  ids: number;
 
   constructor(
     private _router:Router,
@@ -19,6 +20,7 @@ export class NewsFormComponent {
     private newsService: NewsService){
 
       let id = routeParams.get('id');
+      this.ids = routeParams.get('id');
       if(id){
         newsService.getNew(id).subscribe(
           news => this.news = news,
@@ -36,7 +38,18 @@ export class NewsFormComponent {
   }
 
   save() {
-    this.newsService.saveNews(this.news);
+	    if(this.ids){
+	    	this.newsService.updateNews(this.news).subscribe(
+	    	news => {}, 
+	    	error => console.error('Error creating new book: '+error)
+    	);
+	    }else{
+    	this.newsService.saveNews(this.news).subscribe(
+	    	news => {}, 
+	    	error => console.error('Error creating new book: '+error)
+    	);
+    }
     window.history.back();
   }
+  onSubmit() { this.submitted = true; }
 }
