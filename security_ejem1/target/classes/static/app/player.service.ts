@@ -43,9 +43,9 @@ export class PlayerService {
 	      .catch(error => this.handleError(error));
   }
 
-  savePlayers(book: Player) {
+  savePlayers(player: Player) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(player);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
@@ -57,28 +57,28 @@ export class PlayerService {
       .catch(error => this.handleError(error));
   }
 
-  removeNews(book: Player) {	  
+  removePlayer(player: Player) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
 	});
 	let options = new RequestOptions({ headers });  
 	  
-    return this.http.delete(URL + book.id, options)
+    return this.http.delete(URL + player.id, options)
       .map(response => undefined)
       .catch(error => this.handleError(error));
   }
 
-  updateNews(book: Player) {
+  updatePlayer(player: Player) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(player);
     let headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });
     let options = new RequestOptions({ headers });
 
-    return this.http.put(URL + book.id, body, options)
+    return this.http.put(URL + player.id, body, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
     }
