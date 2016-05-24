@@ -49,7 +49,7 @@ export class PlayerFormComponent {
   }
 
 save() {
-		this.player.equipo = this.team;
+		this.player.team = this.team;
 	    if(this.ids){
 	    	this.service.savePlayers(this.player).subscribe(
 	    	player => {}, 
