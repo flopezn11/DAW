@@ -7,7 +7,7 @@
             <li><a [routerLink]="['Teams']">Teams</a>
             </li>
             <li id="raya">/</li>
-            <li><a [routerLink]="['TeamDetail', {id: player.equipo.id}]">{{player.equipo.fullname}}</a>
+            <li><a [routerLink]="['TeamDetail', {id: player.team.id}]">{{player.team.fullname}}</a>
             </li>
             <li id="raya">/</li>
             <li id="active">{{player.name}} {{player.lastname}}</li>
@@ -45,7 +45,7 @@
                         <h2><b>Age</b> <p><small>{{player.age}}</small><p></h2>
                       </div>
                       <div id="info" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <h2><b>Team</b> <p><small><img src={{player.equipo.imgescudo}}>{{player.equipo.fullname}}</small><p></h2>
+                        <h2><b>Team</b> <p><small><img src={{player.team.imgescudo}}>{{player.team.fullname}}</small><p></h2>
                       </div>
                     </div>
                     <div class="row">
