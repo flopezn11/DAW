@@ -1,52 +1,73 @@
 import {Injectable} from 'angular2/core';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {withObserver} from './utils';
+import 'rxjs/Rx';
 
-export class Schedule {
+export interface Schedule {
 
-  constructor(
-    public id: number,
-    ) {}
+    id: number;
 
 }
+
+const URL = 'schedules/';
 
 @Injectable()
 export class ScheduleService {
 
-  private schedules = [
-  	new Schedule(1),
-  	new Schedule(2),
-  ];
+  constructor(private http: Http) { }
 
   getSchedules() {
-    return withObserver(this.schedules);
+  	return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
 
   getSchedule(id: number | string) {
-    let schedule = this.schedules.filter(h => h.id === +id)[0]
-    return withObserver(new Schedule(schedule.id));
+  	return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
 
   removeSchedule(schedule: Schedule){
-    for(let i=0; i<this.schedules.length; i++){
-        if(this.schedules[i].id === schedule.id){
-          this.schedules.splice(i,1);
-          for (i; i<this.schedules.length; i++){
-            this.schedules[i].id = this.schedules[i].id - 1;
-          }
-          break;
-        }
-    }
-    return withObserver(undefined);
+    let headers = new Headers({
+	   'X-Requested-With': 'XMLHttpRequest'
+	});
+	let options = new RequestOptions({ headers });  
+	  
+    return this.http.delete(URL + schedule.id, options)
+      .map(response => undefined)
+      .catch(error => this.handleError(error));
   }
 
   saveSchedule(schedule: Schedule){
-    if(schedule.id){
-      let oldSchedule = this.schedules.filter(h => h.id === schedule.id)[0];
-    } else {
-      schedule.id = this.schedules.length+1;
-      this.schedules.push(schedule);
-    }
-    return withObserver(schedule);
+    let body = JSON.stringify(schedule);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.post(URL, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
+  
+  updateNews(schedule: Schedule) {
+
+    let body = JSON.stringify(schedule);
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(URL + schedule.id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+    }
+
+    private handleError(error: any){
+      console.error(error);
+      return Observable.throw("Server error (" + error.status + "): " + error.text())
+    }
 }
