@@ -63,7 +63,7 @@ export class TeamService {
 
   updateTeam(team: Team) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(team);
     let headers = new Headers({
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
