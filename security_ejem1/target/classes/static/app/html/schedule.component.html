@@ -1,4 +1,4 @@
-<div id="principal" class="container">
+<div *ngIf = "schedule" id="principal" class="container">
         <ol id="breadcrumb">
             <li>
                 <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div id="cuerpo">
-            <div class="row">
+            <div *ngIf = "schedules" class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <span>Journeys:</span>
                     <div class="btn-group" role="group" aria-label="Primera vuelta" *ngFor="#schedulefor of schedules">
