@@ -1,40 +1,32 @@
 import {Injectable} from 'angular2/core';
-import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
+import {withObserver} from './utils';
 
-export interface Principal {
+export class Principal {
 
-    idplayer1: number;
-    idplayer2: number;
-    idplayer3: number;
-    idplayer4: number;
-    idteam1: number;
-    idteam2: number;
-    idteam3: number;
-    idteam4: number;
-    idteamm1: number;
-    idteamm2: number;
-    idteamm3: number;
-    idteamm4: number;
+  constructor(
+    public idplayer1: number;
+    public idplayer2: number;
+    public idplayer3: number;
+    public idplayer4: number;
+    public idteam1: number;
+    public idteam2: number;
+    public idteam3: number;
+    public idteam4: number;
+    public idteamm1: number;
+    public idteamm2: number;
+    public idteamm3: number;
+    public idteamm4: number;
+    ) {}
 
 }
-
-const URL = 'principal/';
 
 @Injectable()
 export class PrincipalService {
 
-  constructor(private http: Http) { }
+  private principal = new Principal(1, 2, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1);
 
   getPrincipal() {
-    return this.http.get(URL)
-      .map(response => response.json())
-      .catch(error => this.handleError(error));
+    return withObserver(this.principal);
   }
-  
-  private handleError(error: any){
-      console.error(error);
-      return Observable.throw("Server error (" + error.status + "): " + error.text())
-    }
 }
