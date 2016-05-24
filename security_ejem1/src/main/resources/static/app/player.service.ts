@@ -57,7 +57,7 @@ export class PlayerService {
       .catch(error => this.handleError(error));
   }
 
-  removeNews(book: Player) {	  
+  removePlayer(book: Player) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
@@ -69,7 +69,7 @@ export class PlayerService {
       .catch(error => this.handleError(error));
   }
 
-  updateNews(book: Player) {
+  updatePlayer(book: Player) {
 
     let body = JSON.stringify(book);
     let headers = new Headers({

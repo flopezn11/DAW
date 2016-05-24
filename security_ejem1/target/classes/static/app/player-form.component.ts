@@ -16,6 +16,7 @@ export class PlayerFormComponent {
   player: Player;
   team: Team;
   active = true;
+  ids:number;
 
   constructor(
     private router:Router,
@@ -24,6 +25,7 @@ export class PlayerFormComponent {
     private teamservice: TeamService){
 
       let id = routeParams.get('id');
+      this.ids = routeParams.get('id');
       let orden = routeParams.get('orden');
       if(orden){
         service.getPlayer(id).subscribe(
@@ -37,7 +39,7 @@ export class PlayerFormComponent {
           team => this.team = team,
           error => console.error(error)
         );
-        this.player = new Player(undefined,'', '');
+        this.player = {};
         this.newPlayer = true;
       }
   }
@@ -46,11 +48,20 @@ export class PlayerFormComponent {
     window.history.back();
   }
 
-  save() {
-    this.player.equipo = this.team;
-    this.service.savePlayer(this.player);
-    window.history.back();
+save() {
+		this.player.equipo = this.team;
+	    if(this.ids){
+	    	this.service.savePlayers(this.player).subscribe(
+	    	player => {}, 
+	    	error => console.error('Error creating new aquiiii: '+error)
+	    	
+    	);
+	    }else{
+	    	this.service.updatePlayer(this.player).subscribe(
+	    	player=> {}, 
+	    	error => console.error('Error creating new ojo: '+error)
+    	);
+    }
   }
-
   onSubmit() { this.submitted = true; }
 }
