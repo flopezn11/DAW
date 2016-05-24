@@ -40,7 +40,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 		
 		Team madrid = new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", 
 				"app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", 
-				"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history");
+				"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "El Real Madrid Club de Fútbol, mejor conocido como Real Madrid, es una entidad polideportiva con sede en Madrid, España. Fue declarada oficialmente registrada por sus socios el 6 de marzo de 1902 con el único objeto de la práctica del fútbol —aunque recientes investigaciones de antiguas publicaciones datan sus orígenes a la Nueva Sociedad de Foot-Ball en 1900—, teniendo en Julián Palacios y los hermanos barceloneses Juan y Carlos Padrós a sus principales valedores. Fue en noviembre de 1901 cuando se estableció su denominación de (Sociedad) Madrid Foot-ball Club.", "El Real Madrid Club de Fútbol, mejor conocido como Real Madrid, es una entidad polideportiva con sede en Madrid, España. Fue declarada oficialmente registrada por sus socios el 6 de marzo de 1902 con el único objeto de la práctica del fútbol —aunque recientes investigaciones de antiguas publicaciones datan sus orígenes a la Nueva Sociedad de Foot-Ball en 1900—, teniendo en Julián Palacios y los hermanos barceloneses Juan y Carlos Padrós a sus principales valedores. Fue en noviembre de 1901 cuando se estableció su denominación de (Sociedad) Madrid Foot-ball Club.");
 		
 		Player p1 = new Player("Cristiano", "Add a biography", madrid,
 				"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
@@ -49,9 +49,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 		
 		playerRepository.save(p1);
 		
-		Team valencia = new Team("Valencia", "app/img/Shields/ShieldRealMadrid.png", 
-				"app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", 
-				"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history");
+		Team valencia = new Team("Valencia", "app/img/Shields/ShieldValencia.png", 
+				"app/img/Lineups/LineupValencia.jpg", "app/img/Equipments/EquipmentValencia.png", 
+				"app/img/Coaches/Ayestaran.jpg" ,"Pako Ayestaran", "El Valencia Club de Fútbol es una Sociedad Anónima Deportiva con sede en la ciudad de Valencia, España. El club de fútbol fue fundado el 18 de marzo de 1919. Su primera plantilla juega actualmente en la Primera División de España y disputa los encuentros como local en el Estadio de Mestalla, con una capacidad para 55.000 espectadores", "El Valencia Club de Fútbol es una Sociedad Anónima Deportiva con sede en la ciudad de Valencia, España. El club de fútbol fue fundado el 18 de marzo de 1919. Su primera plantilla juega actualmente en la Primera División de España y disputa los encuentros como local en el Estadio de Mestalla, con una capacidad para 55.000 espectadores");
 		
 		Player p2 = new Player("Alvaro", "Add a biography", valencia, "Negredo", "Forward",
 				"app/img/Flags/Spain.png", "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 
