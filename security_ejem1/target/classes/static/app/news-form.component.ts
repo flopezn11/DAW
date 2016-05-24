@@ -26,7 +26,7 @@ export class NewsFormComponent {
         );
         this.newNews = false;
       } else {
-        this.news = new News(undefined,'','');
+        this.news = {};
         this.newNews = true;
       }
   }
