@@ -11,6 +11,8 @@ import es.urjc.code.daw.library.news.News;
 import es.urjc.code.daw.library.news.NewsRepository;
 import es.urjc.code.daw.library.player.Player;
 import es.urjc.code.daw.library.player.PlayerRepository;
+import es.urjc.code.daw.library.schedule.Schedule;
+import es.urjc.code.daw.library.schedule.ScheduleRepository;
 import es.urjc.code.daw.library.user.User;
 import es.urjc.code.daw.library.user.UserRepository;
 
@@ -29,6 +31,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 	
 	@Autowired
 	private NewsRepository newsRepository;
+	
+	@Autowired
+	private ScheduleRepository scheduleRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -54,7 +59,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 		
 		playerRepository.save(p2);
 		
+		// Sample Schedules
 		
+		scheduleRepository.save(new Schedule());
 		
 		
 		

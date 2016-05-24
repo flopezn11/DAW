@@ -15,14 +15,16 @@ export class ScheduleDetailComponent {
     schedules: Schedule[];
     schedulenew: Schedule;
     matches: Match[];
+    ids: number;
 
     constructor(private router: Router, routeParams: RouteParams, private service: ScheduleService, private loginService: LoginService, private matchService: MatchService) {
         let id = routeParams.get('id');
+        this.ids = routeParams.get('id');
         service.getSchedule(id).subscribe(
             schedule => this.schedule = schedule,
             error => console.error(error)
         );
-        this.schedulenew = new Schedule(undefined);
+        this.schedulenew = {};
     }
 
     ngOnInit(){
@@ -65,9 +67,20 @@ export class ScheduleDetailComponent {
     }
 
     save() {
-      this.service.saveSchedule(this.schedulenew);
-      this.router.navigate(['ScheduleDetail', {id: this.schedulenew.id}])
+	    if(this.ids){
+	    	this.service.saveSchedule(this.schedulenew).subscribe(
+	    	schedulenew => {}, 
+	    	error => console.error('Error creating new aquiiii: '+error)
+	    	
+    	);
+	    }else{
+	    	this.service.updateSchedule(this.schedulenew).subscribe(
+	    	schedulenew => {}, 
+	    	error => console.error('Error creating new ojo: '+error)
+    	);
     }
+  }
+  onSubmit() { this.submitted = true; }
 
     newMatch() {
       this.router.navigate(['MatchNew', {id: this.schedule.id}]);

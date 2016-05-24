@@ -52,7 +52,7 @@ export class ScheduleService {
       .catch(error => this.handleError(error));
   }
   
-  updateNews(schedule: Schedule) {
+  updateSchedule(schedule: Schedule) {
 
     let body = JSON.stringify(schedule);
     let headers = new Headers({
