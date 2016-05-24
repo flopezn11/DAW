@@ -15,7 +15,6 @@ export class PlayerFormComponent {
   newPlayer: boolean;
   player: Player;
   team: Team;
-  ids: number;
   active = true;
 
   constructor(
@@ -25,7 +24,6 @@ export class PlayerFormComponent {
     private teamservice: TeamService){
 
       let id = routeParams.get('id');
-      this.ids = routeParams.get('id');
       let orden = routeParams.get('orden');
       if(orden){
         service.getPlayer(id).subscribe(
@@ -39,7 +37,7 @@ export class PlayerFormComponent {
           team => this.team = team,
           error => console.error(error)
         );
-        this.player = {};
+        this.player = new Player(undefined,'', '');
         this.newPlayer = true;
       }
   }
@@ -49,19 +47,8 @@ export class PlayerFormComponent {
   }
 
   save() {
-  	if(this.ids) {
-  		this.player.equipo = this.team;
-    	this.service.savePlayers(this.player).subscribe(
-    		player => {},
-    		error => console.error('Error creating estamos en save: '+error)
-	    );
-	} else {
-		this.service.updatePlayer(this.player).subscribe(
-	    	player => {}, 
-	    	error => console.error('Error creating new estamos en edit: '+error)
-		
-    	);
-    }	
+    this.player.equipo = this.team;
+    this.service.savePlayer(this.player);
     window.history.back();
   }
 
