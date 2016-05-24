@@ -84,7 +84,7 @@
         </div>
     </section>
     <section id="players" class="hidden-xs">
-        <div class="container">
+        <div *ngIf= "players" class="container">
             <div class="page-header">
                 <div id="header2">
                     <h3>Some of players in our league: <small>Become one of the them</small></h3>
@@ -191,7 +191,7 @@
         </div>
     </section>
     <section id="teams" class="hidden-xs">
-        <div class="container">
+        <div *ngIf= "players" class="container">
             <div class="page-header">
                 <div id="header">
                     <h3>Some of teams in our league: <small>Turn your football team in one of these.</small></h3>

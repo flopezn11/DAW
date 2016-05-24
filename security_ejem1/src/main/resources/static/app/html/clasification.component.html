@@ -17,7 +17,7 @@
         </div>
         <div id="cuerpo">
             <div class="row">
-                <div class="col-md-7 col-xs-12 col-sm-12">
+                <div *ngIf= "teams" class="col-md-7 col-xs-12 col-sm-12">
                     <div class="panel">
                         <div class="panel-heading">
                             <h4>Clasification</h4>
@@ -85,7 +85,7 @@
                         </table>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-xs-6 col-sm-6">
+                        <div *ngIf= "playerstop" class="col-md-6 col-xs-6 col-sm-6">
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h4>Leading scorer<img class="img-rounded" src="http://www.pubzi.com/f/182140-sm-182133-soccer-player-kick-ball.png"></h4>
@@ -109,7 +109,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xs-6 col-sm-6">
+                        <div *ngIf= "goalkeepers" class="col-md-6 col-xs-6 col-sm-6">
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h4>

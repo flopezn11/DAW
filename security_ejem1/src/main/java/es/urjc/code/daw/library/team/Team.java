@@ -36,17 +36,17 @@ public class Team {
     public int points;
     
     //@OneToMany(cascade = CascadeType.ALL,
-    		//mappedBy = "team", orphanRemoval = true)
-    @OneToMany(mappedBy = "team")
-    private List<Player> players = new ArrayList<>();
+    		//mappedBy = "team"/*, orphanRemoval = true*/)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
+     private List<Player> players/* = new ArrayList<>()*/;
 
 	public Team() {
-		super();
+		//super();
 		//players = new ArrayList<Player>();
 	}
 
 	public Team(String fullname, String imgescudo, String imgequipo, String imgequipment, String imgcoach,
-			String coach, String description, String history, int points) {
+			String coach, String description, String history) {
 		super();
 		this.fullname = fullname;
 		this.imgescudo = imgescudo;
@@ -56,8 +56,8 @@ public class Team {
 		this.coach = coach;
 		this.description = description;
 		this.history = history;
-		this.points = points;
-		//players = new ArrayList <Player>();
+		this.points = 0;
+		players = new ArrayList<>();
 	}
 
 
@@ -134,10 +134,10 @@ public class Team {
 		this.players = players;
 	}
 	
-	public void addPlayer(Player f) {
+	/*public void addPlayer(Player f) {
 		 
         players.add(f);
-    }
+    }*/
 
 	public String getDescription() {
 		return description;

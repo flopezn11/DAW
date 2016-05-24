@@ -1,6 +1,7 @@
 package es.urjc.code.daw.library.player;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class PlayerController {
 	private PlayerRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Player> getPlayers() {
+	public List<Player> getPlayers() {
 		return repository.findAll();
 	}
 

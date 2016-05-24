@@ -1,6 +1,7 @@
 package es.urjc.code.daw.library.team;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class TeamController {
 	private TeamRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Team> getTeams() {
+	public List<Team> getTeams() {
 		return repository.findAll();
 	}
 

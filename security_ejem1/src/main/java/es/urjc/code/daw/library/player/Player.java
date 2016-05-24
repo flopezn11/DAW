@@ -22,8 +22,8 @@ public class Player {
 	@Column(length = 50000)
 	private String biography;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	//@ManyToOne
+	//@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Team team;
 	
 	private String lastname;
@@ -38,7 +38,7 @@ public class Player {
 	private String video;
 	
 	public Player() {
-		super();
+		//super();
 	}
 
 	public Player(String name, String biography, String lastname, String position,
@@ -47,6 +47,7 @@ public class Player {
 		super();
 		this.name = name;
 		this.biography = biography;
+		//this.team = team;
 		this.lastname = lastname;
 		this.position = position;
 		this.nacionality = nacionality;
