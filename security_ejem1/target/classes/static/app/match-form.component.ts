@@ -61,15 +61,13 @@ export class MatchFormComponent {
   cancel() {
     window.history.back();
   }
-
-	carga1() {
+	
+	cargar(){
+	
 		this.teamService.getTeam(this.idlocal).subscribe(
 	    team => this.match.local = team,
 	    error => console.log(error)
 	    );
-	}
-	
-	carga2() {
 		this.teamService.getTeam(this.idvisitor).subscribe(
 	    team => this.match.visitor = team,
 	    error => console.log(error)
