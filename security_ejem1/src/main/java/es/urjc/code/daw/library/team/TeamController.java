@@ -45,7 +45,7 @@ public class TeamController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Team newTeam(@RequestBody Team team) {
-
+		log.info("vamos");
 		repository.save(team);
 
 		return team;

@@ -29,7 +29,7 @@ export class TeamFormComponent {
         );
         this.newTeam = false;
       } else {
-        this.team = new Team(undefined,'','');
+        this.team = {fullname:'', imgescudo:'', imgequipo:'', imgequipment:'', imgcoach:'', coach:'', description:'', history:'', points:0};
         this.newTeam = true;
       }
   }
@@ -43,7 +43,9 @@ export class TeamFormComponent {
     if(this.ids){
     	this.service.updateTeam(this.team);
     }else{
+    	console.log("vamos1");
     	this.service.saveTeam(this.team);
+    	console.log("vamos2");
     }
     window.history.back();
   }
