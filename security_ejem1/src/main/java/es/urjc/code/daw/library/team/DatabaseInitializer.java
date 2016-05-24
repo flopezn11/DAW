@@ -33,39 +33,28 @@ public class DatabaseInitializer implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		
 		Team madrid = new Team("Real Madrid", "app/img/Shields/ShieldRealMadrid.png", 
 				"app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", 
 				"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history");
+		
+		Player p1 = new Player("Cristiano", "Add a biography", madrid,
+				"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
+				31, 32, 90, 7, "app/Video/Cristiano.mp4");
+		
+		
+		playerRepository.save(p1);
 		
 		Team valencia = new Team("Valencia", "app/img/Shields/ShieldRealMadrid.png", 
 				"app/img/Lineups/LineupRealMadrid.jpg", "app/img/Equipments/EquipmentRealMadrid.png", 
 				"app/img/Coaches/Zidane.jpg" ,"Zinedine Zidane", "Add description", "Add history");
 		
-		
-		Player p1 = new Player("Cristiano", "Add a biography",
-				"Ronaldo", "Forward", "app/img/Flags/Portugal.png", "app/img/Players/CristianoRonaldo.jpg","app/img/PlayersIndex/CristianoRonaldo.jpg",
-				31, 32, 90, 7, "app/Video/Cristiano.mp4");
-		
-		p1.setTeam(madrid);
-		
-		Player p2 = new Player("Alvaro", "Add a biography", "Negredo", "Forward", 
+		Player p2 = new Player("Alvaro", "Add a biography", valencia, "Negredo", "Forward",
 				"app/img/Flags/Spain.png", "app/img/Players/Negredo.jpg","app/img/PlayersIndex/Negredo.jpg", 
 				30, 12, 10, 7, "app/Video/Negredo.mp4");
 		
-		p2.setTeam(valencia);
+		playerRepository.save(p2);
 		
-		List<Player>Jugadores = new ArrayList<Player>();
-		List<Player>Jugadores1 = new ArrayList<Player>();
 		
-		Jugadores.add(p1);
-		Jugadores1.add(p2);
-		
-		madrid.setPlayers(Jugadores);
-		valencia.setPlayers(Jugadores1);
-		
-		teamRepository.save(madrid);
-		teamRepository.save(valencia);
 		
 		
 		

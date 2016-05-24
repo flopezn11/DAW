@@ -24,7 +24,7 @@ export class Principal {
 @Injectable()
 export class PrincipalService {
 
-  private principal = new Principal(1, 2, 3, 4, 1, 1, 2, 3, 1, 2, 3, 3);
+  private principal = new Principal(1, 2, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1);
 
   getPrincipal() {
     return withObserver(this.principal);

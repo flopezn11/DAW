@@ -23,8 +23,8 @@ public class Player {
 	private String biography;
 	
 	//@ManyToOne(cascade=CascadeType.ALL)
-	@ManyToOne
-	private Team team;
+	@OneToOne(cascade=CascadeType.ALL)
+	private Team equipo;
 	
 	private String lastname;
 	private String position;
@@ -41,13 +41,13 @@ public class Player {
 		//super();
 	}
 
-	public Player(String name, String biography, String lastname, String position,
+	public Player(String name, String biography, Team team, String lastname, String position,
 			String nacionality, String imagePlayer, String image, int age, int goals, int international, int dorsal,
 			String video) {
 		super();
 		this.name = name;
 		this.biography = biography;
-		//this.team = team;
+		this.equipo = team;
 		this.lastname = lastname;
 		this.position = position;
 		this.nacionality = nacionality;
@@ -85,11 +85,11 @@ public class Player {
 	}
 
 	public Team getTeam() {
-		return team;
+		return equipo;
 	}
 
 	public void setTeam(Team team) {
-		this.team = team;
+		this.equipo = team;
 	}
 
 	public String getLastname() {
@@ -174,7 +174,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", biography=" + biography + ", team=" + team + ", lastname="
+		return "Player [id=" + id + ", name=" + name + ", biography=" + biography + ", team=" + equipo + ", lastname="
 				+ lastname + ", position=" + position + ", nacionality=" + nacionality + ", age=" + age + ", goals="
 				+ goals + ", international=" + international + ", dorsal=" + dorsal + "]";
 	}

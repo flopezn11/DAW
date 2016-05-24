@@ -46,14 +46,18 @@ export class ClasificationComponent implements OnInit {
 			error => console.log(error)
 			);
 			this.playerstop = [];
-			for (let i=0; i < this.players.length; i++) {
-				this.playerstop.push(this.players[i]);
+			if(this.players){
+				for (let i=0; i < this.players.length; i++) {
+					this.playerstop.push(this.players[i]);
+				}
 			}
 
 			this.goalkeepers = [];
-			for (let i=0; i < this.players.length; i++) {
-				if (this.players[i].position == 'GoalKeeper'){
-					this.goalkeepers.push(this.players[i]);
+			if(this.players){
+				for (let i=0; i < this.players.length; i++) {
+					if (this.players[i].position == 'GoalKeeper'){
+						this.goalkeepers.push(this.players[i]);
+					}
 				}
 			}
 

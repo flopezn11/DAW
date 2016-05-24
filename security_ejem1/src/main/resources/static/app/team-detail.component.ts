@@ -31,8 +31,10 @@ export class TeamDetailComponent implements OnInit {
           error => console.log(error)
         );
         this.playerstop = [];
-        for (let i=0; i < this.players.length; i++){
-          this.playerstop.push(this.players[i]);
+        if (this.players){
+	        for (let i=0; i < this.players.length; i++){
+	          this.playerstop.push(this.players[i]);
+	        }
         }
       }
 

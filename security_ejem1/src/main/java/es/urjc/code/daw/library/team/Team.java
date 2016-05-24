@@ -37,8 +37,6 @@ public class Team {
     
     //@OneToMany(cascade = CascadeType.ALL,
     		//mappedBy = "team"/*, orphanRemoval = true*/)
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
-     private List<Player> players/* = new ArrayList<>()*/;
 
 	public Team() {
 		//super();
@@ -57,7 +55,6 @@ public class Team {
 		this.description = description;
 		this.history = history;
 		this.points = 0;
-		players = new ArrayList<>();
 	}
 
 
@@ -124,14 +121,6 @@ public class Team {
 
 	public void setPoints(int points) {
 		this.points = points;
-	}
-
-	public List<Player> getPlayers() {
-		return players;
-	}
-
-	public void setPlayers(List<Player> players) {
-		this.players = players;
 	}
 	
 	/*public void addPlayer(Player f) {
