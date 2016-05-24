@@ -25,14 +25,13 @@ export class PlayerFormComponent {
     private teamservice: TeamService){
 
       let id = routeParams.get('id');
-      this.ids = routeParams.get('id');
       let orden = routeParams.get('orden');
+      this.ids = routeParams.get('orden');
       if(orden){
         service.getPlayer(id).subscribe(
           player => this.player = player,
           error => console.error(error)
         );
-        this.team = this.player.equipo;
         this.newPlayer = false;
       } else {
         teamservice.getTeam(id).subscribe(
@@ -49,19 +48,23 @@ export class PlayerFormComponent {
   }
 
 save() {
-		this.player.team = this.team;
+		
 	    if(this.ids){
-	    	this.service.savePlayers(this.player).subscribe(
-	    	player => {}, 
-	    	error => console.error('Error creating new aquiiii: '+error)
+	    this.service.updatePlayer(this.player).subscribe(
+	    	player=> {}, 
+	    	error => console.error('Error creating new ojo: '+error)
 	    	
     	);
 	    }else{
-	    	this.service.updatePlayer(this.player).subscribe(
-	    	player=> {}, 
-	    	error => console.error('Error creating new ojo: '+error)
+	    this.player.team = this.team;
+	    this.service.savePlayers(this.player).subscribe(
+	    	player => {}, 
+	    	error => console.error('Error creating new aquiiii: '+error)
+	    
+	    	
     	);
     }
+    window.history.back();
   }
   onSubmit() { this.submitted = true; }
 }
