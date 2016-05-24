@@ -33,14 +33,13 @@ export class MatchFormComponent {
 
       let id = routeParams.get('id');
       let orden = routeParams.get('orden');
-      this.ids = routeParams.get('id');
+      this.ids = routeParams.get('orden');
       if(orden){
         service.getMatch(id).subscribe(
           match => this.match = match,
           error => console.error(error)
         );
         this.newMatch = false;
-        this.schedule = this.match.schedule;
       } else {
         scheduleService.getSchedule(id).subscribe(
           schedule => this.schedule = schedule,
@@ -75,11 +74,15 @@ export class MatchFormComponent {
 	}
 
   save() {
-    this.match.schedule = this.schedule;
-	this.service.saveMatch(this.match).subscribe(
-    	match => {}, 
-    	error => console.error('Error creating new book: '+error)
-    );
+    if(this.ids){
+		
+    }else{
+    	this.match.schedule = this.schedule;
+    	this.service.saveMatch(this.match).subscribe(
+	    	match => {}, 
+	    	error => console.error('Error creating new book: '+error)
+	    );
+    }
     window.history.back();
   }
 
