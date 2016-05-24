@@ -22,7 +22,7 @@ export class ScheduleDetailComponent {
             schedule => this.schedule = schedule,
             error => console.error(error)
         );
-        this.schedulenew = new Schedule(undefined);
+        
     }
 
     ngOnInit(){
