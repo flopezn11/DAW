@@ -18,7 +18,7 @@
             <button (click)="newMatch()" id="botonAgregar"><img src="app/img/Add.png"> Add Match</button>
           </div>
         </div>
-        <div id="cuerpo">
+        <div *ngIf = "matches" id="cuerpo">
             <div *ngIf = "schedules" class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <span>Journeys:</span>

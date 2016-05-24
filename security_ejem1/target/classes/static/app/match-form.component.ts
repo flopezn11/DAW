@@ -21,6 +21,7 @@ export class MatchFormComponent {
   teamlocal: Team;
   teamvisitor: Team;
   active = true;
+  ids: number;
 
   constructor(
     private _router:Router,
@@ -32,6 +33,7 @@ export class MatchFormComponent {
 
       let id = routeParams.get('id');
       let orden = routeParams.get('orden');
+      this.ids = routeParams.get('id');
       if(orden){
         service.getMatch(id).subscribe(
           match => this.match = match,
@@ -44,7 +46,7 @@ export class MatchFormComponent {
           schedule => this.schedule = schedule,
           error => console.error(error)
         );
-        this.match = new Match(undefined,'','');
+        this.match = {};
         this.newMatch = true;
       }
   }
@@ -60,19 +62,26 @@ export class MatchFormComponent {
     window.history.back();
   }
 
+	carga1() {
+		this.teamService.getTeam(this.idlocal).subscribe(
+	    team => this.match.local = team,
+	    error => console.log(error)
+	    );
+	}
+	
+	carga2() {
+		this.teamService.getTeam(this.idvisitor).subscribe(
+	    team => this.match.visitor = team,
+	    error => console.log(error)
+	    );
+	}
+
   save() {
-    this.teamService.getTeam(this.idlocal).subscribe(
-    team => this.teamlocal = team,
-    error => console.log(error)
-    );
-    this.teamService.getTeam(this.idvisitor).subscribe(
-    team => this.teamvisitor = team,
-    error => console.log(error)
-    );
-    this.match.local = this.teamlocal;
-    this.match.visitor = this.teamvisitor;
     this.match.schedule = this.schedule;
-    this.service.saveMatch(this.match);
+	this.service.saveMatch(this.match).subscribe(
+    	match => {}, 
+    	error => console.error('Error creating new book: '+error)
+    );
     window.history.back();
   }
 
