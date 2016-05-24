@@ -100,7 +100,7 @@
                               </tr>
                           </thead>
                           <tbody *ngFor="#player of playerstop | orderBy : '-goals'">
-                              <tr *ngIf="team.id == player.equipo.id">
+                              <tr *ngIf="team.id == player.team.id">
                                   <td>{{player.name}}</td>
                                   <td>{{player.lastname}}</td>
                                   <td>{{player.position}}</td>

@@ -108,7 +108,7 @@
                             </p>
                             <p *ngIf="loginService.isAdmin">
                                 <select [(ngModel)]="principal.idplayer1" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam1==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam1==player.team.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -132,7 +132,7 @@
                             </p>
                             <p *ngIf="loginService.isAdmin">
                                 <select [(ngModel)]="principal.idplayer2" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam2==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam2==player.team.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -156,7 +156,7 @@
                             </p>
                             <p *ngIf="loginService.isAdmin">
                                 <select [(ngModel)]="principal.idplayer3" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam3==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam3==player.team.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
@@ -180,7 +180,7 @@
                             </p>
                             <p *ngIf="loginService.isAdmin">
                                 <select [(ngModel)]="principal.idplayer4" name="local" class="form-control" id="local">
-                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam4==player.equipo.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
+                                    <template ngFor #player [ngForOf]="players"><option *ngIf="principal.idteam4==player.team.id" value={{player.id}}>{{player.name}} {{player.lastname}}</option></template>
                                 </select>
                             </p>
                         </div>
