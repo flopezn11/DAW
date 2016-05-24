@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.team;
+package es.urjc.code.daw.library.principal;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/teams")
-public class TeamController {
+@RequestMapping("/principal")
+public class PrincipalController {
 
-	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
+	private static final Logger log = LoggerFactory.getLogger(PrincipalController.class);
 
 	@Autowired
-	private TeamRepository repository;
+	private PrincipalRepository principalRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Team> getTeams() {
-		return repository.findAll();
+	public List<Principal> getPrincipales() {
+		return principalRepository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Team> getTeam(@PathVariable long id) {
+	public ResponseEntity<Principal> getPrincipal(@PathVariable long id) {
 
-		log.info("Get team {}", id);
+		log.info("Get principal {}", id);
 
-		Team team = repository.findOne(id);
-		if (team != null) {
-			return new ResponseEntity<>(team, HttpStatus.OK);
+		Principal principal = principalRepository.findOne(id);
+		if (principal != null) {
+			return new ResponseEntity<>(principal, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -44,33 +44,32 @@ public class TeamController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Team newTeam(@RequestBody Team team) {
-		log.info("vamos");
-		repository.save(team);
+	public Principal newPrincipal(@RequestBody Principal principal) {
 
-		return team;
+		principalRepository.save(principal);
+		return principal;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Team> updateTeam(@PathVariable long id, @RequestBody Team updatedTeam) {
+	public ResponseEntity<Principal> updatePrincipal(@PathVariable long id, @RequestBody Principal updatedPrincipal) {
 
-		Team team = repository.findOne(id);
-		if (team != null) {
+		Principal principal = principalRepository.findOne(id);
+		if (principal != null) {
 
-			updatedTeam.setId(id);
-			repository.save(updatedTeam);
+			updatedPrincipal.setId(id);
+			principalRepository.save(updatedPrincipal);
 
-			return new ResponseEntity<>(updatedTeam, HttpStatus.OK);
+			return new ResponseEntity<>(updatedPrincipal, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Team> deleteTeam(@PathVariable long id) {
+	public ResponseEntity<Principal> deletePrincipal(@PathVariable long id) {
 
-		if (repository.exists(id)) {
-			repository.delete(id);
+		if (principalRepository.exists(id)) {
+			principalRepository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

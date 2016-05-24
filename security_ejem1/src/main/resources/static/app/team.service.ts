@@ -35,21 +35,21 @@ export class TeamService {
 	      .catch(error => this.handleError(error));
   }
 
-  saveTeam(book: Team) {
+  saveTeam(team: Team) {
 
-    let body = JSON.stringify(book);
+    let body = JSON.stringify(team);
     let headers = new Headers({
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
     });
     let options = new RequestOptions({ headers });
-
+    
     return this.http.post(URL, body, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
 
-  removeTeam(book: Team) {	  
+  removeTeam(team: Team) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
@@ -61,7 +61,7 @@ export class TeamService {
       .catch(error => this.handleError(error));
   }
 
-  updateTeam(book: Team) {
+  updateTeam(team: Team) {
 
     let body = JSON.stringify(book);
     let headers = new Headers({

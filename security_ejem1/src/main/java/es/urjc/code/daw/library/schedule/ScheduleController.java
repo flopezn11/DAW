@@ -1,7 +1,6 @@
-package es.urjc.code.daw.library.team;
+package es.urjc.code.daw.library.schedule;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,27 +15,27 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/teams")
-public class TeamController {
+@RequestMapping("/schedules")
+public class ScheduleController {
 
-	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
+	private static final Logger log = LoggerFactory.getLogger(ScheduleController.class);
 
 	@Autowired
-	private TeamRepository repository;
+	private ScheduleRepository scheduleRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Team> getTeams() {
-		return repository.findAll();
+	public Collection<Schedule> getSchedules() {
+		return scheduleRepository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Team> getTeam(@PathVariable long id) {
+	public ResponseEntity<Schedule> getSchedule(@PathVariable long id) {
 
-		log.info("Get team {}", id);
+		log.info("Get schedule {}", id);
 
-		Team team = repository.findOne(id);
-		if (team != null) {
-			return new ResponseEntity<>(team, HttpStatus.OK);
+		Schedule schedule = scheduleRepository.findOne(id);
+		if (schedule != null) {
+			return new ResponseEntity<>(schedule, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -44,33 +43,33 @@ public class TeamController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Team newTeam(@RequestBody Team team) {
-		log.info("vamos");
-		repository.save(team);
+	public Schedule newSchedule(@RequestBody Schedule schedule) {
 
-		return team;
+		scheduleRepository.save(schedule);
+
+		return schedule;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Team> updateTeam(@PathVariable long id, @RequestBody Team updatedTeam) {
+	public ResponseEntity<Schedule> updateSchedule(@PathVariable long id, @RequestBody Schedule updatedSchedule) {
 
-		Team team = repository.findOne(id);
-		if (team != null) {
+		Schedule schedule = scheduleRepository.findOne(id);
+		if (schedule != null) {
 
-			updatedTeam.setId(id);
-			repository.save(updatedTeam);
+			updatedSchedule.setId(id);
+			scheduleRepository.save(updatedSchedule);
 
-			return new ResponseEntity<>(updatedTeam, HttpStatus.OK);
+			return new ResponseEntity<>(updatedSchedule, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Team> deleteTeam(@PathVariable long id) {
+	public ResponseEntity<Schedule> deleteSchedule(@PathVariable long id) {
 
-		if (repository.exists(id)) {
-			repository.delete(id);
+		if (scheduleRepository.exists(id)) {
+			scheduleRepository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

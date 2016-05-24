@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.team;
+package es.urjc.code.daw.library.match;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/teams")
-public class TeamController {
+@RequestMapping("/matches")
+public class MatchController {
 
-	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
+	private static final Logger log = LoggerFactory.getLogger(MatchController.class);
 
 	@Autowired
-	private TeamRepository repository;
+	private MatchRepository matchRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Team> getTeams() {
-		return repository.findAll();
+	public List<Match> getMatches() {
+		return matchRepository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Team> getTeam(@PathVariable long id) {
+	public ResponseEntity<Match> getMatch(@PathVariable long id) {
 
-		log.info("Get team {}", id);
+		log.info("Get player {}", id);
 
-		Team team = repository.findOne(id);
-		if (team != null) {
-			return new ResponseEntity<>(team, HttpStatus.OK);
+		Match match = matchRepository.findOne(id);
+		if (match != null) {
+			return new ResponseEntity<>(match, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -44,33 +44,32 @@ public class TeamController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Team newTeam(@RequestBody Team team) {
-		log.info("vamos");
-		repository.save(team);
+	public Match newMatch(@RequestBody Match match) {
 
-		return team;
+		matchRepository.save(match);
+		return match;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Team> updateTeam(@PathVariable long id, @RequestBody Team updatedTeam) {
+	public ResponseEntity<Match> updateMatch(@PathVariable long id, @RequestBody Match updatedMatch) {
 
-		Team team = repository.findOne(id);
-		if (team != null) {
+		Match match = matchRepository.findOne(id);
+		if (match != null) {
 
-			updatedTeam.setId(id);
-			repository.save(updatedTeam);
+			updatedMatch.setId(id);
+			matchRepository.save(updatedMatch);
 
-			return new ResponseEntity<>(updatedTeam, HttpStatus.OK);
+			return new ResponseEntity<>(updatedMatch, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Team> deleteTeam(@PathVariable long id) {
+	public ResponseEntity<Match> deleteMatch(@PathVariable long id) {
 
-		if (repository.exists(id)) {
-			repository.delete(id);
+		if (matchRepository.exists(id)) {
+			matchRepository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
