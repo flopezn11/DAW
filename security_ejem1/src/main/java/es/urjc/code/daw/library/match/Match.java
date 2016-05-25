@@ -21,13 +21,16 @@ public class Match {
 
     private String date;
     
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    //@OneToOne(cascade=CascadeType.ALL)
     private Schedule schedule;
     
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    //@OneToOne(cascade=CascadeType.ALL)
     private Team local;
     
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    //@OneToOne(cascade=CascadeType.ALL)
     private Team visitor;
     
     private int resultLocal;
