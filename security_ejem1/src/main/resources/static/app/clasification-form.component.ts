@@ -31,7 +31,10 @@ export class ClasificationFormComponent {
 
   save() {
     this.team.points = this.points;
-    this.teamService.saveTeam(this.team);
+    this.teamService.updateTeam(this.team).subscribe(
+	    	team => {}, 
+	    	error => console.error('Error creating new book: '+error)
+    	);
     window.history.back();
   }
 
