@@ -78,8 +78,13 @@ export class ScheduleDetailComponent {
 	    	schedulenew => {}, 
 	    	error => console.error('Error creating new ojo: '+error)
     	);
-    }
-  }
+    	}
+    	if (this.ids == 1){
+    		this.router.navigate(['ScheduleDetail', { id: 2 }]);
+    	}else{
+    		this.router.navigate(['ScheduleDetail', { id: 1 }]);
+    	}
+  	}
   onSubmit() { this.submitted = true; }
 
     newMatch() {

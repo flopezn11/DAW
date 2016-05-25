@@ -32,10 +32,17 @@ export class PrincipalComponent {
           teams => this.teams = teams,
           error => console.log(error)
         );
-        this.principalService.getPrincipal().subscribe(
+        this.principalService.getPrincipal(1).subscribe(
           principal => this.principal = principal,
           error => console.log(error)
         );
 
+    }
+    
+    update(){
+    	this.principalService.updatePrincipal(this.principal).subscribe(
+	    	principal => {}, 
+	    	error => console.error('Error creating new book: '+error)
+	    );
     }
 }

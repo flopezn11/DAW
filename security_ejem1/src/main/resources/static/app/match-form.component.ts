@@ -75,7 +75,10 @@ export class MatchFormComponent {
 
   save() {
     if(this.ids){
-		
+		this.service.updateMatch(this.match).subscribe(
+	    	match => {}, 
+	    	error => console.error('Error creating new book: '+error)
+	    );
     }else{
     	this.match.schedule = this.schedule;
     	this.service.saveMatch(this.match).subscribe(

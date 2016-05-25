@@ -1,32 +1,60 @@
 import {Injectable} from 'angular2/core';
+import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {withObserver} from './utils';
+import 'rxjs/Rx';
 
-export class Principal {
+export interface Principal {
 
-  constructor(
-    public idplayer1: number;
-    public idplayer2: number;
-    public idplayer3: number;
-    public idplayer4: number;
-    public idteam1: number;
-    public idteam2: number;
-    public idteam3: number;
-    public idteam4: number;
-    public idteamm1: number;
-    public idteamm2: number;
-    public idteamm3: number;
-    public idteamm4: number;
-    ) {}
+    idplayer1: number;
+    idplayer2: number;
+    idplayer3: number;
+    idplayer4: number;
+    idteam1: number;
+    idteam2: number;
+    idteam3: number;
+    idteam4: number;
+    idteamm1: number;
+    idteamm2: number;
+    idteamm3: number;
+    idteamm4: number;
 
 }
+
+const URL = 'principal/';
 
 @Injectable()
 export class PrincipalService {
 
-  private principal = new Principal(1, 2, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1);
+  constructor(private http: Http) { }
 
-  getPrincipal() {
-    return withObserver(this.principal);
+  getPrincipals() {
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
   }
+  
+  getPrincipal(id: number | string) {
+	    return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
+  }
+
+  updatePrincipal(principal: Principal) {
+
+    let body = JSON.stringify(principal);
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+
+    return this.http.put(URL + principal.id, body, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+    }
+
+    private handleError(error: any){
+      console.error(error);
+      return Observable.throw("Server error (" + error.status + "): " + error.text())
+    }
 }
