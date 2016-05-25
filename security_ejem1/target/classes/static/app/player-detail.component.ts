@@ -24,7 +24,7 @@ export class PlayerDetailComponent {
         let okResponse = window.confirm("Do you want to remove this team?");
         if (okResponse) {
             this.service.removePlayer(this.player).subscribe(
-                _ => this.router.navigate(['TeamDetail', {id: this.player.equipo.id}]),
+                _ => this.router.navigate(['TeamDetail', {id: this.player.team.id}]),
                 error => console.error(error)
             )
         }
