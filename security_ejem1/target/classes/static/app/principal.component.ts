@@ -40,6 +40,7 @@ export class PrincipalComponent {
     }
     
     update(){
+    	this.principalService.updatePrincipal(this.principal).subscribe(
 	    	principal => {}, 
 	    	error => console.error('Error creating new book: '+error)
 	    );
