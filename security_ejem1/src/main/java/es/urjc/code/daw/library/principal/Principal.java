@@ -14,7 +14,7 @@ public class Principal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
 	public long getId() {
 		return id;

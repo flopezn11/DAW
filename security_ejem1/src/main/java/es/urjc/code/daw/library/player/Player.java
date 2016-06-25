@@ -7,47 +7,65 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 
 import es.urjc.code.daw.library.team.Team;
 
 @Entity
 public class Player {
-
+	
+	public interface BasicAtt {}
+	public interface TeamAtt {}
+	
+	@JsonView(BasicAtt.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
+	@JsonView(BasicAtt.class)
 	private String name;
+	@JsonView(BasicAtt.class)
 	@Column(length = 50000)
 	private String biography;
 	
 	//@ManyToOne(cascade=CascadeType.ALL)
-	@OneToOne(cascade=CascadeType.ALL)
-	private Team equipo;
+	@JsonView(TeamAtt.class)
+	@ManyToOne
+	private Team team;
 	
+	@JsonView(BasicAtt.class)
 	private String lastname;
+	@JsonView(BasicAtt.class)
 	private String position;
+	@JsonView(BasicAtt.class)
 	private String nacionality;
+	@JsonView(BasicAtt.class)
 	private String imagePlayer;
+	@JsonView(BasicAtt.class)
 	private String image;
+	@JsonView(BasicAtt.class)
 	private int age;
+	@JsonView(BasicAtt.class)
 	private int goals;
+	@JsonView(BasicAtt.class)
 	private int international;
+	@JsonView(BasicAtt.class)
 	private int dorsal;
+	@JsonView(BasicAtt.class)
 	private String video;
 	
 	public Player() {
 		//super();
 	}
 
-	public Player(String name, String biography, Team team, String lastname, String position,
+	public Player(String name, String biography, String lastname, String position,
 			String nacionality, String imagePlayer, String image, int age, int goals, int international, int dorsal,
 			String video) {
 		super();
 		this.name = name;
 		this.biography = biography;
-		this.equipo = team;
 		this.lastname = lastname;
 		this.position = position;
 		this.nacionality = nacionality;
@@ -85,11 +103,11 @@ public class Player {
 	}
 
 	public Team getTeam() {
-		return equipo;
+		return team;
 	}
 
 	public void setTeam(Team team) {
-		this.equipo = team;
+		this.team = team;
 	}
 
 	public String getLastname() {
@@ -174,7 +192,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", biography=" + biography + ", team=" + equipo + ", lastname="
+		return "Player [id=" + id + ", name=" + name + ", biography=" + biography + ", team=" + team + ", lastname="
 				+ lastname + ", position=" + position + ", nacionality=" + nacionality + ", age=" + age + ", goals="
 				+ goals + ", international=" + international + ", dorsal=" + dorsal + "]";
 	}

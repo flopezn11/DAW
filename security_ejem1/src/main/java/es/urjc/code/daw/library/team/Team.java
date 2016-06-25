@@ -10,34 +10,53 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 
 import es.urjc.code.daw.library.player.Player;
 
 @Entity
 public class Team {
-
+	
+	public interface BasicAtt {}
+	public interface PlayersAtt {}
+	
+	@JsonView(BasicAtt.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
+	
+	@JsonView(BasicAtt.class)
     private String fullname;
+	@JsonView(BasicAtt.class)
     private String imgescudo;
+	@JsonView(BasicAtt.class)
     private String imgequipo;
+	@JsonView(BasicAtt.class)
     private String imgequipment;
+	@JsonView(BasicAtt.class)
     private String imgcoach;
+	@JsonView(BasicAtt.class)
     public String coach;
     
+    @JsonView(BasicAtt.class)
     @Column(length = 50000)
     public String description;
     
+    @JsonView(BasicAtt.class)
     @Column(length = 50000)
     public  String history;
     
+    @JsonView(BasicAtt.class)
     public int points;
     
     //@OneToMany(cascade = CascadeType.ALL,
     		//mappedBy = "team"/*, orphanRemoval = true*/)
-
+    @JsonView(PlayersAtt.class)
+    @OneToMany(mappedBy="team")
+	private List<Player> players = new ArrayList<>();
+    
 	public Team() {
 		//super();
 		//players = new ArrayList<Player>();
@@ -142,6 +161,14 @@ public class Team {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> comments) {
+		this.players = comments;
 	}
 
 
