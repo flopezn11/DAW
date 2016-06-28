@@ -20,6 +20,7 @@
                     </div>
                     <div class="panel-body">
                         <form name="formteam" (ngSubmit)="onSubmit()" #teamForm="ngForm">
+                        <button type="submit" class="btn btn-default" (click)="upload()">Submit2</button>
                             <fieldset>
                                 <legend>Sheet football team:</legend>
                                 <div class="col-xs-12 col-lg-7 col-md-7 col-sm-7">
@@ -32,7 +33,8 @@
                                 <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
                                     <p>
                                         <b>Description:</b>
-                                        <textarea [(ngModel)]="team.description" class="form-control" rows="5" name="description" placeholder="Add a litte description about the football team" id="description"></textarea>
+                                        <label for="exampleInputEmail1">Description</label>
+                                        <textarea [(ngModel)]="team.description" type = "text" class="form-control" rows="5" name="description" placeholder="Add a litte description about the football team" id="description"></textarea>
                                     </p>
                                 </div>
 
@@ -57,7 +59,8 @@
                                 <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6">
                                     <p>
                                         <b>Football Shield*:</b>
-                                        <input ngControl="shield"  #shield="ngForm" [(ngModel)]="team.imgescudo" type='text' class="form-control" name='footballShield' placeholder="Football Shield" id="footballshield" required/>
+                                        <label for="exampleInputFile">File input</label> <input type="file"(change)="selectFile($event)"> 
+                                    	<textarea [(ngModel)]="description" type = "text" class="form-control" rows="5" name="description" placeholder="Add a litte description about the football team" id="description"></textarea>
                                     </p>
                                 </div>
 
