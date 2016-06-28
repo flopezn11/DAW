@@ -20,7 +20,7 @@ public class News {
 	private String subtitle;
 	private String author;
 	
-	@Column(length = 50000)
+	@Column(length = 20000)
 	private String description;
 	private String imgnews;
 	
@@ -85,6 +85,17 @@ public class News {
 	
 	public void setImgnews(String imgnews) {
 		this.imgnews = imgnews;
+	}
+
+	
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

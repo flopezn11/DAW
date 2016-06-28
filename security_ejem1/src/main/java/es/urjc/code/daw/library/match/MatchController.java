@@ -25,16 +25,16 @@ public class MatchController {
 	private MatchRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Match> getMatches() {
+	public List<MatchX> getMatches() {
 		return repository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Match> getMatch(@PathVariable long id) {
+	public ResponseEntity<MatchX> getMatch(@PathVariable long id) {
 
 		log.info("Get player {}", id);
 
-		Match match = repository.findOne(id);
+		MatchX match = repository.findOne(id);
 		if (match != null) {
 			return new ResponseEntity<>(match, HttpStatus.OK);
 		} else {
@@ -44,16 +44,16 @@ public class MatchController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Match newMatch(@RequestBody Match match) {
+	public MatchX newMatch(@RequestBody MatchX match) {
 
 		repository.save(match);
 		return match;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Match> updateMatch(@PathVariable long id, @RequestBody Match updatedMatch) {
+	public ResponseEntity<MatchX> updateMatch(@PathVariable long id, @RequestBody MatchX updatedMatch) {
 
-		Match match = repository.findOne(id);
+		MatchX match = repository.findOne(id);
 		if (match != null) {
 
 			updatedMatch.setId(id);
@@ -66,7 +66,7 @@ public class MatchController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Match> deleteMatch(@PathVariable long id) {
+	public ResponseEntity<MatchX> deleteMatch(@PathVariable long id) {
 
 		if (repository.exists(id)) {
 			repository.delete(id);

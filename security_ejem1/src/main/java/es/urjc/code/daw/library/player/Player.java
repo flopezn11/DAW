@@ -27,7 +27,7 @@ public class Player {
 	@JsonView(BasicAtt.class)
 	private String name;
 	@JsonView(BasicAtt.class)
-	@Column(length = 50000)
+	@Column(length = 20000)
 	private String biography;
 	
 	//@ManyToOne(cascade=CascadeType.ALL)

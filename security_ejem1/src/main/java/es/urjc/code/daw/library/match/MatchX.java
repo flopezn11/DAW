@@ -13,7 +13,7 @@ import es.urjc.code.daw.library.schedule.Schedule;
 import es.urjc.code.daw.library.team.Team;
 
 @Entity
-public class Match {
+public class MatchX {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,31 +21,30 @@ public class Match {
 
     private String date;
     
-    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToOne
     //@OneToOne(cascade=CascadeType.ALL)
     private Schedule schedule;
     
-    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToOne
     //@OneToOne(cascade=CascadeType.ALL)
     private Team local;
     
-    @OneToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToOne
     //@OneToOne(cascade=CascadeType.ALL)
     private Team visitor;
     
     private int resultLocal;
     private int resultVisitor;
 	
-	public Match() {
+	public MatchX() {
 		//super();
 	}
 
 	
 
-	public Match(long id, String date, Schedule schedule, Team local, Team visitor, int resultLocal,
+	public MatchX(String date, Schedule schedule, Team local, Team visitor, int resultLocal,
 			int resultVisitor) {
 		super();
-		this.id = id;
 		this.date = date;
 		this.schedule = schedule;
 		this.local = local;

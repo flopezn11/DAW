@@ -41,11 +41,11 @@ public class Team {
     public String coach;
     
     @JsonView(BasicAtt.class)
-    @Column(length = 50000)
+    @Column(length = 10000)
     public String description;
     
     @JsonView(BasicAtt.class)
-    @Column(length = 50000)
+    @Column(length = 10000)
     public  String history;
     
     @JsonView(BasicAtt.class)
