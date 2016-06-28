@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="#team of teams; #posicion=index">
+                                <tr *ngFor="#team of teams | orderBy : '-points'; #posicion=index">
                                     <td> {{posicion + 1}} <img *ngIf = "posicion===0"  class="img-rounded" src="app/img/Trophy.jpg">
                                     </td>
                                     <td id="imgclasification">

@@ -15,20 +15,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.library.team.TeamController.TeamListView;
+import es.urjc.code.daw.library.player.Player;
+import es.urjc.code.daw.library.team.Team;
+
 @RestController
 @RequestMapping("/teams")
 public class TeamController {
-
+	
+	interface TeamListView extends Team.BasicAtt, Team.PlayersAtt, Player.BasicAtt {}
+	
 	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
 
 	@Autowired
 	private TeamRepository repository;
-
+	
+	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Team> getTeams() {
 		return repository.findAll();
 	}
-
+	
+	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Team> getTeam(@PathVariable long id) {
 
@@ -42,6 +52,7 @@ public class TeamController {
 		}
 	}
 
+	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Team newTeam(@RequestBody Team team) {
@@ -51,6 +62,7 @@ public class TeamController {
 		return team;
 	}
 
+	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Team> updateTeam(@PathVariable long id, @RequestBody Team updatedTeam) {
 
@@ -66,6 +78,7 @@ public class TeamController {
 		}
 	}
 
+	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Team> deleteTeam(@PathVariable long id) {
 

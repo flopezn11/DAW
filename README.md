@@ -53,3 +53,6 @@ Integrantes:
 * Alvaro Parras Gomez -  a.parrasg@alumnos.urjc.es - aparrasg
 * Victor Sanchez Muñoz - v.sanchezmu@alumnos.urjc.es - vicsmr
 * Fernando Lopez Nieto - f.lopezn@alumnos.urjc.es - flopezn11
+
+Video explicativo aplicación:
+https://www.youtube.com/watch?v=Rn7LKYAatqQ&feature=youtu.be
