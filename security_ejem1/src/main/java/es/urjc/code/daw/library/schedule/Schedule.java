@@ -13,8 +13,23 @@ public class Schedule {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	private int journey;
+	
+	public Schedule(int journey) {
+		super();
+		this.journey = journey;
+	}
+
 	public Schedule() {}
 	
+	public int getJourney() {
+		return journey;
+	}
+
+	public void setJourney(int journey) {
+		this.journey = journey;
+	}
+
 	public long getId() {
 		return id;
 	}

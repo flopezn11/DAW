@@ -45,7 +45,10 @@ public class ScheduleController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Schedule newSchedule(@RequestBody Schedule schedule) {
-
+		
+		Collection <Schedule> schedules = scheduleRepository.findAll();
+		int num = schedules.size();
+		schedule.setJourney(num+1);
 		scheduleRepository.save(schedule);
 
 		return schedule;
@@ -68,9 +71,21 @@ public class ScheduleController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Schedule> deleteSchedule(@PathVariable long id) {
-
+		boolean intro = false;
 		if (scheduleRepository.exists(id)) {
-			scheduleRepository.delete(id);
+			Collection <Schedule> schedules = scheduleRepository.findAll();
+			for(Schedule schedu:schedules){
+				if(schedu.getId() == id){
+					scheduleRepository.delete(id);
+					intro = true;
+					continue;
+				}
+				if(intro){
+					int a = (schedu.getJourney() - 1);
+					schedu.setJourney(a);
+					scheduleRepository.save(schedu);
+				}
+			}
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
