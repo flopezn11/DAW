@@ -20,7 +20,7 @@
                     </div>
                     <div class="panel-body">
                         <form name="formteam" (ngSubmit)="onSubmit()" #teamForm="ngForm">
-                        <button type="submit" class="btn btn-default" (click)="upload()">Submit2</button>
+                        
                             <fieldset>
                                 <legend>Sheet football team:</legend>
                                 <div class="col-xs-12 col-lg-7 col-md-7 col-sm-7">
@@ -61,6 +61,7 @@
                                         <b>Football Shield*:</b>
                                         <label for="exampleInputFile">File input</label> <input type="file" (change)="selectFile($event)"> 
                                     	<textarea [(ngModel)]="description" type = "text" class="form-control" rows="5" name="description" placeholder="Add a litte description about the football team" id="description"></textarea>
+                                    	<button type="submit" class="btn btn-default" (click)="upload()">Submit2</button>
                                     </p>
                                 </div>
 

@@ -12,8 +12,14 @@
   <div *ngIf="players" id="cuerpo">
       <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="page-header">
-                  <h1 *ngFor="#image of images">Information about teams: <small>{{team.fullname}}</small> <a *ngIf = "image.description == team.fullname"><img src="/images/{{image.fileName}}"></a><img src="{{team.imgescudo}}"> </h1>
+              <div  *ngFor="#image of images" class="page-header">
+                  <h1>Information about teams: 
+                  <small>{{team.fullname}}</small> 
+                  <a *ngIf = "image.description == team.fullname">
+                  <img src="/images/{{image.fileName}}">
+                  </a>
+                  <img src="{{team.imgescudo}}"> 
+                  </h1>
               </div>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
