@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.match;
+package es.urjc.code.daw.library.maatch;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,26 +15,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.library.player.Player;
+import es.urjc.code.daw.library.schedule.Schedule;
+import es.urjc.code.daw.library.maatch.MaatchController.MaatchView;
+import es.urjc.code.daw.library.team.Team;
+
 @RestController
 @RequestMapping("/matches")
-public class MatchController {
+public class MaatchController {
 
-	private static final Logger log = LoggerFactory.getLogger(MatchController.class);
+	interface MaatchView extends Maatch.BasicAtt, Maatch.TeamAtt, Maatch.ScheduleAtt, Team.BasicAtt, Schedule.BasicAtt {}
+	
+	private static final Logger log = LoggerFactory.getLogger(MaatchController.class);
 
 	@Autowired
-	private MatchRepository repository;
+	private MaatchRepository repository;
 
+	@JsonView(MaatchView.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<MatchX> getMatches() {
+	public List<Maatch> getMatches() {
 		return repository.findAll();
 	}
 
+	@JsonView(MaatchView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<MatchX> getMatch(@PathVariable long id) {
+	public ResponseEntity<Maatch> getMatch(@PathVariable long id) {
 
 		log.info("Get player {}", id);
 
-		MatchX match = repository.findOne(id);
+		Maatch match = repository.findOne(id);
 		if (match != null) {
 			return new ResponseEntity<>(match, HttpStatus.OK);
 		} else {
@@ -42,18 +53,20 @@ public class MatchController {
 		}
 	}
 
+	@JsonView(MaatchView.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public MatchX newMatch(@RequestBody MatchX match) {
+	public Maatch newMatch(@RequestBody Maatch match) {
 
 		repository.save(match);
 		return match;
 	}
 
+	@JsonView(MaatchView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<MatchX> updateMatch(@PathVariable long id, @RequestBody MatchX updatedMatch) {
+	public ResponseEntity<Maatch> updateMatch(@PathVariable long id, @RequestBody Maatch updatedMatch) {
 
-		MatchX match = repository.findOne(id);
+		Maatch match = repository.findOne(id);
 		if (match != null) {
 
 			updatedMatch.setId(id);
@@ -65,8 +78,9 @@ public class MatchController {
 		}
 	}
 
+	@JsonView(MaatchView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<MatchX> deleteMatch(@PathVariable long id) {
+	public ResponseEntity<Maatch> deleteMatch(@PathVariable long id) {
 
 		if (repository.exists(id)) {
 			repository.delete(id);

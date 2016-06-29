@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.match;
+package es.urjc.code.daw.library.maatch;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,48 +7,57 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 
 import es.urjc.code.daw.library.schedule.Schedule;
 import es.urjc.code.daw.library.team.Team;
+import es.urjc.code.daw.library.team.Team.BasicAtt;
+
 
 @Entity
-public class MatchX {
+public class Maatch {
 
+	public interface BasicAtt {}
+	public interface TeamAtt {}
+	public interface ScheduleAtt {}
+	
+	@JsonView(BasicAtt.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(BasicAtt.class)
     private String date;
     
-    @OneToOne
-    //@OneToOne(cascade=CascadeType.ALL)
+	@JsonView(ScheduleAtt.class)
+    @ManyToOne
     private Schedule schedule;
     
-    @OneToOne
-    //@OneToOne(cascade=CascadeType.ALL)
+	@JsonView(TeamAtt.class)
+    @ManyToOne
     private Team local;
     
-    @OneToOne
-    //@OneToOne(cascade=CascadeType.ALL)
+	@JsonView(TeamAtt.class)
+    @ManyToOne
     private Team visitor;
     
+	@JsonView(BasicAtt.class)
     private int resultLocal;
+	@JsonView(BasicAtt.class)
     private int resultVisitor;
 	
-	public MatchX() {
+	public Maatch() {
 		//super();
 	}
 
 	
 
-	public MatchX(String date, Schedule schedule, Team local, Team visitor, int resultLocal,
+	public Maatch(String date, int resultLocal,
 			int resultVisitor) {
 		super();
 		this.date = date;
-		this.schedule = schedule;
-		this.local = local;
-		this.visitor = visitor;
 		this.resultLocal = resultLocal;
 		this.resultVisitor = resultVisitor;
 	}
