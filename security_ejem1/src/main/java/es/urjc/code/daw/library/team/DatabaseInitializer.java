@@ -75,10 +75,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 		playerRepository.save(p2);
 		
 		// Sample Schedules
-		Schedule sche = new Schedule();
+		Schedule sche = new Schedule(1);
 		scheduleRepository.save(sche);
 		
-		MatchX match = new MatchX("23", sche, madrid, valencia, 1, 0);
 		
 		
 		

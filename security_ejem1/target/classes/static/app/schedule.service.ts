@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 export interface Schedule {
 
     id: number;
-
+	journey: number;
 }
 
 const URL = 'schedules/';
