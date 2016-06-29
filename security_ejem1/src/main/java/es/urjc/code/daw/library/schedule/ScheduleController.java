@@ -15,20 +15,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.library.maatch.Maatch;
+import es.urjc.code.daw.library.player.Player;
+import es.urjc.code.daw.library.schedule.ScheduleController.ScheduleView;
+import es.urjc.code.daw.library.team.Team;
+
 @RestController
 @RequestMapping("/schedules")
 public class ScheduleController {
 
+	interface ScheduleView extends Schedule.BasicAtt, Schedule.MaatchAtt, Maatch.BasicAtt {}
+	
 	private static final Logger log = LoggerFactory.getLogger(ScheduleController.class);
 
 	@Autowired
 	private ScheduleRepository scheduleRepository;
 
+	@JsonView(ScheduleView.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<Schedule> getSchedules() {
 		return scheduleRepository.findAll();
 	}
 
+	@JsonView(ScheduleView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Schedule> getSchedule(@PathVariable long id) {
 
@@ -42,6 +53,7 @@ public class ScheduleController {
 		}
 	}
 
+	@JsonView(ScheduleView.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Schedule newSchedule(@RequestBody Schedule schedule) {
@@ -54,6 +66,7 @@ public class ScheduleController {
 		return schedule;
 	}
 
+	@JsonView(ScheduleView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Schedule> updateSchedule(@PathVariable long id, @RequestBody Schedule updatedSchedule) {
 
@@ -69,6 +82,7 @@ public class ScheduleController {
 		}
 	}
 
+	@JsonView(ScheduleView.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Schedule> deleteSchedule(@PathVariable long id) {
 		boolean intro = false;

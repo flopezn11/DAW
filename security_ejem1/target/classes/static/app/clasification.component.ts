@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams, Router} from 'angular2/router';
 import {Team, TeamService}   from './team.service';
-import {Match, MatchService} from './match.service';
+import {Maatch, MaatchService} from './match.service';
 import {Login, LoginService} from './login.service';
 import {Schedule, ScheduleService}   from './schedule.service';
 import {Player, PlayerService}   from './player.service';
@@ -18,7 +18,7 @@ import {OrderBy} from "./orderBy";
 })
 export class ClasificationComponent implements OnInit {
 	teams: Team[];
-	matches: Match[];
+	matches: Maatch[];
 	schedules: Schedule[];
 	journey: number;
 	players: Player[];
@@ -26,7 +26,7 @@ export class ClasificationComponent implements OnInit {
 	goalkeepers: Player[];
 
 
-  constructor(private router:Router, private teamService: TeamService, private playerService: PlayerService, private matchService: MatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
+  constructor(private router:Router, private teamService: TeamService, private playerService: PlayerService, private matchService: MaatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
 
   ngOnInit(){
       this.teamService.getTeams().subscribe(

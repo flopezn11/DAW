@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 import {Team} from './team.service';
 import {Schedule} from './schedule.service';
 
-export interface Match {
+export interface Maatch {
     id?: number;
     date: string;
     schedule: Schedule;
@@ -18,7 +18,7 @@ export interface Match {
 const URL = 'matches/';
 
 @Injectable()
-export class MatchService {
+export class MaatchService {
 
   constructor(private http: Http) { }
 
@@ -34,7 +34,7 @@ export class MatchService {
 	      .catch(error => this.handleError(error));
   }
 
-  saveMatch(match: Match) {
+  saveMatch(match: Maatch) {
 
     let body = JSON.stringify(match);
     let headers = new Headers({
@@ -48,7 +48,7 @@ export class MatchService {
       .catch(error => this.handleError(error));
   }
 
-  removeMatch(match: Match) {	  
+  removeMatch(match: Maatch) {	  
 	  
 	let headers = new Headers({
 	   'X-Requested-With': 'XMLHttpRequest'
@@ -60,7 +60,7 @@ export class MatchService {
       .catch(error => this.handleError(error));
   }
 
-  	updateMatch(match: Match) {
+  	updateMatch(match: Maatch) {
 
     let body = JSON.stringify(match);
     let headers = new Headers({

@@ -1,6 +1,6 @@
 import {Component, OnInit}  from 'angular2/core';
 import {RouteParams,ROUTER_DIRECTIVES, Router} from 'angular2/router';
-import {Match, MatchService}   from './match.service';
+import {Maatch, MaatchService}   from './match.service';
 import {Schedule, ScheduleService}   from './schedule.service';
 import {Team, TeamService}   from './team.service';
 import {NgForm} from 'angular2/common';
@@ -13,7 +13,7 @@ import {NgForm} from 'angular2/common';
 export class MatchFormComponent {
 
   newMatch: boolean;
-  match: Match;
+  match: Maatch;
   schedule: Schedule;
   teams: Team[];
   idlocal: number;
@@ -26,7 +26,7 @@ export class MatchFormComponent {
   constructor(
     private _router:Router,
     routeParams:RouteParams,
-    private service: MatchService,
+    private service: MaatchService,
     private scheduleService: ScheduleService,
     private teamService: TeamService,
     ){

@@ -19,7 +19,7 @@ import {Player, PlayerService} from './player.service';
 import {PlayerFormComponent} from './player-form.component';
 import {Schedule, ScheduleService} from './schedule.service';
 import {ScheduleDetailComponent} from './schedule-detail.component';
-import {Match, MatchService} from './match.service';
+import {Maatch, MaatchService} from './match.service';
 import {MatchFormComponent} from './match-form.component';
 import {News, NewsService} from './news.service';
 import {NewsDetailComponent} from './news-detail.component';
@@ -35,7 +35,7 @@ import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 @Component({
   selector: 'app',
   templateUrl: 'app/html/app.component.html',
-  providers:  [TeamService, PlayerService, ScheduleService, MatchService, NewsService, PrincipalService, BookService, LoginService, HTTP_PROVIDERS],
+  providers:  [TeamService, PlayerService, ScheduleService, MaatchService, NewsService, PrincipalService, BookService, LoginService, HTTP_PROVIDERS],
   directives: [ROUTER_DIRECTIVES],
   pipes: [OrderBy],
 })

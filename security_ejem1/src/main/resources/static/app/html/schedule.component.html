@@ -4,7 +4,7 @@
                 <a [routerLink]="['Principal']"><img class="img-rounded" src="app/img/Arrow.gif">Home</a>
             </li>
             <li id="raya">/</li>
-            <li id="active">Schedule: Journey {{schedule.id}}</li>
+            <li id="active">Schedule: Journey {{schedule.journey}}</li>
         </ol>
         <div class="row">
           <div class="col-md-6 col-sm-6 xs-hidden"></div>
@@ -29,7 +29,7 @@
             </div>
             <div class="panel">
                 <div class="panel-heading">
-                    <h4>Journey {{schedule.id}}</h4>
+                    <h4>Journey {{schedule.journey}}</h4>
                 </div>
 
                 <table class="table">
@@ -45,7 +45,7 @@
                         </tr>
                     </thead>
                     <tbody *ngFor="#match of matches">
-                        <tr *ngIf="schedule.id == match.schedule.id">
+                        <tr *ngIf="schedule.journey == match.schedule.journey">
                             <td id="time"><span>{{match.date}}</span></td>
                             <td>
                                 <a [routerLink]="['TeamDetail', {id: match.local.id}]"><img class="img-rounded" src={{match.local.imgescudo}}>{{match.local.fullname}}</a>

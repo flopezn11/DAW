@@ -2,7 +2,7 @@ import {Component, OnInit}  from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams, Router} from 'angular2/router';
 import {Schedule, ScheduleService}   from './schedule.service';
 import {Login, LoginService} from './login.service';
-import {Match, MatchService} from './match.service';
+import {Maatch, MaatchService} from './match.service';
 
 @Component({
     templateUrl: 'app/html/schedule.component.html',
@@ -14,10 +14,10 @@ export class ScheduleDetailComponent {
     schedule: Schedule;
     schedules: Schedule[];
     schedulenew: Schedule;
-    matches: Match[];
+    matches: Maatch[];
     ids: number;
 
-    constructor(private router: Router, routeParams: RouteParams, private service: ScheduleService, private loginService: LoginService, private matchService: MatchService) {
+    constructor(private router: Router, routeParams: RouteParams, private service: ScheduleService, private loginService: LoginService, private matchService: MaatchService) {
         let id = routeParams.get('id');
         this.ids = routeParams.get('id');
         service.getSchedule(id).subscribe(
@@ -52,7 +52,7 @@ export class ScheduleDetailComponent {
         }
     }
 
-    removeMatch(matchRemove: Match) {
+    removeMatch(matchRemove: Maatch) {
         let okResponse = window.confirm("Do you want to remove this match?");
         if (okResponse) {
             this.matchService.removeMatch(matchRemove).subscribe(

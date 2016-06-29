@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 
+import es.urjc.code.daw.library.maatch.Maatch;
 import es.urjc.code.daw.library.player.Player;
 
 @Entity
@@ -21,6 +22,7 @@ public class Team {
 	
 	public interface BasicAtt {}
 	public interface PlayersAtt {}
+	public interface MaatchAtt {}
 	
 	@JsonView(BasicAtt.class)
 	@Id
@@ -56,6 +58,14 @@ public class Team {
     @JsonView(PlayersAtt.class)
     @OneToMany(mappedBy="team")
 	private List<Player> players = new ArrayList<>();
+    
+    @JsonView(MaatchAtt.class)
+    @OneToMany(mappedBy="local")
+	private List<Maatch> locals = new ArrayList<>();
+    
+    @JsonView(MaatchAtt.class)
+    @OneToMany(mappedBy="visitor")
+	private List<Maatch> visitors = new ArrayList<>();
     
 	public Team() {
 		//super();

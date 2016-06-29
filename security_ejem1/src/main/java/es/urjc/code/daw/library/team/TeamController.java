@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.library.team.TeamController.TeamListView;
+import es.urjc.code.daw.library.maatch.Maatch;
 import es.urjc.code.daw.library.player.Player;
 import es.urjc.code.daw.library.team.Team;
 
@@ -25,7 +26,7 @@ import es.urjc.code.daw.library.team.Team;
 @RequestMapping("/teams")
 public class TeamController {
 	
-	interface TeamListView extends Team.BasicAtt, Team.PlayersAtt, Player.BasicAtt {}
+	interface TeamListView extends Team.BasicAtt, Team.PlayersAtt, Team.MaatchAtt, Player.BasicAtt, Maatch.BasicAtt {}
 	
 	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
 

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
-import es.urjc.code.daw.library.match.MatchX;
-import es.urjc.code.daw.library.match.MatchRepository;
+import es.urjc.code.daw.library.maatch.Maatch;
+import es.urjc.code.daw.library.maatch.MaatchRepository;
 import es.urjc.code.daw.library.news.News;
 import es.urjc.code.daw.library.news.NewsRepository;
 import es.urjc.code.daw.library.player.Player;
@@ -40,7 +40,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 	private ScheduleRepository scheduleRepository;
 	
 	@Autowired
-	private MatchRepository matchRepository;
+	private MaatchRepository matchRepository;
 	
 	@Autowired
 	private PrincipalRepository principalRepository;
@@ -77,7 +77,11 @@ public class DatabaseInitializer implements CommandLineRunner {
 		// Sample Schedules
 		Schedule sche = new Schedule(1);
 		scheduleRepository.save(sche);
-		
+		Maatch matchh = new Maatch("23",2, 1);
+		matchh.setSchedule(sche);
+		matchh.setLocal(madrid);
+		matchh.setVisitor(valencia);
+		matchRepository.save(matchh);
 		
 		
 		
