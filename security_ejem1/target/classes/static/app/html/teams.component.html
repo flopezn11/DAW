@@ -19,9 +19,14 @@
                 <div class="list-group">
                     <li id="equipos" class="list-group-item">League's teams</li>
                     <div id="columnas" class="col-md-6" *ngFor="#team of teams">
-                    <div id="columnas" class="col-md-6" *ngFor="#image of images">
-                        <a class="list-group-item" [routerLink]="['TeamDetail', {id: team.id}]"><img src="/images/{{image.fileName}}"> {{team.fullname}}</a>
+                        <a *ngIf = "team.imgescudo" class="list-group-item" [routerLink]="['TeamDetail', {id: team.id}]">
+                        <img src="{{team.imgescudo}}"> {{team.fullname}}</a>
                     </div>
+                    <div *ngIf = "image" id="columnas" *ngFor="#team of teams">
+                    	<div id="columnas" class="col-md-6" *ngFor="#image of images">
+                        	<a *ngIf = "image.description == team.fullname" class="list-group-item" [routerLink]="['TeamDetail', {id: team.id}]">
+                        	<img src="/images/{{image.fileName}}"> {{team.fullname}}</a>
+                    	</div>
                     </div>
                     <div id="columnas" class="col-md-6">
                         <br>

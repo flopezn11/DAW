@@ -4,20 +4,29 @@ import {Team, TeamService}   from './team.service';
 import {Player, PlayerService}   from './player.service';
 import {Login,LoginService} from './login.service';
 import {OrderBy} from "./orderBy";
+import {MultipartItem} from "./multipart-upload/multipart-item";
+import {MultipartUploader} from "./multipart-upload/multipart-uploader";
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
     templateUrl: 'app/html/equipo.component.html',
     styleUrls: ['app/css/equipo.component.css'],
     directives: [ROUTER_DIRECTIVES],
     pipes: [OrderBy],
+    providers: [HTTP_PROVIDERS]
 })
 export class TeamDetailComponent implements OnInit {
 
     players: Player[];
     playerstop: Player[];
     team: Team;
+    
+    private description: string;
+  	private file: File;
+  
+  	private images: String[] = [];
 
-    constructor(private router: Router, routeParams: RouteParams, private service: TeamService, private playerService: PlayerService, private loginService: LoginService) {
+    constructor(private router: Router, routeParams: RouteParams, private service: TeamService, private playerService: PlayerService, private loginService: LoginService, private http: Http) {
         let id = routeParams.get('id');
         service.getTeam(id).subscribe(
             team => this.team = team,
@@ -26,6 +35,7 @@ export class TeamDetailComponent implements OnInit {
     }
 
     ngOnInit(){
+    	this.loadImages();
         this.playerService.getPlayers().subscribe(
           players => this.players = players,
           error => console.log(error)
@@ -35,6 +45,13 @@ export class TeamDetailComponent implements OnInit {
           error => console.log(error)
         );
       }
+      
+      loadImages(){
+		
+		this.http.get("/images").subscribe(
+			response => this.images = response.json();
+		)		
+	}
 
     removeTeam() {
         let okResponse = window.confirm("Do you want to remove this team?");

@@ -70,8 +70,16 @@
                 <li id="teamsnav"><a [routerLink]="['Teams']">Teams</a>
                     <ul class="nav navbar-nav hidden-xs">
                         <li *ngFor="#team of teams | orderBy : '-points'">
-                            <a [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
+                            <a *ngIf = "team.imgescudo" [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
                         </li>
+                        <li>
+                        	<div *ngIf = "image"  *ngFor="#team of teams">
+                    		<li  *ngFor="#image of images">
+                        		<a *ngIf = "image.description == team.fullname" [routerLink]="['TeamDetail', {id: team.id}]">
+                        		<img class="img-rounded" src="/images/{{image.fileName}}"> {{team.fullname}}</a>
+                    		</li>
+                    		</div>
+                    	</li>
                     </ul>
                 </li>
                 <li id="schedule"><a [routerLink]="['ScheduleDetail', {id: 1}]">Schedule</a>

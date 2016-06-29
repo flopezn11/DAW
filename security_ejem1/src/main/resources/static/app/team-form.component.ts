@@ -72,6 +72,7 @@ export class TeamFormComponent implements OnInit {
 			
 		formData.append("description", this.description);
 		formData.append("file",  this.file);
+		
 
 		let multipartItem = new MultipartItem(new MultipartUploader({url: '/image/upload'}));
 		
