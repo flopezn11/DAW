@@ -26,6 +26,8 @@ import {NewsDetailComponent} from './news-detail.component';
 import {NewsFormComponent} from './news-form.component';
 import {OrderBy} from "./orderBy";
 import {Principal, PrincipalService} from './principal.service';
+import {MultipartItem} from "./multipart-upload/multipart-item";
+import {MultipartUploader} from "./multipart-upload/multipart-uploader";
 
 import {BookService} from './book.service';
 import {LoginService} from './login.service';
@@ -67,10 +69,16 @@ export class AppComponent implements OnInit {
 	teams: Team[];
 	schedules: Schedule[];
   	news: News[];
+  	
+  	private description: string;
+  	private file: File;
+  
+  	private images: String[] = [];
 
-		constructor (private router:Router, private service: TeamService, private loginService: LoginService, private scheduleService: ScheduleService, private newsService: NewsService){}
+		constructor (private router:Router, private service: TeamService, private loginService: LoginService, private scheduleService: ScheduleService, private newsService: NewsService, private http: Http){}
 
 		ngOnInit(){
+		this.loadImages();
 			this.service.getTeams().subscribe(
         teams => this.teams = teams,
         error => console.log(error)
@@ -101,4 +109,11 @@ export class AppComponent implements OnInit {
 			error => console.log("Error when trying to log out: "+error)
 		);
   }
+  
+  loadImages(){
+		
+		this.http.get("/images").subscribe(
+			response => this.images = response.json();
+		)		
+	}
 }
