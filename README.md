@@ -59,8 +59,8 @@ git clone https://github.com/flopezn11/DAW fase3
 
 Configuracion por defecto de la base de datos:
 * Nombre del esquema: majorleague
-* Usuario:
-* Password: 
+* Usuario: root
+* Password: pass
 
 Integrantes:
 * Alvaro Parras Gomez -  a.parrasg@alumnos.urjc.es - aparrasg
