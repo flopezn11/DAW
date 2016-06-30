@@ -21,6 +21,10 @@ Diagrama:
 
 <img src="diagrama.png">
 
+Diagrama de entidades:
+
+<img src="DiagramaEntidadesMLF.png">
+
 Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
