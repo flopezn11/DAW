@@ -21,6 +21,14 @@ Diagrama:
 
 <img src="diagrama.png">
 
+Diagrama de clases del codigo Java del servidor. Se diferencian las clases segun su tipo: Controlador, Servicio, Repositorio o Entidad.
+
+<img src="DiagramaTipoClases.png">
+
+Diagrama de entidades:
+
+<img src="DiagramaEntidadesMLF.png">
+
 Capturas:
 *Home y los desplegables (presentes en todas las paginas):
 <img src="Capturas/Home.PNG">
@@ -48,6 +56,11 @@ Recomendamos la siguiente instruccion que ha sido probada en el sistema operativ
 git clone https://github.com/flopezn11/DAW fase2 <br>
 
 git clone https://github.com/flopezn11/DAW fase3
+
+Configuracion por defecto de la base de datos:
+* Nombre del esquema: majorleague
+* Usuario:
+* Password: 
 
 Integrantes:
 * Alvaro Parras Gomez -  a.parrasg@alumnos.urjc.es - aparrasg

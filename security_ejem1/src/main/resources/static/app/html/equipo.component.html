@@ -23,13 +23,13 @@
               </div>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
-              <button (click)="editTeam()" id="botonEdit"><img src="app/img/Edit.png"> Edit Team</button>
+              <button (click)="editTeam()" id="botonEdit" class="btn btn-success" type = "button"><img src="app/img/Edit.png"> Edit Team</button>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
-              <button (click)="removeTeam()" id="botonEliminar"><img src="app/img/Remove.png"> Remove Team</button>
+              <button (click)="removeTeam()" id="botonEliminar" class="btn btn-success" type = "button"><img src="app/img/Remove.png"> Remove Team</button>
           </div>
           <div *ngIf="loginService.isLogged" class="col-md-2 col-sm-2 col-xs-12">
-            <button id="botonAgregar" (click)="newPlayer()"><img src="app/img/Add.png"> Add Player</button>
+            <button id="botonAgregar" (click)="newPlayer()" class="btn btn-success" type = "button"><img src="app/img/Add.png"> Add Player</button>
           </div>
       </div>
       <div class="container">

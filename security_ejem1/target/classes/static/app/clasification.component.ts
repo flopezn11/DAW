@@ -7,6 +7,9 @@ import {Schedule, ScheduleService}   from './schedule.service';
 import {Player, PlayerService}   from './player.service';
 import {FirstFour} from "./firstfour";
 import {OrderBy} from "./orderBy";
+import {MultipartItem} from "./multipart-upload/multipart-item";
+import {MultipartUploader} from "./multipart-upload/multipart-uploader";
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 
 @Component({
@@ -15,6 +18,7 @@ import {OrderBy} from "./orderBy";
 	templateUrl: 'app/html/clasification.component.html',
 	styleUrls: ['app/css/clasification.component.css'],
 	pipes: [FirstFour, OrderBy],
+	providers: [HTTP_PROVIDERS]
 })
 export class ClasificationComponent implements OnInit {
 	teams: Team[];
@@ -24,11 +28,17 @@ export class ClasificationComponent implements OnInit {
 	players: Player[];
 	playerstop: Player[];
 	goalkeepers: Player[];
+	
+	private description: string;
+  	private file: File;
+  
+  	private images: String[] = [];
 
 
-  constructor(private router:Router, private teamService: TeamService, private playerService: PlayerService, private matchService: MaatchService, private loginService: LoginService, private scheduleService: ScheduleService) {}
+  constructor(private router:Router, private teamService: TeamService, private playerService: PlayerService, private matchService: MaatchService, private loginService: LoginService, private scheduleService: ScheduleService, private http: Http) {}
 
   ngOnInit(){
+  	  this.loadImages();
       this.teamService.getTeams().subscribe(
         teams => this.teams = teams,
         error => console.log(error)
@@ -61,6 +71,12 @@ export class ClasificationComponent implements OnInit {
         this.router.navigate(['ClasfEdit', { id: clasifid}]);
     }
 
+	loadImages(){
+		
+		this.http.get("/images").subscribe(
+			response => this.images = response.json();
+		)		
+	}
 
 
 

@@ -36,7 +36,13 @@
                                     <td> {{posicion + 1}} <img *ngIf = "posicion===0"  class="img-rounded" src="app/img/Trophy.jpg">
                                     </td>
                                     <td id="imgclasification">
-                                        <a [routerLink]="['TeamDetail', {id: team.id}]"><img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
+                                    	<a *ngIf = "team.imgescudo" [routerLink]="['TeamDetail', {id: team.id}]"> <img class="img-rounded" src={{team.imgescudo}}> {{team.fullname}}</a>
+                                    	<div *ngIf = "!team.imgescudo" *ngFor="#team of teams" >
+                    						<div *ngIf = "image" *ngFor="#image of images">		
+                        							<a *ngIf = "image.description == team.fullname"  [routerLink]="['TeamDetail', {id: team.id}]">
+                        							<img img class="img-rounded" src="/images/{{image.fileName}}"> {{team.fullname}}</a>
+                    						</div>
+                    					</div>
                                     </td>
                                     <td>{{team.points}}</td>
                                     <td *ngIf="loginService.isAdmin">
