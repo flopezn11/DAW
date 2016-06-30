@@ -21,6 +21,10 @@ Diagrama:
 
 <img src="diagrama.png">
 
+Diagrama de clases del codigo Java del servidor. Se diferencian las clases segun su tipo: Controlador, Servicio, Repositorio o Entidad.
+
+<img src="DiagramaTipoClases.png">
+
 Diagrama de entidades:
 
 <img src="DiagramaEntidadesMLF.png">
