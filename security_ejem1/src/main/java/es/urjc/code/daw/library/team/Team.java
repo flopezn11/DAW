@@ -56,15 +56,15 @@ public class Team {
     //@OneToMany(cascade = CascadeType.ALL,
     		//mappedBy = "team"/*, orphanRemoval = true*/)
     @JsonView(PlayersAtt.class)
-    @OneToMany(mappedBy="team")
+    @OneToMany(mappedBy="team", cascade=CascadeType.ALL)
 	private List<Player> players = new ArrayList<>();
     
     @JsonView(MaatchAtt.class)
-    @OneToMany(mappedBy="local")
+    @OneToMany(mappedBy="local", cascade=CascadeType.ALL)
 	private List<Maatch> locals = new ArrayList<>();
     
     @JsonView(MaatchAtt.class)
-    @OneToMany(mappedBy="visitor")
+    @OneToMany(mappedBy="visitor", cascade=CascadeType.ALL)
 	private List<Maatch> visitors = new ArrayList<>();
     
 	public Team() {
