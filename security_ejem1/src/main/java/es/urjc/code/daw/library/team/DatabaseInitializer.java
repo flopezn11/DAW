@@ -101,8 +101,12 @@ public class DatabaseInitializer implements CommandLineRunner {
 		
 		// Sample users
 		
-		User usuario = new User("user", "pass", "ROLE_USER");
-		userRepository.save(usuario);
+		User usuario1 = new User("userMadrid", "pass", "ROLE_USER",  "ROLE_USER_MADRID");
+		usuario1.setTeamer("Real Madrid");
+		userRepository.save(usuario1);
+		User usuario2 = new User("userValencia", "pass", "ROLE_USER", "ROLE_USER_VALENCIA");
+		usuario2.setTeamer("Valencia");
+		userRepository.save(usuario2);
 		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));
 		
 		//Sample News
@@ -112,7 +116,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 				"The french player Paul Pogba has signed a 5-year contract with Real Madrid. Juventus gets 80 million in exchange for the player. The player said in a Spanish television: 'I will live a dream I had since childhood'. Paul Labile Pogba (born 15 March 1993) is a French professional footballer who plays for France National Team. He operates primarily as a central midfielder and is comfortable at playing both in attack and defence. In Italy, he gained the nicknames Il Polpo Paul ('Paul the Octopus') for his long legs that look like tentacles during tackling or running and 'Pogboom' for his explosive style and energy on the pitch. He received the Golden Boy award for 2013, given to the best under-21 player in Europe, followed by the Bravo Award in 2014, awarded to the best under-23 player who has participated in European competitions.",
 				"app/img/Players/PogbaNewsReal.jpeg");
 		
-		newes.setUser(usuario);
+		newes.setUser(usuario1);
 		newsRepository.save(newes);
 		principalRepository.save(new Principal(1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 1));
 		

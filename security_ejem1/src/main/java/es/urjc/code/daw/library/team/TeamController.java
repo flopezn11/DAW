@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.library.team.TeamController.TeamListView;
-import es.urjc.code.daw.library.user.User;
-import es.urjc.code.daw.library.user.UserComponent;
 import es.urjc.code.daw.library.maatch.Maatch;
 import es.urjc.code.daw.library.player.Player;
 import es.urjc.code.daw.library.team.Team;
@@ -32,13 +30,10 @@ public class TeamController {
 	
 	private static final Logger log = LoggerFactory.getLogger(TeamController.class);
 
-	@Autowired
-	private UserComponent userComponent;
 	
 	@Autowired
 	private TeamRepository repository;
 	
-	User loggedUser = userComponent.getLoggedUser();
 	
 	@JsonView(TeamListView.class)
 	@RequestMapping(value = "/", method = RequestMethod.GET)

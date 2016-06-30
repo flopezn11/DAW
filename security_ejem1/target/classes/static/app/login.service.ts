@@ -13,6 +13,8 @@ export class LoginService {
 	
 	isLogged = false;
 	isAdmin = false;
+	isMadrid = false;
+	isValencia = false;
 	user: User;
 	
 	constructor(private http: Http){
@@ -42,6 +44,8 @@ export class LoginService {
 		this.isLogged = true;
 		this.user = response.json();
 		this.isAdmin = this.user.roles.indexOf("ROLE_ADMIN") !== -1;
+		this.isMadrid = this.user.roles.indexOf("ROLE_USER_MADRID") !== -1;
+		this.isValencia = this.user.roles.indexOf("ROLE_USER_VALENCIA") !== -1;
 	}
 	
 	logIn(user: string, pass: string) {

@@ -45,6 +45,8 @@ public class User {
 
 	@JsonIgnore
 	private String passwordHash;
+	
+	private String teamer;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -56,6 +58,15 @@ public class User {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+	}
+
+	
+	public String getTeamer() {
+		return teamer;
+	}
+
+	public void setTeamer(String teamer) {
+		this.teamer = teamer;
 	}
 
 	public String getName() {
